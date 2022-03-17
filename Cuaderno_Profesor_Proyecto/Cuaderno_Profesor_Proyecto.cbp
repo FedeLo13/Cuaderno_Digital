@@ -35,6 +35,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Funciones_clave.h" />
+		<Unit filename="MATRICULA.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="Usuarios.c">
 			<Option compilerVar="CC" />
 		</Unit>
