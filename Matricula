@@ -1,0 +1,16 @@
+#include<stdio.h>
+#include<stdib.h>
+
+typedef struct{
+    char materia[4], alumno[6];
+}
+matricula;
+
+int main(){
+    int i;
+    alumnos*alum;
+    FILE*
+    
+
+
+}
