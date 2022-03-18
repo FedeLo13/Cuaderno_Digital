@@ -3,3 +3,30 @@
 	<stdio.h>
 	<stdlib.h>
 
+1647607588 source:c:\users\fede\documents\github\cuaderno_digital\cuaderno_profesor_proyecto\funciones_clave.c
+	"Funciones_clave.h"
+
+1647607588 c:\users\fede\documents\github\cuaderno_digital\cuaderno_profesor_proyecto\funciones_clave.h
+	<stdio.h>
+	<string.h>
+
+1647608663 source:c:\users\fede\documents\github\cuaderno_digital\cuaderno_profesor_proyecto\matricula.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1647608442 source:c:\users\fede\documents\github\cuaderno_digital\cuaderno_profesor_proyecto\usuarios.c
+	"Usuarios.h"
+	"Funciones_clave.h"
+
+1647608475 c:\users\fede\documents\github\cuaderno_digital\cuaderno_profesor_proyecto\usuarios.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1647608601 source:c:\users\fede\documents\github\cuaderno_digital\cuaderno_profesor_proyecto\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Usuarios.h"
+

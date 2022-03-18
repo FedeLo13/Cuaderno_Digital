@@ -4,6 +4,6 @@
 #include <stdio.h>
 #include <string.h>
 
-void vaciar(char *s, int N)
+void vaciar(char *s, int N);
 
 #endif

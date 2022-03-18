@@ -1,22 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <"Usuario.h">
+#include "Usuarios.h"
 #define N 6
-#defien n 9
+#define n 9
 
 int main()
 {
-    char U[N], c[n], ad[13];
-    int t, p, nu;
+    char U[N], c[n], ad[14]="administrador";
+    int t, p, nu, i;
 
-    ad = "administrador";
-    nu = cuentausuarios();
+    nu = cuenta_usuarios();
 
     do{
         printf("Usuario: \n");
         fgets(U, N, stdin);
-        prinf("Contraseña: \n");
+        printf("Contraseña: \n");
         fgets(c, n, stdin);
         for(i = 0; i < nu || t == 1; i++){
             if(strcmp(U, v_usuarios[i].Usuario) == 0){
@@ -26,7 +25,7 @@ int main()
             }
         }
         for(i = 0; i < nu || p == 1; i++){
-            if(strcmp(c, v_usuarios[i].Contraseña) == 0){
+            if(strcmp(c, v_usuarios[i].Contrasena) == 0){
                 p = 1;
             }else{
                 p = 0;

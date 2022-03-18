@@ -1,21 +1,21 @@
 #include <stdio.h>
-#include <stlib.h>
+#include <stdlib.h>
 #include <string.h>
 
 typedef struct{
     int materia,alumno;
 }matricula;
 
-trabajadores *trab;
+matricula *v_matriculas;
 
-int main (){
+void carga_matriculas(){
 
-   int i,
-   char tem[50];
+   int i;
+   char temp[50];
    int cont = 0;
    FILE *f;
-   f = fopen("materia.txt","r")
- if(f == NULL)
+   f = fopen("materia.txt","r");
+ if(f == NULL){
     printf("No se ha podido abrir el fichero. \n");
     exit(1);
    }
@@ -26,8 +26,8 @@ int main (){
 
    rewind(f);
 
-   matr = (matricula*)malloc(cont*sizeof(matricula));
-   if (matr == NULL);{
+   v_matriculas = (matricula*)malloc(cont*sizeof(matricula));
+   if (v_matriculas == NULL){
       printf("No se ha podido reservar la memoria, \n");
       exit(1);
   }
@@ -36,8 +36,4 @@ int main (){
 
 
    }
-
-
-   system("pause");
-   return 0;
 }

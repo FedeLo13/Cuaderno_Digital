@@ -1,9 +1,6 @@
 #include "Usuarios.h"
 #include "Funciones_clave.h"
 
-static void vuelva_usuarios(){
-
-}
 void carga_usuarios(){
     char aux,temp[100];
     FILE *f;
@@ -11,7 +8,6 @@ void carga_usuarios(){
     f=fopen("Usuarios.txt","r");
     if(f == NULL){
         printf("No se ha podido abrir el fichero.\n");
-        exit(1)
     }
 
     while(!feof(f)){
@@ -20,12 +16,11 @@ void carga_usuarios(){
     }
 
     rewind(f);
-    
+
     v_usuarios = (Usuario*)malloc(cont*sizeof(Usuario));
 
     if(v_usuarios == NULL){
         printf("No se ha podido reservar la memoria.\n");
-        exit(1);
     }
 
     for(i=0;!feof(f);i++){
@@ -70,19 +65,19 @@ void carga_usuarios(){
                 temp[j]=aux;
             }
         }
-        strcpy(v_usuarios[i].Contraseña,temp);
+        strcpy(v_usuarios[i].Contrasena,temp);
         vaciar (temp,100);
     }
-    fclose(f)
+    fclose(f);
 }
 int cuenta_usuarios(){
     FILE *f;
     int cont=0;
+    char temp[100];
 
      f=fopen("Usuarios.txt","r");
     if(f == NULL){
         printf("No se ha podido abrir el fichero.\n");
-        exit(1)
     }
 
     while(!feof(f)){
