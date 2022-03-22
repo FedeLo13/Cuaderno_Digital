@@ -35,6 +35,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Funciones_clave.h" />
+		<Unit filename="MATERIASMP1.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="MATERIASMP1.h" />
 		<Unit filename="Usuarios.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -42,6 +46,10 @@
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="materias.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="materias.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1647200178 source:c:\users\maryo\documents\github\cuaderno_digital_lab6_grp3\cuaderno_profesor_proyecto\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1647532905 source:c:\users\maryo\documents\github\cuaderno_digital_lab6_grp3\cuaderno_profesor_proyecto\materias.c
+	"materias.h"
+	<string.h>
+
+1647532272 c:\users\maryo\documents\github\cuaderno_digital_lab6_grp3\cuaderno_profesor_proyecto\materias.h
+
