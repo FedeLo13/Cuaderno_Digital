@@ -10,7 +10,8 @@ matricula *v_matriculas;
 
 void carga_matriculas(){
 
-   int i;
+   int i,j;
+   char aux;
    char temp[50];
    int cont = 0;
    FILE *f;
@@ -34,8 +35,9 @@ void carga_matriculas(){
 
    for (i = 0; !feof(f); i++){
       vaciar(temp);
-
-      for (j = 0;)
+      aux = 'o';
+    for (j = 0; aux != '-'; i++);
+        aux = fgetc(f);
    }
 }
 
