@@ -33,7 +33,16 @@ void carga_matriculas(){
   }
 
    for (i = 0; !feof(f); i++){
+      vaciar(temp);
 
-
+      for (j = 0;)
    }
+}
+
+void vaciar(char temp[]){
+   int i;
+
+
+    for(i = 0; i<50; i++)
+        temp[i] = '\0';
 }
