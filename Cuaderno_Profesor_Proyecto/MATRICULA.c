@@ -35,19 +35,25 @@ void carga_matriculas(){
 
    for (i = 0; !feof(f); i++){
       vaciar(temp);
-      aux = 'o';
+      aux = '0';
     for (j = 0; aux != '-'; i++);
         aux = fgetc(f);
         if (aux != '-'){
           temp[j] = aux;
      }
    }
+   copiar(temp,i);
 }
 
 void vaciar(char temp[]){
    int i;
 
 
-    for(i = 0; i<50; i++)
+    for(i = 0; i<50; i++){
         temp[i] = '\0';
+    }
+}
+void copiar(char temp[], int i){
+  int N = strlen(temp) +1;
+
 }
