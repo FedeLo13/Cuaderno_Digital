@@ -1,29 +1,31 @@
 #include "Usuarios.h"
 #include "Funciones_clave.h"
-
+//Precondición:
+//Poscondición: Carga en el vector de usuarios los datos del fichero
 void carga_usuarios(){
-    char aux,temp[100];
+    char aux,temp[100];                                    //Declaración de variables auxiliares
     FILE *f;
     int i,j,cont=0;
-    f=fopen("Usuarios.txt","r");
+    f=fopen("Usuarios.txt","r");                           //Apertura de fichero y prueba de error
     if(f == NULL){
         printf("No se ha podido abrir el fichero.\n");
     }
-
-    while(!feof(f)){
+    else{
+    }
+    while(!feof(f)){                                       //Cuenta el número de filas en el fichero.
         fgets(temp,100,f);
         cont++;
     }
 
     rewind(f);
 
-    v_usuarios = (Usuario*)malloc(cont*sizeof(Usuario));
+    v_usuarios = (Usuario*)malloc(cont*sizeof(Usuario));   //Inicialización del vector dinámico de usuarios y prueba de error
 
     if(v_usuarios == NULL){
         printf("No se ha podido reservar la memoria.\n");
     }
 
-    for(i=0;!feof(f);i++){
+    for(i=0;!feof(f);i++){                                 //Bucle encargado de cargar los datos del fichero en el vector
         vaciar(temp,100);
         aux='0';
         cont=0;
