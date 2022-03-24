@@ -35,6 +35,7 @@ int main()
 
     if(strcmp(ad, v_usuarios[i].Perfil_usuario) == 0){
 
+
     }else{
 
     }
