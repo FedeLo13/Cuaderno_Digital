@@ -38,6 +38,9 @@ void carga_matriculas(){
       aux = 'o';
     for (j = 0; aux != '-'; i++);
         aux = fgetc(f);
+        if (aux != '-'){
+          temp[j] = aux;
+     }
    }
 }
 
