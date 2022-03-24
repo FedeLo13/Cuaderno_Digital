@@ -7,9 +7,9 @@
 typedef struct{
     int Id_usuario;
     char Nomb_usuario[20];
-    char Perfil_usuario[13];
-    char Usuario[6];
-    char Contrasena[9];
+    char Perfil_usuario[20];
+    char Usuario[20];
+    char Contrasena[20];
 }
 Usuario;
 

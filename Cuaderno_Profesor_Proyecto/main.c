@@ -12,6 +12,8 @@ void hor();
 
 int main()
 {
+    carga_usuarios();
+    printf("%i",v_usuarios[0].Id_usuario);
     char U[N], c[n], ad[14]="administrador";
     int t, p, nu, i;
 
