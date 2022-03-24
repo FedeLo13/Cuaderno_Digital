@@ -55,5 +55,6 @@ void vaciar(char temp[]){
 }
 void copiar(char temp[], int i){
   int N = strlen(temp) +1;
-
+  materia[i] .alumno = (char*)malloc(N*sizeof (char);
+  if (materia[i].alumno == NULL){
 }
