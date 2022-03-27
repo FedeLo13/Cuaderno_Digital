@@ -2,5 +2,6 @@
 
 void carga_alumnos(){
 
+FILE *f
 }
 
