@@ -31,9 +31,9 @@ if(alun == NULL){
 
 vaciar(p, 100);
 
-for(i = 0; i < l; i++){
-    for(j = 0; j < 6; j++){
-        for(k; aux != '-'; k++){
+for(int i = 0; i < l; i++){
+    for(int j = 0; j < 6; j++){
+        for(int k; aux != '-'; k++){
             aux = fgetc(f);
             if(aux != '-'){
                 p[k] = aux;
