@@ -36,3 +36,38 @@
 	"usuarios.h"
 	"funciones_clave.h"
 
+1648739357 source:c:\users\pablo\onedrive\documentos\github\cuaderno_digital\cuaderno_profesor\alumnos.c
+	"alumnos.h"
+	"funciones_clave.h"
+
+1648737189 c:\users\pablo\onedrive\documentos\github\cuaderno_digital\cuaderno_profesor\alumnos.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1648737189 c:\users\pablo\onedrive\documentos\github\cuaderno_digital\cuaderno_profesor\funciones_clave.h
+	<stdio.h>
+	<string.h>
+
+1648739357 source:c:\users\pablo\onedrive\documentos\github\cuaderno_digital\cuaderno_profesor\funciones_clave.c
+	"funciones_clave.h"
+
+1648739357 source:c:\users\pablo\onedrive\documentos\github\cuaderno_digital\cuaderno_profesor\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"usuarios.h"
+	"funciones_clave.h"
+
+1648737189 c:\users\pablo\onedrive\documentos\github\cuaderno_digital\cuaderno_profesor\usuarios.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1648737189 source:c:\users\pablo\onedrive\documentos\github\cuaderno_digital\cuaderno_profesor\materias.c
+	<stdio.h>
+
+1648739357 source:c:\users\pablo\onedrive\documentos\github\cuaderno_digital\cuaderno_profesor\usuarios.c
+	"usuarios.h"
+	"funciones_clave.h"
+

@@ -39,17 +39,17 @@ for(int i = 0; i < l; i++){
             }
         }
         switch(j){
-            case 0: p[k] = alun[i].id_alum;
+            case 0: strcpy(alun[i].id_alum, p);
             break;
-            case 1: p[k] = alun[i].nombre_alum;
+            case 1: strcpy(alun[i].nombre_alum, p);
             break;
-            case 2: p[k] = alun[i].direc_alum;
+            case 2: strcpy(alun[i].direc_alum, p);
             break;
-            case 3: p[k] = alun[i].local_alum;
+            case 3: strcpy(alun[i].local_alum, p);
             break;
-            case 4: p[k] = alun[i].curso;
+            case 4: strcpy(alun[i].curso, p);
             break;
-            case 5: p[k] = alun[i].grupo;
+            case 5: strcpy(alun[i].grupo, p);
             break;
             default: printf("Error");
             break;
@@ -58,6 +58,18 @@ for(int i = 0; i < l; i++){
     }
 }
 fclose(f);
+}
+
+void list(){
+    for(int i = 0; i < l; i++){
+        printf("Id: %c", alun[i].id_alum);
+         printf("%c-", alun[i].nombre_alum);
+          printf("%c-", alun[i].direc_alum);
+           printf("%c-", alun[i].local_alum);
+            printf("%c-", alun[i].curso);
+             printf("%c-", alun[i].grupos);
+
+    }
 }
 
 
