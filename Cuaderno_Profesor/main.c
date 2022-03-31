@@ -3,6 +3,7 @@
 #include <string.h>
 #include "usuarios.h"
 #include "funciones_clave.h"
+#include "alumnos.h"
 #define N 6
 #define n 9
 
@@ -14,10 +15,10 @@ void admin();
 
 int main()
 {
-    carga_usuarios();
-    printf("%i",v_usuarios[0].Id_usuario);
     char U[N], c[n], ad[14]="administrador";
     int t, p, nu, i;
+    carga_alumnos();
+    printf("%s",alun[0].id_alum);
 
     nu = cuenta_usuarios();
 
