@@ -1,4 +1,5 @@
 # depslib dependency file v1.0
+<<<<<<< HEAD
 1647200178 source:c:\users\maryo\documents\github\cuaderno_digital_lab6_grp3\cuaderno_profesor_proyecto\main.c
 	<stdio.h>
 	<stdlib.h>
@@ -8,4 +9,36 @@
 	<string.h>
 
 1647532272 c:\users\maryo\documents\github\cuaderno_digital_lab6_grp3\cuaderno_profesor_proyecto\materias.h
+=======
+1647529852 source:c:\users\madte\onedrive\documentos\github\cuaderno_digital_lab6_grp3\cuaderno_profesor_proyecto\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1647607588 source:c:\users\fede\documents\github\cuaderno_digital\cuaderno_profesor_proyecto\funciones_clave.c
+	"Funciones_clave.h"
+
+1647607588 c:\users\fede\documents\github\cuaderno_digital\cuaderno_profesor_proyecto\funciones_clave.h
+	<stdio.h>
+	<string.h>
+
+1647608663 source:c:\users\fede\documents\github\cuaderno_digital\cuaderno_profesor_proyecto\matricula.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1647608442 source:c:\users\fede\documents\github\cuaderno_digital\cuaderno_profesor_proyecto\usuarios.c
+	"Usuarios.h"
+	"Funciones_clave.h"
+
+1647608475 c:\users\fede\documents\github\cuaderno_digital\cuaderno_profesor_proyecto\usuarios.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1647608601 source:c:\users\fede\documents\github\cuaderno_digital\cuaderno_profesor_proyecto\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Usuarios.h"
+>>>>>>> 8f0dac60bbec7c1a205e8d04f1d33c718f4c8544
 

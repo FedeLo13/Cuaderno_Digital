@@ -35,10 +35,16 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Funciones_clave.h" />
+<<<<<<< HEAD
 		<Unit filename="MATERIASMP1.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="MATERIASMP1.h" />
+=======
+		<Unit filename="MATRICULA.c">
+			<Option compilerVar="CC" />
+		</Unit>
+>>>>>>> 8f0dac60bbec7c1a205e8d04f1d33c718f4c8544
 		<Unit filename="Usuarios.c">
 			<Option compilerVar="CC" />
 		</Unit>
