@@ -1,7 +1,7 @@
 #include "Alumnos.h"
 #include "Funciones_clave.h"
 #define l 0
-
+caca
 void carga_alumnos(){
 
 char aux, p[100];
@@ -28,12 +28,12 @@ alun = (Alumnos*)malloc(cont*sizeof(Alumnos));
 if(alun == NULL){
     printf("Error al reservar memoria.");
 }
-
+caca
 vaciar(p, 100);
 
 for(int i = 0; i < l; i++){
     for(int j = 0; j < 6; j++){
-        for(int k; aux != '-'; k++){
+        for(int k = 0; aux != '-'; k++){
             aux = fgetc(f);
             if(aux != '-'){
                 p[k] = aux;
@@ -60,4 +60,112 @@ for(int i = 0; i < l; i++){
 }
 fclose(f);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
