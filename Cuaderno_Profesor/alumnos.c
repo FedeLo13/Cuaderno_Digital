@@ -8,7 +8,7 @@ char aux, p[100];
 int cont;
 FILE *f;
 
-f = fopen("Alumnos.txt", "r");
+f = fopen("alumnos.txt", "r");
 
 if(f == NULL){
     printf("No se ha podido abrir el fichero.");
