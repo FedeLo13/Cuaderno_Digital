@@ -3,6 +3,7 @@
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<File name="materias.c" open="1" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="0" topLine="0" />
@@ -11,10 +12,16 @@
 		<Cursor>
 			<Cursor1 position="196" topLine="0" />
 >>>>>>> 8f0dac60bbec7c1a205e8d04f1d33c718f4c8544
-		</Cursor>
-	</File>
+=======
 	<File name="Usuarios.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
+			<Cursor1 position="106" topLine="0" />
+>>>>>>> 55a5cb881c13e6341e21322313a04443e9d6c6e0
+		</Cursor>
+	</File>
+	<File name="Usuarios.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+<<<<<<< HEAD
 <<<<<<< HEAD
 			<Cursor1 position="140" topLine="0" />
 		</Cursor>
@@ -25,20 +32,37 @@
 =======
 			<Cursor1 position="84" topLine="0" />
 >>>>>>> 8f0dac60bbec7c1a205e8d04f1d33c718f4c8544
+=======
+			<Cursor1 position="1363" topLine="55" />
+>>>>>>> 55a5cb881c13e6341e21322313a04443e9d6c6e0
 		</Cursor>
 	</File>
-	<File name="MATRICULA.c" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Alumnos.c" open="1" top="1" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="666" topLine="0" />
+			<Cursor1 position="1194" topLine="23" />
 		</Cursor>
 	</File>
+	<File name="Funciones_clave.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="74" topLine="0" />
+		</Cursor>
+	</File>
+<<<<<<< HEAD
 <<<<<<< HEAD
 	<File name="materias.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 =======
 	<File name="Usuarios.c" open="1" top="1" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 >>>>>>> 8f0dac60bbec7c1a205e8d04f1d33c718f4c8544
+=======
+	<File name="main.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+>>>>>>> 55a5cb881c13e6341e21322313a04443e9d6c6e0
 		<Cursor>
-			<Cursor1 position="1906" topLine="63" />
+			<Cursor1 position="179" topLine="6" />
+		</Cursor>
+	</File>
+	<File name="MATRICULA.c" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="360" topLine="0" />
 		</Cursor>
 	</File>
 <<<<<<< HEAD
@@ -56,10 +80,14 @@
 			<Cursor1 position="131" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Funciones_clave.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Alumnos.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
+<<<<<<< HEAD
 			<Cursor1 position="59" topLine="0" />
 >>>>>>> 8f0dac60bbec7c1a205e8d04f1d33c718f4c8544
+=======
+			<Cursor1 position="316" topLine="0" />
+>>>>>>> 55a5cb881c13e6341e21322313a04443e9d6c6e0
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

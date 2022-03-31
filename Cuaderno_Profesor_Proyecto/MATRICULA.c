@@ -10,7 +10,8 @@ matricula *v_matriculas;
 
 void carga_matriculas(){
 
-   int i;
+   int i,j;
+   char aux;
    char temp[50];
    int cont = 0;
    FILE *f;
@@ -33,7 +34,33 @@ void carga_matriculas(){
   }
 
    for (i = 0; !feof(f); i++){
+<<<<<<< Updated upstream
+      vaciar(temp);
+      aux = '0';
+    for (j = 0; aux != '-'; i++);
+        aux = fgetc(f);
+        if (aux != '-'){
+          temp[j] = aux;
+     }
+   }
+   copiar(temp,i);
+}
+
+void vaciar(char temp[]){
+   int i;
+
+
+    for(i = 0; i<50; i++){
+        temp[i] = '\0';
+    }
+}
+void copiar(char temp[], int i){
+  int N = strlen(temp) +1;
+  materia[i] .alumno = (char*)malloc(N*sizeof (char);
+  if (materia[i].alumno == NULL){
+=======
 
 
    }
+>>>>>>> Stashed changes
 }
