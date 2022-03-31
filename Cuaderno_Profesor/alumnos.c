@@ -1,12 +1,12 @@
-#include "Alumnos.h"
-#include "Funciones_clave.h"
-#define l 0
-caca
+#include "alumnos.h"
+#include "funciones_clave.h"
+int l = 0;
 void carga_alumnos(){
 
 char aux, p[100];
 int cont;
 FILE *f;
+int k;
 
 f = fopen("alumnos.txt", "r");
 
@@ -28,12 +28,11 @@ alun = (Alumnos*)malloc(cont*sizeof(Alumnos));
 if(alun == NULL){
     printf("Error al reservar memoria.");
 }
-caca
 vaciar(p, 100);
 
 for(int i = 0; i < l; i++){
     for(int j = 0; j < 6; j++){
-        for(int k = 0; aux != '-'; k++){
+        for(k = 0; aux != '-'; k++){
             aux = fgetc(f);
             if(aux != '-'){
                 p[k] = aux;

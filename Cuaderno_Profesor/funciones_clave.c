@@ -1,4 +1,4 @@
-#include "Funciones_clave.h"
+#include "funciones_clave.h"
 
 void vaciar(char *s, int N)
 {

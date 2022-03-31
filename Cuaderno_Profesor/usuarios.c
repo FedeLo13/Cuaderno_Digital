@@ -1,5 +1,5 @@
-#include "Usuarios.h"
-#include "Funciones_clave.h"
+#include "usuarios.h"
+#include "funciones_clave.h"
 //Precondición:
 //Poscondición: Carga en el vector de usuarios los datos del fichero
 void carga_usuarios(){
