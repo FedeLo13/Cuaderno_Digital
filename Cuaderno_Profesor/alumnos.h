@@ -6,7 +6,7 @@
 #include <string.h>
 
 typedef struct{
-    int id_alum;
+    char id_alum[7];
     char nombre_alum[20];
     char direc_alum[30];
     char local_alum[30];

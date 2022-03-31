@@ -2,17 +2,14 @@
 1648739221 source:c:\users\fede\documents\github\cuaderno_digital\cuaderno_profesor\funciones_clave.c
 	"funciones_clave.h"
 
-1648736556 c:\users\fede\documents\github\cuaderno_digital\cuaderno_profesor\funciones_clave.h
+1648741268 c:\users\fede\documents\github\cuaderno_digital\cuaderno_profesor\funciones_clave.h
 	<stdio.h>
 	<string.h>
 
 1648739797 source:c:\users\fede\documents\github\cuaderno_digital\cuaderno_profesor\materias.c
 	"materias.h"
 
-1648739448 source:c:\users\fede\documents\github\cuaderno_digital\cuaderno_profesor\matriculas.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
+1648739992 source:c:\users\fede\documents\github\cuaderno_digital\cuaderno_profesor\matriculas.c
 
 1648739221 source:c:\users\fede\documents\github\cuaderno_digital\cuaderno_profesor\usuarios.c
 	"usuarios.h"
@@ -27,17 +24,18 @@
 	"alumnos.h"
 	"funciones_clave.h"
 
-1648736556 c:\users\fede\documents\github\cuaderno_digital\cuaderno_profesor\alumnos.h
+1648740535 c:\users\fede\documents\github\cuaderno_digital\cuaderno_profesor\alumnos.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1648739221 source:c:\users\fede\documents\github\cuaderno_digital\cuaderno_profesor\main.c
+1648740600 source:c:\users\fede\documents\github\cuaderno_digital\cuaderno_profesor\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"usuarios.h"
 	"funciones_clave.h"
+	"alumnos.h"
 
 1648739797 c:\users\fede\documents\github\cuaderno_digital\cuaderno_profesor\materias.h
 	<stdio.h>
