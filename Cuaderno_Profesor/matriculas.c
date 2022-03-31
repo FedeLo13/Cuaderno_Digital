@@ -34,7 +34,6 @@ void carga_matriculas(){
   }
 
    for (i = 0; !feof(f); i++){
-<<<<<<< Updated upstream
       vaciar(temp);
       aux = '0';
     for (j = 0; aux != '-'; i++);
@@ -48,8 +47,6 @@ void carga_matriculas(){
 
 void vaciar(char temp[]){
    int i;
-
-
     for(i = 0; i<50; i++){
         temp[i] = '\0';
     }
@@ -58,9 +55,6 @@ void copiar(char temp[], int i){
   int N = strlen(temp) +1;
   materia[i] .alumno = (char*)malloc(N*sizeof (char);
   if (materia[i].alumno == NULL){
-=======
-
-
    }
->>>>>>> Stashed changes
 }
+

@@ -7,3 +7,4 @@ void vaciar(char *s, int N)
         s[i]= '\0';
     }
 }
+

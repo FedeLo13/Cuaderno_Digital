@@ -18,4 +18,3 @@ Alumnos *alun;
 
 void carga_alumnos();
 #endif
-

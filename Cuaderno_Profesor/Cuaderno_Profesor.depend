@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1648736556 source:c:\users\fede\documents\github\cuaderno_digital\cuaderno_profesor\funciones_clave.c
+	"Funciones_clave.h"
+
+1648736556 c:\users\fede\documents\github\cuaderno_digital\cuaderno_profesor\funciones_clave.h
+	<stdio.h>
+	<string.h>
+
+1648736556 source:c:\users\fede\documents\github\cuaderno_digital\cuaderno_profesor\materias.c
+	<stdio.h>
+
+1648736477 source:c:\users\fede\documents\github\cuaderno_digital\cuaderno_profesor\matriculas.c
+
+1648736936 source:c:\users\fede\documents\github\cuaderno_digital\cuaderno_profesor\usuarios.c
+	"Usuarios.h"
+	"Funciones_clave.h"
+
+1648736936 c:\users\fede\documents\github\cuaderno_digital\cuaderno_profesor\usuarios.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

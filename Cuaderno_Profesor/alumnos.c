@@ -21,7 +21,7 @@ while(!feof(f)){
     cont++;
 }
 
-l = cont
+l = cont;
 
 alun = (Alumnos*)malloc(cont*sizeof(Alumnos));
 
