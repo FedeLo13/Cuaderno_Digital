@@ -5,6 +5,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-
+void carga_usuarios();
 
 #endif
