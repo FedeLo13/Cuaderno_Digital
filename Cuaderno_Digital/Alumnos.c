@@ -1,4 +1,5 @@
 #include"alumnos.h"
+#include"funciones_clave.h"
 
 int l = 0;
 
@@ -67,14 +68,14 @@ for(int i = 0; i < l; i++){
 fclose(f);
 }
 
-void list(){
-    for(int i = 0; i < l; i++){
-        printf("Id: %c", alun[i].id_alum);
-         printf("%c-", alun[i].nombre_alum);
-          printf("%c-", alun[i].direc_alum);
-           printf("%c-", alun[i].local_alum);
-            printf("%c-", alun[i].curso);
-             printf("%c-", alun[i].grupos);
+//void list(){
+//    for(int i = 0; i < l; i++){
+        //printf("Id: %c", alun[i].id_alum);
+//         printf("%c-", alun[i].nombre_alum);
+  //        printf("%c-", alun[i].direc_alum);
+    //       printf("%c-", alun[i].local_alum);
+      //      printf("%c-", alun[i].curso);
+        //     printf("%c-", alun[i].grupos);
 
-    }
-}
+   // }
+//}
