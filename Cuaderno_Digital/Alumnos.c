@@ -1,20 +1,32 @@
 #include"alumnos.h"
-#include"funciones_clave.h"
 
-int l = 0;
-
+//void vaciar();
 void carga_alumnos();
+
+typedef struct{
+    char id_alum[7];
+    char nombre_alum[20];
+    char direc_alum[30];
+    char local_alum[30];
+    char curso[30];
+    char grupo[10];
+}Alumnos;
+
+Alumnos *alun;
 
 int main(){
     carga_alumnos();
+    printf("%s", alun[0].nombre_alum);
+    return 0;
 }
 
 void carga_alumnos(){
 
 char aux, p[100];
-int cont;
+int cont, k, i, j;
 FILE *f;
-int k;
+
+aux = '\0';
 
 f = fopen("alumnos.txt", "r");
 
@@ -26,30 +38,28 @@ cont = 0;
 
 while(!feof(f)){
     fgets(p, 100, f);
+    printf("%s", p);
     cont++;
 }
-
-l = cont;
-
 alun = (Alumnos*)malloc(cont*sizeof(Alumnos));
 
 if(alun == NULL){
     printf("Error al reservar memoria.");
 }
-vaciar(p, 100);
 
-for(int i = 0; i < l; i++){
-    for(int j = 0; j < 6; j++){
+for(i = 0; i < cont-1; i++){
+
+    for(j = 0; j < 6; j++){
+
         for(k = 0; aux != '-'; k++){
-            aux = fgetc(f);
-            if(aux != '-'){
-                p[k] = aux;
-            }
-        }
+			aux = fgetc(f);
+			p[k] = aux;
+			printf("%c", p[k]);
+            } //strtok
         switch(j){
-            case 0: strcpy(alun[i].id_alum, p);
-            break;
-            case 1: strcpy(alun[i].nombre_alum, p);
+        	case 0: 
+        	break;
+            case 1: printf("%s", p); strcpy(alun[i].nombre_alum, p);
             break;
             case 2: strcpy(alun[i].direc_alum, p);
             break;
@@ -61,11 +71,10 @@ for(int i = 0; i < l; i++){
             break;
             default: printf("Error");
             break;
-        }
-        vaciar(p[k], 100);
-    }
-}
-fclose(f);
+        	}	
+    	}
+	}
+	fclose(f);
 }
 
 //void list(){
@@ -78,4 +87,10 @@ fclose(f);
         //     printf("%c-", alun[i].grupos);
 
    // }
+//}
+
+//void vaciar(char p[]){
+  //  for(int i = 0; i < 100; i++){
+    //    p[i] = '\0';
+    //}
 //}
