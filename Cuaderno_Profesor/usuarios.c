@@ -1,12 +1,12 @@
-#include "usuarios.h"
-#include "funciones_clave.h"
+#include "Usuarios.h"
+#include "Funciones_clave.h"
 //Precondición:
 //Poscondición: Carga en el vector de usuarios los datos del fichero
 void carga_usuarios(){
     char aux,temp[100];                                    //Declaración de variables auxiliares
     FILE *f;
     int i,j,cont=0;
-    f=fopen("usuarios.txt","r");                           //Apertura de fichero y prueba de error
+    f=fopen("Usuarios.txt","r");                           //Apertura de fichero y prueba de error
     if(f == NULL){
         printf("No se ha podido abrir el fichero.\n");
     }

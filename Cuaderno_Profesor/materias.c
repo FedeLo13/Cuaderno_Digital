@@ -1,6 +1,6 @@
-#include "materias.h"
+#include <stdio.h>
 
-void materias()
+int main ()
 {
 
 

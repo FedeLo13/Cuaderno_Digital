@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "usuarios.h"
-#include "funciones_clave.h"
+#include "Usuarios.h"
 #define N 6
 #define n 9
 
@@ -10,7 +9,6 @@ void usuarios();
 void alum();
 void mat();
 void hor();
-void admin();
 
 int main()
 {
@@ -60,7 +58,7 @@ void admin(){ //Menu Principal//
         printf("(4) Gestion de horarios.\n");
         printf("(5) Cerrar el programa\n");
         scanf("%i", c);
-        switch(c){
+        switch(t){
             case 1: usuarios();
             break;
             case 2: alum();
@@ -126,9 +124,9 @@ void alum(){   //Funcion de alumnos//
             break;
             default: printf("Operacion incorrecta.\n");
             break;
-    }
-}while(c>=6);
+    }while(c >= 6);
 }
+
 void mat(){
     int c;
     do{
@@ -152,12 +150,10 @@ void mat(){
             break;
             default: printf("Operacion incorrecta.\n");
             break;
-    }
     }while(c >= 6);
 }
 
 void hor(){
-    char c;
     do{
         printf("(1) Añadir hora.\n");
         printf("(2) Eliminar hora.\n");
@@ -179,6 +175,5 @@ void hor(){
             break;
             default: printf("Operacion incorrecta.\n");
             break;
-    }
     }while(c >= 6);
 }
