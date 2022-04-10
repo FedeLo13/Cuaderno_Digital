@@ -1,10 +1,13 @@
-#include"alumnos.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <locale.h>
 
 //void vaciar();
 void carga_alumnos();
 
 typedef struct{
-    char id_alum[7];
+    int id_alum;
     char nombre_alum[20];
     char direc_alum[30];
     char local_alum[30];
@@ -15,6 +18,7 @@ typedef struct{
 Alumnos *alun;
 
 int main(){
+	setlocale(LC_CTYPE, "Spanish");
     carga_alumnos();
     printf("%s", alun[0].nombre_alum);
     return 0;
@@ -22,11 +26,10 @@ int main(){
 
 void carga_alumnos(){
 
-char aux, p[100];
-int cont, k, i, j;
+char p[100];
+char *token;
+int i, j, cont;
 FILE *f;
-
-aux = '\0';
 
 f = fopen("alumnos.txt", "r");
 
@@ -34,33 +37,20 @@ if(f == NULL){
     printf("No se ha podido abrir el fichero.");
 }
 
-cont = 0;
+i = 0;
 
 while(!feof(f)){
     fgets(p, 100, f);
-    cont++;
-}
-alun = (Alumnos*)malloc(cont*sizeof(Alumnos));
-
-if(alun == NULL){
-    printf("Error al reservar memoria.");
-}
-
-for(i = 0; i < cont-1; i++){
-
-    for(j = 0; j < 6; j++){
-    	char delimitador[] = "-"; 
-		char *token;
-		*token = strtok(f, delimitador);
-		if(token == NULL){
-			printf("Error");
+    printf("%s", p);
+    do{
+    	j = 0;
+    	token = strtok(p, "-");
+    	printf("%s\n", token);
+    	if(token == NULL){
+    		printf("Error");
 		}
-        //for(k = 0; aux != '-'; k++){
-			//aux = fgetc(f);
-			//p[k] = aux;
-            //} //strtok
-        switch(j){
-        	case 0: //strcpy(alun[i].id_alum, token);
+    	switch(j){
+        	case 0: alun[i].id_alum = strtol(token, NULL, 7);
         	break;
             case 1: strcpy(alun[i].nombre_alum, token);
             break;
@@ -74,10 +64,18 @@ for(i = 0; i < cont-1; i++){
             break;
             default: printf("Error");
             break;
-        	}	
-    	}
-	}
-	fclose(f);
+        	}
+        	j++;
+        	token = strtok(NULL, "-");
+	}while(j < 5);
+	i++;
+}
+alun = (Alumnos*)malloc(cont*sizeof(Alumnos));
+
+if(alun == NULL){
+    printf("Error al reservar memoria.");
+}
+fclose(f);
 }
 
 //void list(){
