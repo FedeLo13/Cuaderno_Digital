@@ -38,7 +38,6 @@ cont = 0;
 
 while(!feof(f)){
     fgets(p, 100, f);
-    printf("%s", p);
     cont++;
 }
 alun = (Alumnos*)malloc(cont*sizeof(Alumnos));
@@ -50,24 +49,28 @@ if(alun == NULL){
 for(i = 0; i < cont-1; i++){
 
     for(j = 0; j < 6; j++){
-
-        for(k = 0; aux != '-'; k++){
-			aux = fgetc(f);
-			p[k] = aux;
-			printf("%c", p[k]);
-            } //strtok
+    	char delimitador[] = "-"; 
+		char *token;
+		*token = strtok(f, delimitador);
+		if(token == NULL){
+			printf("Error");
+		}
+        //for(k = 0; aux != '-'; k++){
+			//aux = fgetc(f);
+			//p[k] = aux;
+            //} //strtok
         switch(j){
-        	case 0: 
+        	case 0: //strcpy(alun[i].id_alum, token);
         	break;
-            case 1: printf("%s", p); strcpy(alun[i].nombre_alum, p);
+            case 1: strcpy(alun[i].nombre_alum, token);
             break;
-            case 2: strcpy(alun[i].direc_alum, p);
+            case 2: strcpy(alun[i].direc_alum, token);
             break;
-            case 3: strcpy(alun[i].local_alum, p);
+            case 3: strcpy(alun[i].local_alum, token);
             break;
-            case 4: strcpy(alun[i].curso, p);
+            case 4: strcpy(alun[i].curso, token);
             break;
-            case 5: strcpy(alun[i].grupo, p);
+            case 5: strcpy(alun[i].grupo, token);
             break;
             default: printf("Error");
             break;
