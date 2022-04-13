@@ -14,6 +14,9 @@ Usuario *v_usuarios;
 
 int main(){
     carga_usuarios();
+    printf("%s\n",v_usuarios[0].Contrasena);
+    printf("%s\n",v_usuarios[1].Contrasena);
+    printf("%s\n",v_usuarios[2].Contrasena);
     return 0;
 }
 
@@ -22,8 +25,9 @@ int main(){
 //poscondición: carga los datos del fichero en la estructura del programa
 void carga_usuarios(){
 
-    int cont=0,i,j;
-    char temp[100],aux[100];
+    int cont=0,i,j,semaforo=0;
+    char temp[100],*aux;
+    const char s[2] = "-";
     FILE *f;
     f = fopen("usuarios.txt","r");
     if(f == NULL){
@@ -41,14 +45,32 @@ void carga_usuarios(){
     if(v_usuarios == NULL){
         printf("No se ha podido reservar la memoria.\n");
     }
-
-    for(i=0; i<1; i++){
-            vaciar(temp,100);
-        for(j=0;v_usuarios[i].Id_usuario[j]=='-';j++){
-            v_usuarios[i].Id_usuario[j]= fgetc(f);
+    for(i=0;i<cont;i++){
+        j=1;
+        vaciar(temp,100);
+        fgets(temp,100,f);
+        aux = strtok(temp,s);
+        while(aux != NULL){
+            switch (j){
+                case 1:
+                    strcpy(v_usuarios[i].Id_usuario,aux);
+                    break;
+                case 2:
+                    strcpy(v_usuarios[i].Nomb_usuario,aux);
+                    break;
+                case 3:
+                    strcpy(v_usuarios[i].Perfil_usuario,aux);
+                    break;
+                case 4:
+                    strcpy(v_usuarios[i].Usuario,aux);
+                    break;
+                case 5:
+                    strcpy(v_usuarios[i].Contrasena,aux);
+                    break;
+            }
+            aux = strtok(NULL,s);
+            j++;
         }
-        v_usuarios[i].Id_usuario[j-1]='\0';
-        printf("%s",v_usuarios[i].Id_usuario);
     }
     fclose(f);
 }
