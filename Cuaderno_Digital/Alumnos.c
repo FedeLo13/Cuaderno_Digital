@@ -3,11 +3,18 @@
 #include <string.h>
 #include <locale.h>
 
-//void vaciar();
+void list();
+void vaciar(char *s, int n){
+    int i;
+    for(i=0;i<n;i++){
+        s[i]= '\0';
+    }
+}
 void carga_alumnos();
+void addalum();
 
 typedef struct{
-    int id_alum;
+    char id_alum[6];
     char nombre_alum[20];
     char direc_alum[30];
     char local_alum[30];
@@ -16,41 +23,59 @@ typedef struct{
 }Alumnos;
 
 Alumnos *alun;
+int l;
 
 int main(){
 	setlocale(LC_CTYPE, "Spanish");
     carga_alumnos();
-    printf("%s", alun[0].nombre_alum);
+    printf("%s\n", alun[0].id_alum);
+			printf("%s\n", alun[0].nombre_alum);
+			printf("%s\n", alun[0].direc_alum);
+			printf("%s\n", alun[0].local_alum);
+			printf("%s\n", alun[0].curso);
+			printf("%s\n", alun[0].grupo);
     return 0;
 }
 
 void carga_alumnos(){
 
-char p[100];
-char *token;
+char p[126], *token;
 int i, j, cont;
-FILE *f;
+FILE *f; 
 
 f = fopen("alumnos.txt", "r");
 
 if(f == NULL){
     printf("No se ha podido abrir el fichero.");
 }
+               
+cont = 0;
+
+while(!feof(f)){
+    fgets(p, 126, f);
+    cont++;
+}
+
+l = cont;
+
+alun = (Alumnos*)malloc(l*sizeof(Alumnos));
+
+if(alun == NULL){
+    printf("Error al reservar memoria.");
+}
+
+rewind(f);
 
 i = 0;
 
-while(!feof(f)){
-    fgets(p, 100, f);
-    printf("%s", p);
-    do{
-    	j = 0;
-    	token = strtok(p, "-");
-    	printf("%s\n", token);
-    	if(token == NULL){
-    		printf("Error");
-		}
-    	switch(j){
-        	case 0: alun[i].id_alum = strtol(token, NULL, 7);
+while(i < l){
+	vaciar(p, 126);
+	fgets(p, 126, f);
+	token = strtok(p, "-");
+	j = 0;
+	while(token != NULL){
+		switch(j){
+        	case 0: strcpy(alun[i].id_alum, token);
         	break;
             case 1: strcpy(alun[i].nombre_alum, token);
             break;
@@ -62,36 +87,65 @@ while(!feof(f)){
             break;
             case 5: strcpy(alun[i].grupo, token);
             break;
-            default: printf("Error");
+            default: printf("Algo va mal");
             break;
-        	}
-        	j++;
-        	token = strtok(NULL, "-");
-	}while(j < 5);
+        }
+		token = strtok(NULL, "-");
+		j++;
+	}
 	i++;
-}
-alun = (Alumnos*)malloc(cont*sizeof(Alumnos));
-
-if(alun == NULL){
-    printf("Error al reservar memoria.");
 }
 fclose(f);
 }
 
-//void list(){
-//    for(int i = 0; i < l; i++){
-        //printf("Id: %c", alun[i].id_alum);
-//         printf("%c-", alun[i].nombre_alum);
-  //        printf("%c-", alun[i].direc_alum);
-    //       printf("%c-", alun[i].local_alum);
-      //      printf("%c-", alun[i].curso);
-        //     printf("%c-", alun[i].grupos);
+void addalum(){
+	int i;
+	char c;
+	i = 0;
+	do{
+	alun = (Alumnos*)realloc(alun, l+1);
+	l = l+1;
+	printf("Introduce el id del nuevo alumno.\n");
+	scanf("%i", alun[l].id_alum);
+	printf("Introduce el nombre del nuevo alumno.\n");
+	fgets(alun[l].nombre_alum, 20, stdin);
+	printf("Introduce la direccion del nuevo alumno.\n");
+	fgets(alun[l].direc_alum, 30, stdin);
+	printf("Introduce la localidad del nuevo alumno.\n");
+	fgets(alun[l].local_alum, 30, stdin);
+	printf("Introduce el curso del nuevo alumno.\n");
+	fgets(alun[l].curso, 30, stdin);
+	printf("Introduce el grupo del nuevo alumno.\n");
+	fgets(alun[l].grupo, 10, stdin);
+	printf("¿Quieres introducir otro alumno? s/n \n");
+	scanf("%c", c);
+	if(c == 'n'){
+		i = 1;
+	}
+	}while(i == 0);
+}
 
-   // }
-//}
-
-//void vaciar(char p[]){
-  //  for(int i = 0; i < 100; i++){
-    //    p[i] = '\0';
-    //}
-//}
+void list(){
+	int i; 
+	char id[6];
+	
+	for(i = 0; i < l; i++){
+        printf("%s", alun[i].id_alum);
+        //printf("%s\n", alun[i].nombre_alum);
+	}
+	
+	printf("Selecciona un id: \n");
+	fgets(id, 6, stdin);
+	
+	for(i = 0; i <= l; i++){
+		if(strcoll(id, alun[i].id_alum) == 0){
+			printf("%s\n", alun[i].id_alum);
+			printf("%s\n", alun[i].nombre_alum);
+			printf("%s\n", alun[i].direc_alum);
+			printf("%s\n", alun[i].local_alum);
+			printf("%s\n", alun[i].curso);
+			printf("%s\n", alun[i].grupo);
+			i = l+1;
+		}
+	}
+}
