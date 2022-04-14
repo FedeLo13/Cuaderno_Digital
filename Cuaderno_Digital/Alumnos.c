@@ -11,7 +11,9 @@ void vaciar(char *s, int n){
     }
 }
 void carga_alumnos();
+void modalum();
 void addalum();
+void delalum();
 
 typedef struct{
     char id_alum[6];
@@ -126,8 +128,8 @@ void list(){
 	char id[6];
 	
 	for(i = 0; i < l; i++){
-        printf("%s", alun[i].id_alum);
-        //printf("%s\n", alun[i].nombre_alum);
+        printf("%s - ", alun[i].id_alum);
+        printf("%s\n", alun[i].nombre_alum);
 	}
 	
 	printf("Selecciona un id: \n");
@@ -145,3 +147,96 @@ void list(){
 		}
 	}
 }
+
+void delalum(){
+	int i, j;
+	char nom[20];
+	printf("¿Que alumno desea eliminar?\n");
+	fgets(nom, 20, stdin);
+	for(i = 0; i < l; i++){
+		if(strcmp(nom, alun[i].nombre_alum)){
+			j = i;
+			i = l+1;
+		}
+	}
+	for(j; j < l; j++){
+	strcpy(alun[j].id_alum, alun[j+1].id_alum);
+	strcpy(alun[j].nombre_alum, alun[j+1].nombre_alum);
+	strcpy(alun[j].direc_alum, alun[j+1].direc_alum);
+	strcpy(alun[j].local_alum, alun[j+1].local_alum);
+	strcpy(alun[j].curso, alun[j+1].curso);
+	strcpy(alun[j].grupo, alun[j+1].grupo);
+	}
+	l = l-1;
+	alun = (Alumnos*)realloc(alun, l);
+}
+
+void modalum(){
+	int i, j;
+	char c, nom[20], dat[30];
+	printf("¿Que alumno desea modificar?\n");
+	fgets(nom, 20, stdin);
+	for(i = 0; i < l; i++){
+		if(strcmp(nom, alun[i].nombre_alum)){
+			do{
+				printf("¿Que dato desea modificar?\n");
+				printf("(1)Nombre\n");
+				printf("(2)Direccion\n");
+				printf("(3)Localidad\n");
+				printf("(4)Curso\n");
+				printf("(5)Grupo\n");
+				scanf("%i", j);
+				switch(j){
+					case 1: printf("Introduce el nuevo dato: \n");
+						fgets(dat, 20, stdin);
+						strcpy(alun[i].nombre_alum, dat);	
+					break;
+					case 2: printf("Introduce el nuevo dato: \n");
+						fgets(dat, 30, stdin);
+						strcpy(alun[i].direc_alum, dat);	
+					break;
+					case 3: printf("Introduce el nuevo dato: \n");
+						fgets(dat, 30, stdin);
+						strcpy(alun[i].local_alum, dat);	
+					break;
+					case 4: printf("Introduce el nuevo dato: \n");
+						fgets(dat, 30, stdin);
+						strcpy(alun[i].curso, dat);	
+					break;
+					case 5: printf("Introduce el nuevo dato: \n");
+						fgets(dat, 10, stdin);
+						strcpy(alun[i].grupo, dat);	
+					break;
+					default: printf("Numero incorrecto.\n");
+					break;
+				}
+				printf("¿Desea hacer otra modificacion? y/n\n");
+				scanf("%c", c);
+			}while(c != 'n');
+			i = l+1;
+		}
+	}
+	
+}
+
+void end(){
+	FILE *f;
+	int i;
+	f = fopen("alumnos.txt", "w");
+	if(f == NULL){
+		printf("ERROR\n");
+	}
+	
+	for(i = 0; i<l; i++){
+		fprintf(f, "$s-", alun[i].id_alum);
+		fprintf(f, "$s-", alun[i].nombre_alum);
+		fprintf(f, "$s-", alun[i].direc_alum);
+		fprintf(f, "$s-", alun[i].local_alum);
+		fprintf(f, "$s-", alun[i].curso);
+		fprintf(f, "$s", alun[i].grupo);
+		fprintf(f, "\n");
+	}
+	fclose(f);
+}
+
+
