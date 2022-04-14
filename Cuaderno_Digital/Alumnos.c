@@ -29,17 +29,18 @@ int main(){
 	setlocale(LC_CTYPE, "Spanish");
     carga_alumnos();
     printf("%s\n", alun[0].id_alum);
-			printf("%s\n", alun[0].nombre_alum);
-			printf("%s\n", alun[0].direc_alum);
-			printf("%s\n", alun[0].local_alum);
-			printf("%s\n", alun[0].curso);
-			printf("%s\n", alun[0].grupo);
+	printf("%s\n", alun[0].nombre_alum);
+	printf("%s\n", alun[0].direc_alum);
+	printf("%s\n", alun[0].local_alum);
+	printf("%s\n", alun[0].curso);
+	printf("%s\n", alun[0].grupo);
     return 0;
 }
 
 void carga_alumnos(){
 
-char p[126], *token;
+char p[100], *token;
+const char s[2] = "-";
 int i, j, cont;
 FILE *f; 
 
@@ -52,7 +53,7 @@ if(f == NULL){
 cont = 0;
 
 while(!feof(f)){
-    fgets(p, 126, f);
+    fgets(p, 100, f);
     cont++;
 }
 
@@ -66,12 +67,10 @@ if(alun == NULL){
 
 rewind(f);
 
-i = 0;
-
-while(i < l){
-	vaciar(p, 126);
-	fgets(p, 126, f);
-	token = strtok(p, "-");
+for(i = 0; i < l; i++){
+	vaciar(p, 100);
+	fgets(p, 100, f);
+	token = strtok(p, s);
 	j = 0;
 	while(token != NULL){
 		switch(j){
@@ -87,13 +86,10 @@ while(i < l){
             break;
             case 5: strcpy(alun[i].grupo, token);
             break;
-            default: printf("Algo va mal");
-            break;
         }
-		token = strtok(NULL, "-");
+		token = strtok(NULL, s);
 		j++;
 	}
-	i++;
 }
 fclose(f);
 }
