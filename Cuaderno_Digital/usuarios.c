@@ -1,19 +1,10 @@
 #include "usuarios.h"
 #include "funciones_clave.c"
 
-typedef struct{
-    char Id_usuario[50];
-    char Nomb_usuario[50];
-    char Perfil_usuario[50];
-    char Usuario[50];
-    char Contrasena[50];
-    }Usuario;
-
-Usuario *v_usuarios;
-
-
 int main(){
     carga_usuarios();
+    crea_usuarios();
+    lista_usuarios();
     return 0;
 }
 
@@ -96,21 +87,18 @@ void lista_usuarios(){
         cont++;
     }
     for(i=0;i<cont;i++){
-        printf("%s %s %s\n",v_usuarios[i].Id_usuario,v_usuarios[i].Nomb_usuario,v_usuarios[i].Perfil_usuario);
+        printf("%i. %s %s %s\n",i+1,v_usuarios[i].Id_usuario,v_usuarios[i].Nomb_usuario,v_usuarios[i].Perfil_usuario);
     }
-
     fclose(f);
 }
 void modifica_usuarios(){
     lista_usuarios();
-    char id[]
-    printf("Introduzca el identificador del usuario que desea modificar\n");
 }
 
 
 void crea_usuarios(){
-    int n,semaforo=0;
-    char pusr[100]
+    int n,cont=0,i;
+    char c,temp[100];
     FILE *f;
     f = fopen("usuarios.txt","r");
     if(f == NULL){
@@ -120,10 +108,62 @@ void crea_usuarios(){
     while(!feof(f)){
         fgets(temp,100,f);
         cont++;
-}
-    do{
-        printf("Introduzca 1 para crear un profesor, 2 para crear un administrador o 0 para cancelar\n");
-        scanf("%i",&n);
     }
+    i=cont;
+    cont++;
+    v_usuarios=(Usuario*)realloc(v_usuarios,cont*sizeof(Usuario));
+    do{
+        printf("Introduzca 1 para crear un profesor, 2 para crear un administrador\n");
+        scanf("%i",&n);
+        if(n==1){
+            char prof[]={'p','r','o','f','e','s','o','r','\0'};
+            strcpy(v_usuarios[i].Perfil_usuario,prof);
+        }
+        else{
+            if(n==2){
+                char adm[]= {'a','d','m','i','n','i','s','t','r','a','d','o','r','\0'};
+                strcpy(v_usuarios[i].Perfil_usuario,adm);
+            }
+        }
+    }while(n != 1 && n != 2);
+    if(cont >= 100){
+        sprintf(v_usuarios[i].Id_usuario, "%i",cont);
+    }
+    else{
+        if(cont < 10){
+            sprintf(v_usuarios[i].Id_usuario,"00%i",cont);
+            }
+            else{
+                sprintf(v_usuarios[i].Id_usuario,"0%i",cont);
+            }
+    }
+    do{
+        printf("Introduzca el nombre del %s (maximo 20 caracteres)\n",v_usuarios[i].Perfil_usuario);
+        scanf("%s",v_usuarios[i].Nomb_usuario);
+        fflush(stdin);
+    }while(strlen(v_usuarios[i].Nomb_usuario) > 20);
+    do{
+        printf("Introduzca el nombre de usuario del %s (maximo 5 caracteres)\n",v_usuarios[i].Perfil_usuario);
+        scanf("%s",v_usuarios[i].Usuario);
+        fflush(stdin);
+    }while(strlen(v_usuarios[i].Usuario) > 5);
+    do{
+        printf("Introduzca la contrasena del %s (maximo 8 caracteres)\n",v_usuarios[i].Perfil_usuario);
+        scanf("%s",v_usuarios[i].Contrasena);
+        fflush(stdin);
+    }while(strlen(v_usuarios[i].Contrasena) > 8);
+    do{
+    printf("Esta seguro/a de que quiere realizar esta operacion? (s/n)\n");
+    scanf("%c",&c);
+    fflush(stdin);
+    if(c == 'n'){
+        vaciar(v_usuarios[i].Id_usuario,strlen(v_usuarios[i].Id_usuario));
+        vaciar(v_usuarios[i].Nomb_usuario,strlen(v_usuarios[i].Nomb_usuario));
+        vaciar(v_usuarios[i].Perfil_usuario,strlen(v_usuarios[i].Perfil_usuario));
+        vaciar(v_usuarios[i].Usuario,strlen(v_usuarios[i].Usuario));
+        vaciar(v_usuarios[i].Contrasena,strlen(v_usuarios[i].Contrasena));
+        v_usuarios=(Usuario*)realloc(v_usuarios,i*sizeof(Usuario));
+    }
+    }while(c != 'n' && c!='s');
     fclose(f);
 }
