@@ -18,5 +18,7 @@ Usuario *v_usuarios;
 void carga_usuarios();
 void lista_usuarios();
 void crea_usuarios();
+void modifica_usuarios();
+void vuelca_usuarios();
 
 #endif

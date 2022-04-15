@@ -4,6 +4,8 @@
 int main(){
     carga_usuarios();
     crea_usuarios();
+    printf("%s %s %s %s %s\n",v_usuarios[3].Id_usuario,v_usuarios[3].Nomb_usuario,v_usuarios[3].Perfil_usuario,v_usuarios[3].Usuario,v_usuarios[3].Contrasena);
+    modifica_usuarios();
     lista_usuarios();
     return 0;
 }
@@ -73,6 +75,7 @@ void carga_usuarios(){
     }
     fclose(f);
 }
+
 void lista_usuarios(){
     int cont=0,i;
     char temp[100];
@@ -91,8 +94,73 @@ void lista_usuarios(){
     }
     fclose(f);
 }
+
 void modifica_usuarios(){
+    int cont=0,n;
+    char temp[100],c,aux[100];
     lista_usuarios();
+    FILE *f;
+    f = fopen("usuarios.txt","r");
+    if(f == NULL){
+        printf("Error al abrir el fichero.\n");
+    }
+
+    while(!feof(f)){
+        fgets(temp,100,f);
+        cont++;
+    }
+
+    do{
+        printf("Introduce el numero correspondiente al usuario que desea editar\n");
+        scanf("%i",&n);
+        fflush(stdin);
+    }while(n<=0 || n>cont);
+    n--;
+    do{
+        printf("Escriba el nuevo identificador del usuario (maximo 3 digitos), o escriba x si no quiere editarlo\n");
+        gets(aux);
+        fflush(stdin);
+        if(strcmp(aux,"x")!=0){
+            strcpy(v_usuarios[n].Id_usuario,aux);
+        }
+    }while(strlen(v_usuarios[n].Id_usuario) > 3);
+    do{
+        printf("Escriba el nuevo nombre (maximo 20 caracteres), o escriba x si no quiere editarlo\n");
+        gets(aux);
+        fflush(stdin);
+        if(strcmp(aux,"x")!=0){
+            strcpy(v_usuarios[n].Nomb_usuario,aux);
+        }
+    }while(strlen(v_usuarios[n].Nomb_usuario) > 20);
+    do{
+        printf("Escriba el nuevo nombre de usuario(maximo 5 caracteres), o escriba x si no quiere editarlo\n");
+        gets(aux);
+        fflush(stdin);
+        if(strcmp(aux,"x")!=0){
+            strcpy(v_usuarios[n].Usuario,aux);
+        }
+    }while(strlen(v_usuarios[n].Usuario) > 5);
+    do{
+        printf("Escriba la nueva contraseña(maximo 8 caracteres), o escriba x si no quiere editarlo\n");
+        gets(aux);
+        fflush(stdin);
+        if(strcmp(aux,"x")!=0){
+            strcpy(v_usuarios[n].Contrasena,aux);
+        }
+    }while(strlen(v_usuarios[n].Contrasena) > 8);
+    do{
+    printf("Esta seguro/a de que quiere realizar estos cambios? (s/n)\n");
+    scanf("%c",&c);
+    fflush(stdin);
+    if(c == 'n'){
+        vaciar(v_usuarios[n].Id_usuario,strlen(v_usuarios[n].Id_usuario));
+        vaciar(v_usuarios[n].Nomb_usuario,strlen(v_usuarios[n].Nomb_usuario));
+        vaciar(v_usuarios[n].Perfil_usuario,strlen(v_usuarios[n].Perfil_usuario));
+        vaciar(v_usuarios[n].Usuario,strlen(v_usuarios[n].Usuario));
+        vaciar(v_usuarios[n].Contrasena,strlen(v_usuarios[n].Contrasena));
+    }
+    }while(c != 'n' && c!='s');
+    fclose(f);
 }
 
 
@@ -115,6 +183,7 @@ void crea_usuarios(){
     do{
         printf("Introduzca 1 para crear un profesor, 2 para crear un administrador\n");
         scanf("%i",&n);
+        fflush(stdin);
         if(n==1){
             char prof[]={'p','r','o','f','e','s','o','r','\0'};
             strcpy(v_usuarios[i].Perfil_usuario,prof);
@@ -126,30 +195,24 @@ void crea_usuarios(){
             }
         }
     }while(n != 1 && n != 2);
-    if(cont >= 100){
-        sprintf(v_usuarios[i].Id_usuario, "%i",cont);
-    }
-    else{
-        if(cont < 10){
-            sprintf(v_usuarios[i].Id_usuario,"00%i",cont);
-            }
-            else{
-                sprintf(v_usuarios[i].Id_usuario,"0%i",cont);
-            }
-    }
+    do{
+        printf("Introduzca el identificador del %s (maximo 3 digitos)\n",v_usuarios[i].Perfil_usuario);
+        gets(v_usuarios[i].Id_usuario);
+        fflush(stdin);
+    }while(strlen(v_usuarios[i].Id_usuario) > 3);
     do{
         printf("Introduzca el nombre del %s (maximo 20 caracteres)\n",v_usuarios[i].Perfil_usuario);
-        scanf("%s",v_usuarios[i].Nomb_usuario);
+        gets(v_usuarios[i].Nomb_usuario);
         fflush(stdin);
     }while(strlen(v_usuarios[i].Nomb_usuario) > 20);
     do{
         printf("Introduzca el nombre de usuario del %s (maximo 5 caracteres)\n",v_usuarios[i].Perfil_usuario);
-        scanf("%s",v_usuarios[i].Usuario);
+        gets(v_usuarios[i].Usuario);
         fflush(stdin);
     }while(strlen(v_usuarios[i].Usuario) > 5);
     do{
         printf("Introduzca la contrasena del %s (maximo 8 caracteres)\n",v_usuarios[i].Perfil_usuario);
-        scanf("%s",v_usuarios[i].Contrasena);
+        gets(v_usuarios[i].Contrasena);
         fflush(stdin);
     }while(strlen(v_usuarios[i].Contrasena) > 8);
     do{
@@ -166,4 +229,7 @@ void crea_usuarios(){
     }
     }while(c != 'n' && c!='s');
     fclose(f);
+}
+
+void vuelca_usuarios(){
 }
