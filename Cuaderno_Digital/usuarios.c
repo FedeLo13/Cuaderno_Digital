@@ -231,5 +231,31 @@ void crea_usuarios(){
     fclose(f);
 }
 
+void elimina_usuarios(){
+    int cont=0,i;
+    int temp[100];
+    lista_usuarios();
+    FILE *f;
+    f = fopen("usuarios.txt","r");
+    if(f == NULL){
+        printf("Error al abrir el fichero.\n");
+    }
+
+    while(!feof(f)){
+        fgets(temp,100,f);
+        cont++;
+    }
+    do{
+        printf("Introduce el numero correspondiente al usuario que desea eliminar\n");
+        scanf("%i",&n);
+        fflush(stdin);
+        if (strcmp(v_usuarios[n-1].Perfil_usuario,"administrador") != 0){
+            for(i=0;i<cont;i++){
+                if
+            }
+        }
+    }while(n<=0 || n>cont);
+}
+
 void vuelca_usuarios(){
 }
