@@ -2,10 +2,11 @@
 #include "funciones_clave.c"
 
 int main(){
+    int n;
     carga_usuarios();
     crea_usuarios();
-    printf("%s %s %s %s %s\n",v_usuarios[3].Id_usuario,v_usuarios[3].Nomb_usuario,v_usuarios[3].Perfil_usuario,v_usuarios[3].Usuario,v_usuarios[3].Contrasena);
     modifica_usuarios();
+    elimina_usuarios();
     lista_usuarios();
     return 0;
 }
@@ -30,7 +31,6 @@ void carga_usuarios(){
     }
 
     rewind(f);
-
     v_usuarios = (Usuario*)malloc(cont*sizeof(Usuario));
     if(v_usuarios == NULL){
         printf("No se ha podido reservar la memoria.\n");
@@ -165,7 +165,7 @@ void modifica_usuarios(){
 
 
 void crea_usuarios(){
-    int n,cont=0,i;
+    int n,cont=0,i,v=1;
     char c,temp[100];
     FILE *f;
     f = fopen("usuarios.txt","r");
@@ -226,14 +226,16 @@ void crea_usuarios(){
         vaciar(v_usuarios[i].Usuario,strlen(v_usuarios[i].Usuario));
         vaciar(v_usuarios[i].Contrasena,strlen(v_usuarios[i].Contrasena));
         v_usuarios=(Usuario*)realloc(v_usuarios,i*sizeof(Usuario));
+        v=0;
     }
     }while(c != 'n' && c!='s');
     fclose(f);
+    vuelca_usuarios(v);
 }
 
 void elimina_usuarios(){
-    int cont=0,i;
-    int temp[100];
+    int cont=0,n,i=0,admns=0,j,v=-1;
+    char temp[100];
     lista_usuarios();
     FILE *f;
     f = fopen("usuarios.txt","r");
@@ -249,13 +251,77 @@ void elimina_usuarios(){
         printf("Introduce el numero correspondiente al usuario que desea eliminar\n");
         scanf("%i",&n);
         fflush(stdin);
-        if (strcmp(v_usuarios[n-1].Perfil_usuario,"administrador") != 0){
-            for(i=0;i<cont;i++){
-                if
-            }
-        }
     }while(n<=0 || n>cont);
+    n--;
+    cont--;
+    if (strcmp(v_usuarios[n].Perfil_usuario,"administrador") == 0){
+        while(i<cont && admns < 2){
+            if(strcmp(v_usuarios[i].Perfil_usuario,"administrador") == 0){
+                admns++;
+            }
+            i++;
+        }
+    }
+    if(admns == 1){
+        printf("No se puede realizar esta accion debido a que solo existe 1 administrador\n");
+        v=0;
+    }
+    else{
+        vaciar(v_usuarios[n].Id_usuario,strlen(v_usuarios[n].Id_usuario));
+        vaciar(v_usuarios[n].Nomb_usuario,strlen(v_usuarios[n].Nomb_usuario));
+        vaciar(v_usuarios[n].Perfil_usuario,strlen(v_usuarios[n].Perfil_usuario));
+        vaciar(v_usuarios[n].Usuario,strlen(v_usuarios[n].Usuario));
+        vaciar(v_usuarios[n].Contrasena,strlen(v_usuarios[n].Contrasena));
+        if(n<cont){
+            for(j=n;j<cont;j++){
+                strcpy(v_usuarios[j].Id_usuario,v_usuarios[j+1].Id_usuario);
+                vaciar(v_usuarios[j+1].Id_usuario,strlen(v_usuarios[j+1].Id_usuario));
+                strcpy(v_usuarios[j].Nomb_usuario,v_usuarios[j+1].Nomb_usuario);
+                vaciar(v_usuarios[j+1].Nomb_usuario,strlen(v_usuarios[j+1].Nomb_usuario));
+                strcpy(v_usuarios[j].Perfil_usuario,v_usuarios[j+1].Perfil_usuario);
+                vaciar(v_usuarios[j+1].Perfil_usuario,strlen(v_usuarios[j+1].Perfil_usuario));
+                strcpy(v_usuarios[j].Usuario,v_usuarios[j+1].Usuario);
+                vaciar(v_usuarios[j+1].Usuario,strlen(v_usuarios[j+1].Usuario));
+                strcpy(v_usuarios[j].Contrasena,v_usuarios[j+1].Contrasena);
+                vaciar(v_usuarios[j+1].Contrasena,strlen(v_usuarios[j+1].Contrasena));
+            }
+            v_usuarios=(Usuario*)realloc(v_usuarios,cont*sizeof(Usuario));
+         }
+         else{
+            v_usuarios=(Usuario*)realloc(v_usuarios,cont*sizeof(Usuario));
+         }
+    }
+    fclose(f);
+    vuelca_usuarios(v);
 }
 
-void vuelca_usuarios(){
+void vuelca_usuarios(int n){
+    int cont=0,i;
+    char temp[100];
+    FILE *f;
+    f = fopen("usuarios.txt","r");
+    if(f == NULL){
+        printf("Error al abrir el fichero.\n");
+    }
+
+    while(!feof(f)){
+        fgets(temp,100,f);
+        cont++;
+    }
+    fclose(f);
+    printf("Primer cont %i\n",cont);
+    cont= cont + n;
+    printf("Segundo cont %i\n",cont);
+    f = fopen("usuarios.txt","w");
+    if(f == NULL){
+      printf("Error al abrir el fichero.\n");
+    }
+    for(i=0;i<cont;i++){
+        fprintf(f,"%s-%s-%s-%s-%s",v_usuarios[i].Id_usuario,v_usuarios[i].Nomb_usuario,v_usuarios[i].Perfil_usuario,v_usuarios[i].Usuario,v_usuarios[i].Contrasena);
+        if(i != (cont-1)){
+            fprintf(f,"\n");
+        }
+    }
+    fclose(f);
 }
+

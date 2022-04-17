@@ -19,6 +19,7 @@ void carga_usuarios();
 void lista_usuarios();
 void crea_usuarios();
 void modifica_usuarios();
-void vuelca_usuarios();
+void elimina_usuarios();
+void vuelca_usuarios(int);
 
 #endif

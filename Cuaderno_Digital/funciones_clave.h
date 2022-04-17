@@ -5,5 +5,6 @@
 #include <string.h>
 
 void vaciar(char*,int);
+void termina_cadenas(char*);
 
 #endif
