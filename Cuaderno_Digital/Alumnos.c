@@ -17,12 +17,12 @@ int main(){
 	setlocale(LC_CTYPE, "Spanish");
     carga_alumnos();
     addalum();
-    printf("%s\n", alun[4].id_alum);
-	printf("%s\n", alun[4].nombre_alum);
-	printf("%s\n", alun[4].direc_alum);
-	printf("%s\n", alun[4].local_alum);
-	printf("%s\n", alun[4].curso);
-	printf("%s\n", alun[4].grupo);
+    printf("%s\n", alun[l].id_alum);
+	printf("%s\n", alun[l].nombre_alum);
+	printf("%s\n", alun[l].direc_alum);
+	printf("%s\n", alun[l].local_alum);
+	printf("%s\n", alun[l].curso);
+	printf("%s\n", alun[l].grupo);
     return 0;
 }
 
@@ -88,18 +88,39 @@ void addalum(){
 	do{
     l++;
 	alun = (Alumnos*)realloc(alun, l);
-	printf("Introduce el id del nuevo alumno.\n");
-	fgets(alun[l].id_alum, 7, stdin);
-	printf("Introduce el nombre del nuevo alumno.\n");
-	fgets(alun[l].nombre_alum, 21, stdin);
-	printf("Introduce la direccion del nuevo alumno.\n");
-	fgets(alun[l].direc_alum, 31, stdin);
-	printf("Introduce la localidad del nuevo alumno.\n");
-	fgets(alun[l].local_alum, 31, stdin);
-	printf("Introduce el curso del nuevo alumno.\n");
-	fgets(alun[l].curso, 31, stdin);
-	printf("Introduce el grupo del nuevo alumno.\n");
-	fgets(alun[l].grupo, 11, stdin);
+	if(alun == NULL){
+		printf("ERROR");
+	}
+	do{
+		printf("Introduce el id del nuevo alumno.\n");
+		gets(alun[l].id_alum);
+		fflush(stdin);
+	}while(strlen(alun[l].id_alum) > 7);
+	do{
+		printf("Introduce el nombre del nuevo alumno.\n");
+		gets(alun[l].nombre_alum);
+		fflush(stdin);
+	}while(strlen(alun[l].nombre_alum) > 21);
+	do{
+		printf("Introduce la direccion del nuevo alumno.\n");
+		gets(alun[l].direc_alum);
+		fflush(stdin);
+	}while(strlen(alun[l].direc_alum) > 31);
+	do{
+		printf("Introduce la localidad del nuevo alumno.\n");
+		gets(alun[l].local_alum);
+		fflush(stdin);
+	}while(strlen(alun[l].local_alum) > 31);
+	do{
+		printf("Introduce el curso del nuevo alumno.\n");
+		gets(alun[l].curso);
+		fflush(stdin);
+	}while(strlen(alun[l].curso) > 31);
+	do{
+		printf("Introduce el grupo del nuevo alumno.\n");
+		gets(alun[l].grupo);
+		fflush(stdin);
+	}while(strlen(alun[l].grupo) > 11);
 	printf("¿Quieres introducir otro alumno? s/n \n");
 	scanf("%c", c);
 	}while(c == 's');
