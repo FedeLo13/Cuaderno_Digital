@@ -104,6 +104,7 @@ void end(){
 	for(i = 0; i<l; i++){
 	    fprintf(f, "$s-", matr[i].id_alum);
         fprintf(f, "$s-", matr[i].id_materia);
+
  }
 	fclose(f);
 }
