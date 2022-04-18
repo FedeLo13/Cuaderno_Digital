@@ -309,9 +309,7 @@ void vuelca_usuarios(int n){
         cont++;
     }
     fclose(f);
-    printf("Primer cont %i\n",cont);
     cont= cont + n;
-    printf("Segundo cont %i\n",cont);
     f = fopen("usuarios.txt","w");
     if(f == NULL){
       printf("Error al abrir el fichero.\n");
