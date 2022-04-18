@@ -17,5 +17,11 @@ typedef struct{
 
 Alumnos *alun;
 
+void listalum();
 void carga_alumnos();
+void modalum();
+void addalum();
+void delalum();
+void endalum();
+
 #endif

@@ -1,12 +1,12 @@
 #include "alumnos.h"
 #include "funciones_clave.c"
 
-void list();
+void listalum();
 void carga_alumnos();
 void modalum();
 void addalum();
 void delalum();
-void end();
+void endalum();
 
 int l;
 
@@ -14,8 +14,8 @@ int main(){
 	setlocale(LC_CTYPE, "Spanish");
     carga_alumnos();
     modalum();
-    list();
-    end();
+    listalum();
+    endalum();
     return 0;
 }
 
@@ -119,7 +119,7 @@ void addalum(){
 	}while(c == 's');
 }
 
-void list(){
+void listalum(){
 	int i, n;
 	n = 0;
 
@@ -230,7 +230,7 @@ void modalum(){
 			}while(c != 'n');
 }
 
-void end(){
+void endalum(){
 	FILE *f;
 	int i;
 	f = fopen("alumnos.txt", "w");
