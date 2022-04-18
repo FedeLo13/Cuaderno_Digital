@@ -1,6 +1,3 @@
 000001-Dolores Martin-C/diego montes n 4-Cadiz-1Bachillerato Sociales-1BB
-
------000002-Pedro Lima-Avda Colon S/N-Puerto Santa Maria-4ºESO-4B
-
------000003-Manuel Olvedo Garcia-c/Luis Lafuente n 10-Cadiz-2Bachillerato Ciencias-1BA
------
+000002-Lucas-Avda Colon S/N-Puerto Santa Maria-4ºESO-4B
+000003-Manuel Olvedo Garcia-c/Luis Lafuente n 10-Cadiz-2Bachillerato Ciencias-1BA
