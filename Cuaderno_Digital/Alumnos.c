@@ -246,7 +246,7 @@ void end(){
 		fprintf(f, "%s-", alun[i].local_alum);
 		fprintf(f, "%s-", alun[i].curso);
 		fprintf(f, "%s", alun[i].grupo);
-		fprintf(f, "\n");
+		//fprintf(f, "\n");
 	}
 	fclose(f);
 }
