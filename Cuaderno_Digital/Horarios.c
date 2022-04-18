@@ -11,9 +11,6 @@ int main(){
     return 0;
 }
 
-//cabecera: void carga_horario();
-//precondici�n:
-//poscondici�n: carga los datos del fichero en la estructura del programa
 void carga_horario(){
 
     int cont=0,i,j,semaforo;
@@ -95,12 +92,12 @@ void lista_horario(){
     fclose(f);
 }
 
-void modifica_usuarios(){
+void modifica_horarios(){
     int cont=0,n;
     char temp[100],c,aux[100];
     lista_usuarios();
     FILE *f;
-    f = fopen("usuarios.txt","r");
+    f = fopen("horarios.txt","r");
     if(f == NULL){
         printf("Error al abrir el fichero.\n");
     }
@@ -111,64 +108,64 @@ void modifica_usuarios(){
     }
 
     do{
-        printf("Introduce el numero correspondiente al usuario que desea editar\n");
+        printf("Introduce el numero correspondiente al profesor que desea editar\n");
         scanf("%i",&n);
         fflush(stdin);
     }while(n<=0 || n>cont);
     n--;
     do{
-        printf("Escriba el nuevo identificador del usuario (maximo 3 digitos), o escriba x si no quiere editarlo\n");
+        printf("Escriba el nuevo dia (maximo 1 digitos), o escriba x si no quiere editarlo\n");
         gets(aux);
         fflush(stdin);
         if(strcmp(aux,"x")!=0){
-            strcpy(v_usuarios[n].Id_usuario,aux);
+            strcpy(v_usuarios[n].Dia_clase,aux);
         }
-    }while(strlen(v_usuarios[n].Id_usuario) > 3);
+    }while(strlen(v_usuarios[n].Dia_clase) > 1);
     do{
-        printf("Escriba el nuevo nombre (maximo 20 caracteres), o escriba x si no quiere editarlo\n");
+        printf("Escriba la nueva hora (maximo 1 caracter), o escriba x si no quiere editarlo\n");
         gets(aux);
         fflush(stdin);
         if(strcmp(aux,"x")!=0){
-            strcpy(v_usuarios[n].Nomb_usuario,aux);
+            strcpy(v_usuarios[n].Hora_clase,aux);
         }
-    }while(strlen(v_usuarios[n].Nomb_usuario) > 20);
+    }while(strlen(v_usuarios[n].Hora_clase) > 1);
     do{
-        printf("Escriba el nuevo nombre de usuario(maximo 5 caracteres), o escriba x si no quiere editarlo\n");
+        printf("Escriba el nuevo identificador de materia (maximo 4 caracteres), o escriba x si no quiere editarlo\n");
         gets(aux);
         fflush(stdin);
         if(strcmp(aux,"x")!=0){
-            strcpy(v_usuarios[n].Usuario,aux);
+            strcpy(v_usuarios[n].Id_materia,aux);
         }
-    }while(strlen(v_usuarios[n].Usuario) > 5);
+    }while(strlen(v_usuarios[n].Id_materia) > 4);
     do{
-        printf("Escriba la nueva contrase�a(maximo 8 caracteres), o escriba x si no quiere editarlo\n");
+        printf("Escriba el nuevo grupo(maximo 10 caracteres), o escriba x si no quiere editarlo\n");
         gets(aux);
         fflush(stdin);
         if(strcmp(aux,"x")!=0){
             strcpy(v_usuarios[n].Contrasena,aux);
         }
-    }while(strlen(v_usuarios[n].Contrasena) > 8);
+    }while(strlen(v_usuarios[n].Contrasena) > 10);
     do{
     printf("Esta seguro/a de que quiere realizar estos cambios? (s/n)\n");
     scanf("%c",&c);
     fflush(stdin);
     if(c == 'n'){
-        vaciar(v_usuarios[n].Id_usuario,strlen(v_usuarios[n].Id_usuario));
-        vaciar(v_usuarios[n].Nomb_usuario,strlen(v_usuarios[n].Nomb_usuario));
-        vaciar(v_usuarios[n].Perfil_usuario,strlen(v_usuarios[n].Perfil_usuario));
-        vaciar(v_usuarios[n].Usuario,strlen(v_usuarios[n].Usuario));
-        vaciar(v_usuarios[n].Contrasena,strlen(v_usuarios[n].Contrasena));
+        vaciar(v_horarios[n].Id_profesor,strlen(v_horarios[n].Id_profesor));
+        vaciar(v_horarios[n].Dia_clase,strlen(v_horarios[n].Dia_clase));
+        vaciar(v_horarios[n].Hora_clase,strlen(v_horarios[n].Hora_clase));
+        vaciar(v_horarios[n].Id_materia,strlen(v_horarios[n].Id_materia));
+        vaciar(v_horarios[n].Grupo,strlen(v_horarios[n].grupo));
     }
     }while(c != 'n' && c!='s');
     fclose(f);
 }
 
 
-void crea_usuarios(){
+void crea_horarios(){
     int n,cont=0,i,v=1;
     char c,temp[100];
     FILE *f;
-    f = fopen("usuarios.txt","r");
+    f = fopen("horarios.txt","r");
     if(f == NULL){
         printf("Error al abrir el fichero.\n");
     }
@@ -179,22 +176,7 @@ void crea_usuarios(){
     }
     i=cont;
     cont++;
-    v_usuarios=(Usuario*)realloc(v_usuarios,cont*sizeof(Usuario));
-    do{
-        printf("Introduzca 1 para crear un profesor, 2 para crear un administrador\n");
-        scanf("%i",&n);
-        fflush(stdin);
-        if(n==1){
-            char prof[]={'p','r','o','f','e','s','o','r','\0'};
-            strcpy(v_usuarios[i].Perfil_usuario,prof);
-        }
-        else{
-            if(n==2){
-                char adm[]= {'a','d','m','i','n','i','s','t','r','a','d','o','r','\0'};
-                strcpy(v_usuarios[i].Perfil_usuario,adm);
-            }
-        }
-    }while(n != 1 && n != 2);
+    v_horarios=(horarios*)realloc(v_horarios,cont*sizeof(horarios));
     do{
         printf("Introduzca el identificador del %s (maximo 3 digitos)\n",v_usuarios[i].Perfil_usuario);
         gets(v_usuarios[i].Id_usuario);
@@ -233,12 +215,12 @@ void crea_usuarios(){
     vuelca_usuarios(v);
 }
 
-void elimina_usuarios(){
+void elimina_horarios(){
     int cont=0,n,i=0,admns=0,j,v=-1;
     char temp[100];
     lista_usuarios();
     FILE *f;
-    f = fopen("usuarios.txt","r");
+    f = fopen("horarios.txt","r");
     if(f == NULL){
         printf("Error al abrir el fichero.\n");
     }
@@ -248,15 +230,15 @@ void elimina_usuarios(){
         cont++;
     }
     do{
-        printf("Introduce el numero correspondiente al usuario que desea eliminar\n");
+        printf("Introduce el numero correspondiente al horario que desea eliminar\n");
         scanf("%i",&n);
         fflush(stdin);
     }while(n<=0 || n>cont);
     n--;
     cont--;
-    if (strcmp(v_usuarios[n].Perfil_usuario,"administrador") == 0){
+    if (strcmp(v_horarios[n].Perfil_horario,"administrador") == 0){
         while(i<cont && admns < 2){
-            if(strcmp(v_usuarios[i].Perfil_usuario,"administrador") == 0){
+            if(strcmp(v_horarios[i].Perfil_horario,"administrador") == 0){
                 admns++;
             }
             i++;
@@ -267,11 +249,11 @@ void elimina_usuarios(){
         v=0;
     }
     else{
-        vaciar(v_usuarios[n].Id_usuario,strlen(v_usuarios[n].Id_usuario));
-        vaciar(v_usuarios[n].Nomb_usuario,strlen(v_usuarios[n].Nomb_usuario));
-        vaciar(v_usuarios[n].Perfil_usuario,strlen(v_usuarios[n].Perfil_usuario));
-        vaciar(v_usuarios[n].Usuario,strlen(v_usuarios[n].Usuario));
-        vaciar(v_usuarios[n].Contrasena,strlen(v_usuarios[n].Contrasena));
+        vaciar(v_horarios[n].Id_usuario,strlen(v_usuarios[n].Id_usuario));
+        vaciar(v_horarios[n].Nomb_usuario,strlen(v_usuarios[n].Nomb_usuario));
+        vaciar(v_horarios[n].Perfil_usuario,strlen(v_usuarios[n].Perfil_usuario));
+        vaciar(v_horarios[n].Usuario,strlen(v_usuarios[n].Usuario));
+        vaciar(v_horarios[n].Contrasena,strlen(v_usuarios[n].Contrasena));
         if(n<cont){
             for(j=n;j<cont;j++){
                 strcpy(v_usuarios[j].Id_usuario,v_usuarios[j+1].Id_usuario);
