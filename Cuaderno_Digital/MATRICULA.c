@@ -75,7 +75,7 @@ void lista_matricula(){
 void modifica_matricula(){
     int cont=0,n;
     char temp[100],c,aux[100];
-    lista_usuarios();
+    lista_matricula();
     FILE *f;
     f = fopen("matriculas.txt","r");
     if(f == NULL){
@@ -139,36 +139,23 @@ void crea_matricula(){
     cont++;
     v_matricula=(matricula*)realloc(v_matricula,cont*sizeof(matricula));
     do{
-        printf("Introduzca el identificador del %s (maximo 3 digitos)\n",v_matricula[i].matricula);
-        gets(v_matricula[i].Id_u);
+        printf("Introduzca el identificador de la materia %s (maximo 3 digitos)\n",v_matricula[i].Id_materia);
+        gets(v_matricula[i].Id_materia);
         fflush(stdin);
     }while(strlen(v_matricula[i].Id_materia) > 3);
     do{
-        printf("Introduzca el nombre del %s (maximo 20 caracteres)\n",v_usuarios[i].Perfil_usuario);
-        gets(v_matricula[i].matricula);
+        printf("Introduzca el identifucador del alumno%s (maximo 20 caracteres)\n",v_matricula[i].Id_alum);
+        gets(v_matricula[i].Id_alum);
         fflush(stdin);
-    }while(strlen(v_matricula[i].matricula) > 20);
-    do{
-        printf("Introduzca el nombre de usuario del %s (maximo 5 caracteres)\n",v_usuarios[i].Perfil_usuario);
-        gets(v_matricula[i].Usuario);
-        fflush(stdin);
-    }while(strlen(v_matricula[i].Usuario) > 5);
-    do{
-        printf("Introduzca la contrasena del %s (maximo 8 caracteres)\n",v_usuarios[i].Perfil_usuario);
-        gets(v_matricula[i].Contrasena);
-        fflush(stdin);
-    }while(strlen(v_matricula[i].Contrasena) > 8);
-    do{
+    }while(strlen(v_matricula[i].Id_alum) > 20);
+   do{
     printf("Esta seguro/a de que quiere realizar esta operacion? (s/n)\n");
     scanf("%c",&c);
     fflush(stdin);
     if(c == 'n'){
-        vaciar(v_matricula[i].Id_usuario,strlen(v_usuarios[i].Id_usuario));
-        vaciar(v_matricula[i].Nomb_usuario,strlen(v_usuarios[i].Nomb_usuario));
-        vaciar(v_matriculai].Perfil_usuario,strlen(v_usuarios[i].Perfil_usuario));
-        vaciar(v_matricula[i].Usuario,strlen(v_usuarios[i].Usuario));
-        vaciar(v_matricula[i].Contrasena,strlen(v_usuarios[i].Contrasena));
-        v_matricula=(matricula*)realloc(v_matricula,i*sizeof(Usuario));
+        vaciar(v_matricula[i].Id_materia,strlen(v_matricula[i].Id_materia));
+        vaciar(v_matricula[i].Id_alum,strlen(v_matricula[i].Id_alum));
+        v_matricula=(matricula*)realloc(v_matricula,i*sizeof(matricula));
         v=0;
     }
     }while(c != 'n' && c!='s');
@@ -177,9 +164,9 @@ void crea_matricula(){
 }
 
 void elimina_matricula(){
-    int cont=0,n,i=0,admns=0,j,v=-1;
+    int cont=0,n,i=0,admns=0,j,v=-1
     char temp[100];
-    lista_usuarios();
+    lista_matricula();
     FILE *f;
     f = fopen("matriculas.txt","r");
     if(f == NULL){
@@ -197,16 +184,16 @@ void elimina_matricula(){
     }while(n<=0 || n>cont);
     n--;
     cont--;
-    if (strcmp(v_matricula[n].Perfil_usuario,"administrador") == 0){
+    if (strcmp(v_matricula[n].Id_materia,"matricula") == 0){
         while(i<cont && admns < 2){
-            if(strcmp(v_matricula[i].Matricula,"administrador") == 0){
+            if(strcmp(v_matricula[i].Id_materia,"matricula") == 0){
                 admns++;
             }
             i++;
         }
     }
     if(admns == 1){
-        printf("No se puede realizar esta accion debido a que solo existe 1 administrador\n");
+        printf("No se puede realizar esta accion debido a que solo existe 1 matricula\n");
         v=0;
     }
     else{
@@ -219,7 +206,7 @@ void elimina_matricula(){
                 strcpy(v_matricula[j].Id_alum,v_matricula[j+1].Id_alum);
                 vaciar(v_matricula[j+1].Id_alum,strlen(v_matricula[j+1].Id_alum));
             }
-            v_matricula=(Matricula*)realloc(v_matricula,cont*sizeof(matricula));
+            v_matricula=(matricula*)realloc(v_matricula,cont*sizeof(matricula));
          }
          else{
             v_matricula=(matricula*)realloc(v_matricula,cont*sizeof(matricula));
