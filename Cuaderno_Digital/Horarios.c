@@ -66,7 +66,7 @@ void lista_horarios(){
         cont++;
     }
     for(i=0;i<cont;i++){
-        printf("%i.%s-%s-%s-%s-%s\n",i+1,v_horarios[i].Id_profesor,v_horarios[i].Dia_clase,v_horarios[i].Hora_clase,v_horarios[i].Id_materia,v_horarios[i].Grupo);
+        printf("%s %s %s %s %s\n",i+1,v_horarios[i].Id_profesor,v_horarios[i].Dia_clase,v_horarios[i].Hora_clase,v_horarios[i].Id_materia,v_horarios[i].Grupo);
     }
     fclose(f);
 }

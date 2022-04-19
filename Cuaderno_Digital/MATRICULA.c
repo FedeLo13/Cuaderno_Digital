@@ -58,7 +58,7 @@ void lista_matricula(){
         cont++;
     }
     for(i=0;i<cont;i++){
-        printf("%i. %s %s %s\n",i+1,v_matricula[i].Id_materia,v_matricula[i].Id_alum);
+        printf("%s %s\n",i+1,v_matricula[i].Id_materia,v_matricula[i].Id_alum);
     }
     fclose(f);
 }
