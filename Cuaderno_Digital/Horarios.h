@@ -21,6 +21,6 @@ void carga_horarios();
 void modifica_horarios();
 void crea_horarios();
 void elimina_horarios();
-void vuelca_horarios(int);
+void vuelca_horarios();
 
 #endif

@@ -227,7 +227,7 @@ void vuelca_matricula(int n){
       printf("Error al abrir el fichero.\n");
     }
     for(i=0;i<cont;i++){
-        fprintf(f,"%s-%s-%s-%s-%s",v_matricula[i].Id_materia,v_matricula[i].Id_alum);
+        fprintf(f,"%s %s ",v_matricula[i].Id_materia,v_matricula[i].Id_alum);
         if(i != (cont-1)){
             fprintf(f,"\n");
         }
