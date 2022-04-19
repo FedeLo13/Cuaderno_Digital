@@ -1,5 +1,3 @@
-
-
 0001-Matematicas Discretas-MD
 0002-Sistemas Digitales-SD
 0003-Informatica General-IG

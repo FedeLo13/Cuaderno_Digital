@@ -1,28 +1,21 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <locale.h>
 #include "alumnos.h"
 #include "funciones_clave.c"
 
-void list();
+void listalum();
 void carga_alumnos();
 void modalum();
 void addalum();
 void delalum();
+void endalum();
 
 int l;
 
 int main(){
 	setlocale(LC_CTYPE, "Spanish");
     carga_alumnos();
-    addalum();
-    printf("%s\n", alun[4].id_alum);
-	printf("%s\n", alun[4].nombre_alum);
-	printf("%s\n", alun[4].direc_alum);
-	printf("%s\n", alun[4].local_alum);
-	printf("%s\n", alun[4].curso);
-	printf("%s\n", alun[4].grupo);
+    modalum();
+    listalum();
+    endalum();
     return 0;
 }
 
@@ -84,63 +77,81 @@ fclose(f);
 }
 
 void addalum(){
+    int i;
 	char c;
 	do{
     l++;
 	alun = (Alumnos*)realloc(alun, l);
-	printf("Introduce el id del nuevo alumno.\n");
-	fgets(alun[l].id_alum, 7, stdin);
-	printf("Introduce el nombre del nuevo alumno.\n");
-	fgets(alun[l].nombre_alum, 21, stdin);
-	printf("Introduce la direccion del nuevo alumno.\n");
-	fgets(alun[l].direc_alum, 31, stdin);
-	printf("Introduce la localidad del nuevo alumno.\n");
-	fgets(alun[l].local_alum, 31, stdin);
-	printf("Introduce el curso del nuevo alumno.\n");
-	fgets(alun[l].curso, 31, stdin);
-	printf("Introduce el grupo del nuevo alumno.\n");
-	fgets(alun[l].grupo, 11, stdin);
+	i = l-1;
+
+	if(alun == NULL){
+		printf("ERROR");
+	}
+	do{
+		printf("Introduce el id del nuevo alumno.\n");
+		gets(alun[i].id_alum);
+		fflush(stdin);
+	}while(strlen(alun[i].id_alum) > 7);
+	do{
+		printf("Introduce el nombre del nuevo alumno.\n");
+		gets(alun[i].nombre_alum);
+		fflush(stdin);
+	}while(strlen(alun[i].nombre_alum) > 21);
+	do{
+		printf("Introduce la direccion del nuevo alumno.\n");
+		gets(alun[i].direc_alum);
+		fflush(stdin);
+	}while(strlen(alun[i].direc_alum) > 31);
+	do{
+		printf("Introduce la localidad del nuevo alumno.\n");
+		gets(alun[i].local_alum);
+		fflush(stdin);
+	}while(strlen(alun[i].local_alum) > 31);
+	do{
+		printf("Introduce el curso del nuevo alumno.\n");
+		gets(alun[i].curso);
+		fflush(stdin);
+	}while(strlen(alun[i].curso) > 31);
+	do{
+		printf("Introduce el grupo del nuevo alumno.\n");
+		gets(alun[i].grupo);
+		fflush(stdin);
+	}while(strlen(alun[i].grupo) > 11);
 	printf("¿Quieres introducir otro alumno? s/n \n");
-	scanf("%c", c);
+	c = getc(stdin);
 	}while(c == 's');
 }
 
-void list(){
-	int i;
-	char id[6];
+void listalum(){
+	int i, n;
+	n = 0;
 
 	for(i = 0; i < l; i++){
-        printf("%s - ", alun[i].id_alum);
-        printf("%s\n", alun[i].nombre_alum);
+        printf("(%i)%s\n",i+1,alun[i].nombre_alum);
 	}
 
-	printf("Selecciona un id: \n");
-	fgets(id, 6, stdin);
-
-	for(i = 0; i <= l; i++){
-		if(strcoll(id, alun[i].id_alum) == 0){
-			printf("%s\n", alun[i].id_alum);
-			printf("%s\n", alun[i].nombre_alum);
-			printf("%s\n", alun[i].direc_alum);
-			printf("%s\n", alun[i].local_alum);
-			printf("%s\n", alun[i].curso);
-			printf("%s\n", alun[i].grupo);
-			i = l+1;
-		}
-	}
+	printf("Selecciona un nombre: \n");
+	scanf("%i", &n);
+	fflush(stdin);
+    n--;
+    printf("%s\n", alun[n].id_alum);
+    printf("%s\n", alun[n].nombre_alum);
+    printf("%s\n", alun[n].direc_alum);
+    printf("%s\n", alun[n].local_alum);
+    printf("%s\n", alun[n].curso);
+    printf("%s\n", alun[n].grupo);
 }
 
 void delalum(){
 	int i, j;
 	char nom[20];
-	printf("¿Que alumno desea eliminar?\n");
-	fgets(nom, 20, stdin);
 	for(i = 0; i < l; i++){
-		if(strcmp(nom, alun[i].nombre_alum)){
-			j = i;
-			i = l+1;
-		}
+        printf("(%i)%s\n",i+1,alun[i].nombre_alum);
 	}
+	printf("¿Que alumno desea eliminar?\n");
+	scanf("%i", &j);
+	j--;
+
 	for(j; j < l; j++){
 	strcpy(alun[j].id_alum, alun[j+1].id_alum);
 	strcpy(alun[j].nombre_alum, alun[j+1].nombre_alum);
@@ -155,11 +166,14 @@ void delalum(){
 
 void modalum(){
 	int i, j;
-	char c, nom[20], dat[30];
-	printf("¿Que alumno desea modificar?\n");
-	fgets(nom, 20, stdin);
+	char c, dat[31];
 	for(i = 0; i < l; i++){
-		if(strcmp(nom, alun[i].nombre_alum)){
+        printf("(%i)%s\n",i+1,alun[i].nombre_alum);
+	}
+	printf("¿Que alumno desea modificar?\n");
+	scanf("%i", &i);
+	fflush(stdin);
+	i--;
 			do{
 				printf("¿Que dato desea modificar?\n");
 				printf("(1)Nombre\n");
@@ -167,56 +181,74 @@ void modalum(){
 				printf("(3)Localidad\n");
 				printf("(4)Curso\n");
 				printf("(5)Grupo\n");
-				scanf("%i", j);
+				scanf("%i", &j);
+				fflush(stdin);
 				switch(j){
-					case 1: printf("Introduce el nuevo dato: \n");
-						fgets(dat, 20, stdin);
-						strcpy(alun[i].nombre_alum, dat);
+					case 1:
+                        do{
+                            printf("Introduce el nuevo dato: \n");
+                            gets(dat);
+                            fflush(stdin);
+                            strcpy(alun[i].nombre_alum, dat);
+                        }while(strlen(alun[i].nombre_alum) > 21);
 					break;
-					case 2: printf("Introduce el nuevo dato: \n");
-						fgets(dat, 30, stdin);
-						strcpy(alun[i].direc_alum, dat);
+					case 2:
+					    do{
+                            printf("Introduce el nuevo dato: \n");
+                            gets(dat);
+                            fflush(stdin);
+                            strcpy(alun[i].direc_alum, dat);
+                        }while(strlen(alun[i].direc_alum) > 31);
 					break;
-					case 3: printf("Introduce el nuevo dato: \n");
-						fgets(dat, 30, stdin);
-						strcpy(alun[i].local_alum, dat);
+					case 3:
+					    do{
+                            printf("Introduce el nuevo dato: \n");
+                            gets(dat);
+                            fflush(stdin);
+                            strcpy(alun[i].local_alum, dat);
+					    }while(strlen(alun[i].local_alum) > 31);
 					break;
-					case 4: printf("Introduce el nuevo dato: \n");
-						fgets(dat, 30, stdin);
-						strcpy(alun[i].curso, dat);
+					case 4:
+					    do{
+                            printf("Introduce el nuevo dato: \n");
+                            gets(dat);
+                            fflush(stdin);
+                            strcpy(alun[i].curso, dat);
+					    }while(strlen(alun[i].curso) > 31);
 					break;
-					case 5: printf("Introduce el nuevo dato: \n");
-						fgets(dat, 10, stdin);
-						strcpy(alun[i].grupo, dat);
+					case 5:
+					    do{
+                            printf("Introduce el nuevo dato: \n");
+                            gets(dat);
+                            fflush(stdin);
+                            strcpy(alun[i].grupo, dat);
+					    }while(strlen(alun[i].grupo) > 11);
 					break;
 					default: printf("Numero incorrecto.\n");
 					break;
 				}
 				printf("¿Desea hacer otra modificacion? y/n\n");
-				scanf("%c", c);
+				c = getc(stdin);
+				fflush(stdin);
 			}while(c != 'n');
-			i = l+1;
-		}
-	}
-
 }
 
-void end(){
+void endalum(){
 	FILE *f;
 	int i;
 	f = fopen("alumnos.txt", "w");
 	if(f == NULL){
 		printf("ERROR\n");
 	}
+	fflush(f);
 
-	for(i = 0; i<l; i++){
-		fprintf(f, "$s-", alun[i].id_alum);
-		fprintf(f, "$s-", alun[i].nombre_alum);
-		fprintf(f, "$s-", alun[i].direc_alum);
-		fprintf(f, "$s-", alun[i].local_alum);
-		fprintf(f, "$s-", alun[i].curso);
-		fprintf(f, "$s", alun[i].grupo);
-		fprintf(f, "\n");
+	for(i = 0; i < l; i++){
+		fprintf(f, "%s-", alun[i].id_alum);
+		fprintf(f, "%s-", alun[i].nombre_alum);
+		fprintf(f, "%s-", alun[i].direc_alum);
+		fprintf(f, "%s-", alun[i].local_alum);
+		fprintf(f, "%s-", alun[i].curso);
+		fprintf(f, "%s", alun[i].grupo);
 	}
 	fclose(f);
 }

@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <locale.h>
 
 typedef struct{
     char id_alum[7];
@@ -16,5 +17,11 @@ typedef struct{
 
 Alumnos *alun;
 
+void listalum();
 void carga_alumnos();
+void modalum();
+void addalum();
+void delalum();
+void endalum();
+
 #endif
