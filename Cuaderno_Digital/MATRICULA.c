@@ -1,4 +1,4 @@
-#include "matricula.h"
+#include "Matricula.h"
 #include "funciones_clave.c"
 
 int main(){
@@ -138,8 +138,8 @@ void crea_matricula(){
     cont++;
     v_matricula=(Matricula*)realloc(v_matricula,cont*sizeof(Matricula));
     do{
-        printf("Introduzca el identificador del %s (maximo 3 digitos)\n",v_usuarios[i].Perfil_usuario);
-        gets(v_usuarios[i].Id_usuario);
+        printf("Introduzca el identificador del %s (maximo 3 digitos)\n",v_matricula[i].Matricula);
+        gets(v_matricula[i].Id_u);
         fflush(stdin);
     }while(strlen(v_usuarios[i].Id_usuario) > 3);
     do{
@@ -198,7 +198,7 @@ void elimina_matricula(){
     cont--;
     if (strcmp(v_matricula[n].Perfil_usuario,"administrador") == 0){
         while(i<cont && admns < 2){
-            if(strcmp(v_usuarios[i].Perfil_usuario,"administrador") == 0){
+            if(strcmp(v_matricula[i].Matricula,"administrador") == 0){
                 admns++;
             }
             i++;
