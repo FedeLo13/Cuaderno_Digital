@@ -7,15 +7,15 @@
 #include <locale.h>
 
 typedef struct{
-    char id_materia[5];
-    char id_alum[7];
+    char Id_materia[5];
+    char Id_alum[7];
 }matricula;
 
 matricula *v_matricula;
 
 void lista_matricula();
 void carga_matricula();
-void modifuca_matricula();
+void modifica_matricula();
 void crea_matricula();
 void elimina_matricula();
 void endmatr();
