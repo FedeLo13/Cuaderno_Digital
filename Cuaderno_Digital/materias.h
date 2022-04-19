@@ -1,7 +1,10 @@
-#ifndef _MATERIAS_H_
-#define _MATERIAS_H_
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#ifndef MATERIAS
+#define MATERIAS
+
+typedef struct{
+char idMateria[5];
+char nomMateria[51];
+char abrMateria[4];
+} Materia;
 
 #endif
