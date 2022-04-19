@@ -216,9 +216,9 @@ void crea_horarios(){
 }
 
 void elimina_horarios(){
-    int cont=0,n,i=0,horar=0,j,v=-1;
+    int cont=0,n,i=0,dia=0,j,v=-1;
     char temp[100];
-    lista_usuarios();
+    lista_horarios();
     FILE *f;
     f = fopen("horarios.txt","r");
     if(f == NULL){
@@ -237,14 +237,14 @@ void elimina_horarios(){
     n--;
     cont--;
     if (strcmp(v_horarios[n].Dia_clase,"horarios") == 0){
-        while(i<cont && Dia_clase < 2){
+        while(i<cont && dia < 2){
             if(strcmp(v_horarios[i].Dia_clase,"horarios") == 0){
-                horar++;
+                dia++;
             }
             i++;
         }
     }
-    if(horar == 1){
+    if(dia == 1){
         printf("No se puede realizar esta accion debido a que solo existe 1 horario\n");
         v=0;
     }
@@ -274,14 +274,14 @@ void elimina_horarios(){
          }
     }
     fclose(f);
-    vuelca_usuarios(v);
+    vuelca_horarios(v);
 }
 
-void vuelca_horario(int n){
+void vuelca_horarios(int n){
     int cont=0,i;
     char temp[100];
     FILE *f;
-    f = fopen("hoario.txt","r");
+    f = fopen("hoarios.txt","r");
     if(f == NULL){
         printf("Error al abrir el fichero.\n");
     }
@@ -292,7 +292,7 @@ void vuelca_horario(int n){
     }
     fclose(f);
     cont= cont + n;
-    f = fopen("horario.txt","w");
+    f = fopen("horarios.txt","w");
     if(f == NULL){
       printf("Error al abrir el fichero.\n");
     }
