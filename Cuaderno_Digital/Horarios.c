@@ -256,21 +256,21 @@ void elimina_horarios(){
         vaciar(v_horarios[n].Contrasena,strlen(v_usuarios[n].Contrasena));
         if(n<cont){
             for(j=n;j<cont;j++){
-                strcpy(v_usuarios[j].Id_usuario,v_usuarios[j+1].Id_usuario);
-                vaciar(v_usuarios[j+1].Id_usuario,strlen(v_usuarios[j+1].Id_usuario));
-                strcpy(v_usuarios[j].Nomb_usuario,v_usuarios[j+1].Nomb_usuario);
-                vaciar(v_usuarios[j+1].Nomb_usuario,strlen(v_usuarios[j+1].Nomb_usuario));
-                strcpy(v_usuarios[j].Perfil_usuario,v_usuarios[j+1].Perfil_usuario);
-                vaciar(v_usuarios[j+1].Perfil_usuario,strlen(v_usuarios[j+1].Perfil_usuario));
-                strcpy(v_usuarios[j].Usuario,v_usuarios[j+1].Usuario);
-                vaciar(v_usuarios[j+1].Usuario,strlen(v_usuarios[j+1].Usuario));
-                strcpy(v_usuarios[j].Contrasena,v_usuarios[j+1].Contrasena);
-                vaciar(v_usuarios[j+1].Contrasena,strlen(v_usuarios[j+1].Contrasena));
+                strcpy(v_horarios[j].Id_usuario,v_usuarios[j+1].Id_usuario);
+                vaciar(v_horarios[j+1].Id_usuario,strlen(v_usuarios[j+1].Id_usuario));
+                strcpy(v_horarios[j].Nomb_usuario,v_usuarios[j+1].Nomb_usuario);
+                vaciar(v_horarios[j+1].Nomb_usuario,strlen(v_usuarios[j+1].Nomb_usuario));
+                strcpy(v_horarios[j].Perfil_usuario,v_usuarios[j+1].Perfil_usuario);
+                vaciar(v_horarios[j+1].Perfil_usuario,strlen(v_usuarios[j+1].Perfil_usuario));
+                strcpy(v_horarios[j].Usuario,v_usuarios[j+1].Usuario);
+                vaciar(v_horarios[j+1].Usuario,strlen(v_usuarios[j+1].Usuario));
+                strcpy(v_horarios[j].Contrasena,v_usuarios[j+1].Contrasena);
+                vaciar(v_horarios[j+1].Contrasena,strlen(v_usuarios[j+1].Contrasena));
             }
-            v_usuarios=(Usuario*)realloc(v_usuarios,cont*sizeof(Usuario));
+            v_horarios=(horarios*)realloc(v_horarios,cont*sizeof(horarios));
          }
          else{
-            v_usuarios=(Usuario*)realloc(v_usuarios,cont*sizeof(Usuario));
+            v_horarios=(horarios*)realloc(v_horarios,cont*sizeof(horarios));
          }
     }
     fclose(f);
