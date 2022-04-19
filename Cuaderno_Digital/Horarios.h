@@ -12,15 +12,15 @@ typedef struct{
     char hora_clase[7];
     char id_materia[5];
     char grupo[11];
-}Horarios;
+}horarios;
 
-Horarios *v_horarios;
+horarios *v_horarios;
 
-void listhorar();
+void lista_horararios();
 void carga_horarios();
-void modhorar();
-void addhorar();
-void delhorar();
+void modificar_horararios();
+void crea_horarios();
+void borrar_horararios();
 void endhorar();
 
 #endif

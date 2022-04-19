@@ -3,21 +3,21 @@
 
 int main(){
     int n;
-    carga_horario();
-    crea_horario();
-    modifica_horario();
-    elimina_horario();
-    lista_horario();
+    carga_horarios();
+    crea_horarios();
+    modifica_horarios();
+    elimina_horarios();
+    lista_horarios();
     return 0;
 }
 
-void carga_horario(){
+void carga_horarios(){
 
     int cont=0,i,j,semaforo;
     char temp[100],*aux;
     const char s[2] = "-";
     FILE *f;
-    f = fopen("horarios.txt","r");
+    f = fopen("horario.txt","r");
     if(f == NULL){
         printf("Error al abrir el fichero.\n");
     }
@@ -28,7 +28,7 @@ void carga_horario(){
     }
 
     rewind(f);
-    v_horarios = (horario*)malloc(cont*sizeof(horario));
+    v_horarios = (horarios*)malloc(cont*sizeof(horarios));
     if(v_horarios == NULL){
         printf("No se ha podido reservar la memoria.\n");
     }
@@ -40,19 +40,19 @@ void carga_horario(){
         while(aux != NULL){
             switch (j){
                 case 1:
-                    strcpy(v_horario[i].Id_profesor,aux);
+                    strcpy(v_horarios[i].Id_profesor,aux);
                     break;
                 case 2:
-                    strcpy(v_horario[i].Dia_clase,aux);
+                    strcpy(v_horarios[i].Dia_clase,aux);
                     break;
                 case 3:
-                    strcpy(v_horario[i].Hora_clase,aux);
+                    strcpy(v_horarios[i].Hora_clase,aux);
                     break;
                 case 4:
-                    strcpy(v_horario[i].Id_materia,aux);
+                    strcpy(v_horarios[i].Id_materia,aux);
                     break;
                 case 5:
-                    strcpy(v_horario[i].Grupo,aux);
+                    strcpy(v_horarios[i].Grupo,aux);
                     break;
             }
             aux = strtok(NULL,s);
@@ -64,8 +64,8 @@ void carga_horario(){
         semaforo=0;
         while(semaforo==0){
             j++;
-            if(v_horario[i].Grupo[j] == '\n'){
-                v_horario[i].Grupo[j] = '\0';
+            if(v_horarios[i].Grupo[j] == '\n'){
+                v_horarios[i].Grupo[j] = '\0';
                 semaforo=1;
             }
         }
@@ -73,11 +73,11 @@ void carga_horario(){
     fclose(f);
 }
 
-void lista_horario(){
+void lista_horarios(){
     int cont=0,i;
     char temp[100];
     FILE *f;
-    f = fopen("horario.txt","r");
+    f = fopen("horarios.txt","r");
     if(f == NULL){
         printf("Error al abrir el fichero.\n");
     }
@@ -87,7 +87,7 @@ void lista_horario(){
         cont++;
     }
     for(i=0;i<cont;i++){
-        printf("%i. %s %s %s\n",i+1,v_hoarario[i].Id_profesor,v_horario[i].Nomb_usuario,v_usuarios[i].Perfil_usuario);
+        printf("%i. %s %s %s\n",i+1,v_hoararios[i].Id_profesor,v_horarios[i].Dia_clase,v_horarios[i].Hora_clase,v_hoararios[i].Id_materia,v_hoararios[i].Grupo);
     }
     fclose(f);
 }
@@ -95,7 +95,7 @@ void lista_horario(){
 void modifica_horarios(){
     int cont=0,n;
     char temp[100],c,aux[100];
-    lista_usuarios();
+    lista_horarios();
     FILE *f;
     f = fopen("horarios.txt","r");
     if(f == NULL){
@@ -108,7 +108,7 @@ void modifica_horarios(){
     }
 
     do{
-        printf("Introduce el numero correspondiente al profesor que desea editar\n");
+        printf("Introduce el numero horario que desea editar\n");
         scanf("%i",&n);
         fflush(stdin);
     }while(n<=0 || n>cont);
@@ -297,7 +297,7 @@ void vuelca_horario(int n){
       printf("Error al abrir el fichero.\n");
     }
     for(i=0;i<cont;i++){
-        fprintf(f,"%s-%s-%s-%s-%s",v_horario[i].Id_profesor,v_horario[i].Dia_clase,v_horario[i].Hora_clase,v_horario[i].Id_materia,v_horario[i].Grupo);
+        fprintf(f,"%s-%s-%s-%s-%s",v_horarios[i].Id_profesor,v_horarios[i].Dia_clase,v_horarios[i].Hora_clase,v_horarios[i].Id_materia,v_horarios[i].Grupo);
         if(i != (cont-1)){
             fprintf(f,"\n");
         }
