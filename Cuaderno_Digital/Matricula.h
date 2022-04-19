@@ -18,6 +18,6 @@ void carga_matricula();
 void modifica_matricula();
 void crea_matricula();
 void elimina_matricula();
-void endmatr();
+void vuelca_matricula(int);
 
 #endif

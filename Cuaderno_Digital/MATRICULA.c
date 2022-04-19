@@ -164,7 +164,7 @@ void crea_matricula(){
 }
 
 void elimina_matricula(){
-    int cont=0,n,i=0,matr=0,j,v=-1
+    int cont=0,n,i=0,matr=0,j,v=-1;
     char temp[100];
     lista_matricula();
     FILE *f;
