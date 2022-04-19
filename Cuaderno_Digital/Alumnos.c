@@ -19,6 +19,9 @@ int main(){
     return 0;
 }
 
+//Cabecera: void carga_alumnos();
+//Precondicion:
+//Postcondicion: El programa carga todos los datos almacenados en el txt correspondientes a los alumnos en una estructura;
 void carga_alumnos(){
 
 char p[100], *token;
@@ -76,6 +79,9 @@ for(i = 0; i < l; i++){
 fclose(f);
 }
 
+//Cabecera: void addalum();
+//Precondicion:
+//Postcondicion: Se añade un alumno nuevo a la estructura;
 void addalum(){
     int i;
 	char c;
@@ -122,6 +128,9 @@ void addalum(){
 	}while(c == 's');
 }
 
+//Cabecera: void listalum();
+//Precondicion:
+//Postcondicion: El modulo muestra el nombre de cada alumno y deja seleccionar uno para mostrar todos los datos correspondientes a ese alumno;
 void listalum(){
 	int i, n;
 	n = 0;
@@ -142,6 +151,9 @@ void listalum(){
     printf("%s\n", alun[n].grupo);
 }
 
+//Cabecera: void delalum();
+//Precondicion:
+//Postcondicion: Elimina un alumno a eleccion del usuario.
 void delalum(){
 	int i, j;
 	char nom[20];
@@ -164,6 +176,9 @@ void delalum(){
 	alun = (Alumnos*)realloc(alun, l);
 }
 
+//Cabecera: void modalum();
+//Precondicion:
+//Postcondicion: modifica un dato de un alumno a eleccion del usuario.
 void modalum(){
 	int i, j;
 	char c, dat[31];
@@ -233,6 +248,9 @@ void modalum(){
 			}while(c != 'n');
 }
 
+//Cabecera: void endalum();
+//Precondicion:
+//Postcondicion: Vacia el txt y vuelca los datos de la estructura.
 void endalum(){
 	FILE *f;
 	int i;
