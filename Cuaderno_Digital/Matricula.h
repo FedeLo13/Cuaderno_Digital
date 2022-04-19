@@ -9,9 +9,9 @@
 typedef struct{
     char id_materia[5];
     char id_alum[7];
-}Matricula;
+}matricula;
 
-Matricula *v_matricula;
+matricula *v_matricula;
 
 void lista_matricula();
 void carga_matricula();
