@@ -76,50 +76,46 @@ fclose(f);
 }
 
 void addalum(){
-	char c, aux[31];
+    int i;
+	char c;
 	do{
     l++;
 	alun = (Alumnos*)realloc(alun, l);
+	i = l;
 
 	if(alun == NULL){
 		printf("ERROR");
 	}
 	do{
 		printf("Introduce el id del nuevo alumno.\n");
-		gets(aux);
+		gets(alun[i].id_alum);
 		fflush(stdin);
-		strcpy(alun[l].id_alum, aux);
-	}while(strlen(alun[l].id_alum) > 7);
+	}while(strlen(alun[i].id_alum) > 7);
 	do{
 		printf("Introduce el nombre del nuevo alumno.\n");
-		gets(aux);
+		gets(alun[i].nombre_alum);
 		fflush(stdin);
-		strcpy(alun[l].nombre_alum, aux);
-	}while(strlen(alun[l].nombre_alum) > 21);
+	}while(strlen(alun[i].nombre_alum) > 21);
 	do{
 		printf("Introduce la direccion del nuevo alumno.\n");
-		gets(aux);
+		gets(alun[i].direc_alum);
 		fflush(stdin);
-		strcpy(alun[l].direc_alum, aux);
-	}while(strlen(alun[l].direc_alum) > 31);
+	}while(strlen(alun[i].direc_alum) > 31);
 	do{
 		printf("Introduce la localidad del nuevo alumno.\n");
-		gets(aux);
+		gets(alun[i].local_alum);
 		fflush(stdin);
-		strcpy(alun[l].local_alum, aux);
-	}while(strlen(alun[l].local_alum) > 31);
+	}while(strlen(alun[i].local_alum) > 31);
 	do{
 		printf("Introduce el curso del nuevo alumno.\n");
-		gets(aux);
+		gets(alun[i].curso);
 		fflush(stdin);
-		strcpy(alun[l].curso, aux);
-	}while(strlen(alun[l].curso) > 31);
+	}while(strlen(alun[i].curso) > 31);
 	do{
 		printf("Introduce el grupo del nuevo alumno.\n");
-		gets(aux);
+		gets(alun[i].grupo);
 		fflush(stdin);
-		strcpy(alun[l].grupo, aux);
-	}while(strlen(alun[l].grupo) > 11);
+	}while(strlen(alun[i].grupo) > 11);
 	printf("¿Quieres introducir otro alumno? s/n \n");
 	c = getc(stdin);
 	}while(c == 's');
