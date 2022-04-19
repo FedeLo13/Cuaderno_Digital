@@ -7,11 +7,11 @@
 #include <locale.h>
 
 typedef struct{
-    char id_profesor[4];
-    char dia_clase[6];
-    char hora_clase[7];
-    char id_materia[5];
-    char grupo[11];
+    char Id_profesor[4];
+    char Dia_clase[6];
+    char Hora_clase[7];
+    char Id_materia[5];
+    char Grupo[11];
 }horarios;
 
 horarios *v_horarios;

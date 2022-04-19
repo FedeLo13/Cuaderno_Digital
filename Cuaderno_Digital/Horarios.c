@@ -17,7 +17,7 @@ void carga_horarios(){
     char temp[100],*aux;
     const char s[2] = "-";
     FILE *f;
-    f = fopen("horario.txt","r");
+    f = fopen("horarios.txt","r");
     if(f == NULL){
         printf("Error al abrir el fichero.\n");
     }
@@ -87,7 +87,7 @@ void lista_horarios(){
         cont++;
     }
     for(i=0;i<cont;i++){
-        printf("%i. %s %s %s\n",i+1,v_hoararios[i].Id_profesor,v_horarios[i].Dia_clase,v_horarios[i].Hora_clase,v_hoararios[i].Id_materia,v_hoararios[i].Grupo);
+        printf("%i. %s %s %s\n",i+1,v_horarios[i].Id_profesor,v_horarios[i].Dia_clase,v_horarios[i].Hora_clase,v_horarios[i].Id_materia,v_horarios[i].Grupo);
     }
     fclose(f);
 }
@@ -118,33 +118,33 @@ void modifica_horarios(){
         gets(aux);
         fflush(stdin);
         if(strcmp(aux,"x")!=0){
-            strcpy(v_usuarios[n].Dia_clase,aux);
+            strcpy(v_horarios[n].Dia_clase,aux);
         }
-    }while(strlen(v_usuarios[n].Dia_clase) > 1);
+    }while(strlen(v_horarios[n].Dia_clase) > 1);
     do{
         printf("Escriba la nueva hora (maximo 1 caracter), o escriba x si no quiere editarlo\n");
         gets(aux);
         fflush(stdin);
         if(strcmp(aux,"x")!=0){
-            strcpy(v_usuarios[n].Hora_clase,aux);
+            strcpy(v_horarios[n].Hora_clase,aux);
         }
-    }while(strlen(v_usuarios[n].Hora_clase) > 1);
+    }while(strlen(v_horarios[n].Hora_clase) > 1);
     do{
         printf("Escriba el nuevo identificador de materia (maximo 4 caracteres), o escriba x si no quiere editarlo\n");
         gets(aux);
         fflush(stdin);
         if(strcmp(aux,"x")!=0){
-            strcpy(v_usuarios[n].Id_materia,aux);
+            strcpy(v_horarios[n].Id_materia,aux);
         }
-    }while(strlen(v_usuarios[n].Id_materia) > 4);
+    }while(strlen(v_horarios[n].Id_materia) > 4);
     do{
         printf("Escriba el nuevo grupo(maximo 10 caracteres), o escriba x si no quiere editarlo\n");
         gets(aux);
         fflush(stdin);
         if(strcmp(aux,"x")!=0){
-            strcpy(v_usuarios[n].Contrasena,aux);
+            strcpy(v_horarios[n].Grupo,aux);
         }
-    }while(strlen(v_usuarios[n].Contrasena) > 10);
+    }while(strlen(v_horarios[n].Grupo) > 10);
     do{
     printf("Esta seguro/a de que quiere realizar estos cambios? (s/n)\n");
     scanf("%c",&c);
@@ -154,7 +154,7 @@ void modifica_horarios(){
         vaciar(v_horarios[n].Dia_clase,strlen(v_horarios[n].Dia_clase));
         vaciar(v_horarios[n].Hora_clase,strlen(v_horarios[n].Hora_clase));
         vaciar(v_horarios[n].Id_materia,strlen(v_horarios[n].Id_materia));
-        vaciar(v_horarios[n].Grupo,strlen(v_horarios[n].grupo));
+        vaciar(v_horarios[n].Grupo,strlen(v_horarios[n].Grupo));
     }
     }while(c != 'n' && c!='s');
     fclose(f);
@@ -178,45 +178,45 @@ void crea_horarios(){
     cont++;
     v_horarios=(horarios*)realloc(v_horarios,cont*sizeof(horarios));
     do{
-        printf("Introduzca el identificador del %s (maximo 3 digitos)\n",v_usuarios[i].Perfil_usuario);
-        gets(v_usuarios[i].Id_usuario);
+        printf("Introduzca el dia %s (maximo 5 digitos)\n",v_horarios[i].horarios);
+        gets(v_horarios[i].Id_usuario);
         fflush(stdin);
-    }while(strlen(v_usuarios[i].Id_usuario) > 3);
+    }while(strlen(v_horarios[i].Id_usuario) > 5);
     do{
-        printf("Introduzca el nombre del %s (maximo 20 caracteres)\n",v_usuarios[i].Perfil_usuario);
-        gets(v_usuarios[i].Nomb_usuario);
+        printf("Introduzca la hora %s (maximo 6 caracteres)\n",v_horarios[i].horarios);
+        gets(v_horarios[i].Hora_clase);
         fflush(stdin);
-    }while(strlen(v_usuarios[i].Nomb_usuario) > 20);
+    }while(strlen(v_horarios[i].Hora_clase) > 6);
     do{
-        printf("Introduzca el nombre de usuario del %s (maximo 5 caracteres)\n",v_usuarios[i].Perfil_usuario);
-        gets(v_usuarios[i].Usuario);
+        printf("Introduzca la materia %s (maximo 5 caracteres)\n",v_horarios[i].horarios);
+        gets(v_horarios[i].Id_materia);
         fflush(stdin);
-    }while(strlen(v_usuarios[i].Usuario) > 5);
+    }while(strlen(v_horarios[i].Id_materia) > 5);
     do{
-        printf("Introduzca la contrasena del %s (maximo 8 caracteres)\n",v_usuarios[i].Perfil_usuario);
-        gets(v_usuarios[i].Contrasena);
+        printf("Introduzca el grupo %s (maximo 10 caracteres)\n",v_horarios[i].horarios);
+        gets(v_horarios[i].Grupo);
         fflush(stdin);
-    }while(strlen(v_usuarios[i].Contrasena) > 8);
+    }while(strlen(v_horarios[i].Grupo) > 10);
     do{
     printf("Esta seguro/a de que quiere realizar esta operacion? (s/n)\n");
     scanf("%c",&c);
     fflush(stdin);
     if(c == 'n'){
-        vaciar(v_usuarios[i].Id_usuario,strlen(v_usuarios[i].Id_usuario));
-        vaciar(v_usuarios[i].Nomb_usuario,strlen(v_usuarios[i].Nomb_usuario));
-        vaciar(v_usuarios[i].Perfil_usuario,strlen(v_usuarios[i].Perfil_usuario));
-        vaciar(v_usuarios[i].Usuario,strlen(v_usuarios[i].Usuario));
-        vaciar(v_usuarios[i].Contrasena,strlen(v_usuarios[i].Contrasena));
-        v_usuarios=(Usuario*)realloc(v_usuarios,i*sizeof(Usuario));
+        vaciar(v_horarios[i].Id_profesor,strlen(v_horarios[i].Id_profesor));
+        vaciar(v_horarios[i].Día_clase,strlen(v_horarios[i].Día_clase));
+        vaciar(v_horarios[i].Hora_clase,strlen(v_horarios[i].Hora_clase));
+        vaciar(v_horarios[i].Id_materia,strlen(v_horarios[i].Id_materia));
+        vaciar(v_horarios[i].Grupo,strlen(v_horarios[i].Grupo));
+        v_horarios=(horarios*)realloc(v_horarios,i*sizeof(horarios));
         v=0;
     }
     }while(c != 'n' && c!='s');
     fclose(f);
-    vuelca_usuarios(v);
+    vuelca_horarios(v);
 }
 
 void elimina_horarios(){
-    int cont=0,n,i=0,admns=0,j,v=-1;
+    int cont=0,n,i=0,horar=0,j,v=-1;
     char temp[100];
     lista_usuarios();
     FILE *f;
@@ -236,36 +236,36 @@ void elimina_horarios(){
     }while(n<=0 || n>cont);
     n--;
     cont--;
-    if (strcmp(v_horarios[n].Perfil_horario,"administrador") == 0){
-        while(i<cont && admns < 2){
-            if(strcmp(v_horarios[i].Perfil_horario,"administrador") == 0){
-                admns++;
+    if (strcmp(v_horarios[n].horario,"horarios") == 0){
+        while(i<cont && horarios < 2){
+            if(strcmp(v_horarios[i].horarios,"horarios") == 0){
+                horar++;
             }
             i++;
         }
     }
-    if(admns == 1){
-        printf("No se puede realizar esta accion debido a que solo existe 1 administrador\n");
+    if(horar == 1){
+        printf("No se puede realizar esta accion debido a que solo existe 1 horario\n");
         v=0;
     }
     else{
-        vaciar(v_horarios[n].Id_usuario,strlen(v_usuarios[n].Id_usuario));
-        vaciar(v_horarios[n].Nomb_usuario,strlen(v_usuarios[n].Nomb_usuario));
-        vaciar(v_horarios[n].Perfil_usuario,strlen(v_usuarios[n].Perfil_usuario));
-        vaciar(v_horarios[n].Usuario,strlen(v_usuarios[n].Usuario));
-        vaciar(v_horarios[n].Contrasena,strlen(v_usuarios[n].Contrasena));
+        vaciar(v_horarios[n].Id_profesor,strlen(v_horarios[n].Id_profesor));
+        vaciar(v_horarios[n].Dia_clase,strlen(v_horarios[n].Dia_clase));
+        vaciar(v_horarios[n].Hora_clase,strlen(v_horarios[n].Hora_clase));
+        vaciar(v_horarios[n].Id_materia,strlen(v_horarios[n].Id_materia));
+        vaciar(v_horarios[n].Grupo,strlen(v_horarios[n].Grupo));
         if(n<cont){
             for(j=n;j<cont;j++){
-                strcpy(v_horarios[j].Id_usuario,v_usuarios[j+1].Id_usuario);
-                vaciar(v_horarios[j+1].Id_usuario,strlen(v_usuarios[j+1].Id_usuario));
-                strcpy(v_horarios[j].Nomb_usuario,v_usuarios[j+1].Nomb_usuario);
-                vaciar(v_horarios[j+1].Nomb_usuario,strlen(v_usuarios[j+1].Nomb_usuario));
-                strcpy(v_horarios[j].Perfil_usuario,v_usuarios[j+1].Perfil_usuario);
-                vaciar(v_horarios[j+1].Perfil_usuario,strlen(v_usuarios[j+1].Perfil_usuario));
-                strcpy(v_horarios[j].Usuario,v_usuarios[j+1].Usuario);
-                vaciar(v_horarios[j+1].Usuario,strlen(v_usuarios[j+1].Usuario));
-                strcpy(v_horarios[j].Contrasena,v_usuarios[j+1].Contrasena);
-                vaciar(v_horarios[j+1].Contrasena,strlen(v_usuarios[j+1].Contrasena));
+                strcpy(v_horarios[j].Id_profesor,v_horarios[j+1].Id_profesor);
+                vaciar(v_horarios[j+1].Id_profesor,strlen(v_horarios[j+1].Id_profesor));
+                strcpy(v_horarios[j].Dia_clase,v_horarios[j+1].Dia_clase);
+                vaciar(v_horarios[j+1].Dia_clase,strlen(v_horarios[j+1].Dia_clase));
+                strcpy(v_horarios[j].Hora_clase,v_horarios[j+1].Hora_clase);
+                vaciar(v_horarios[j+1].Hora_clase,strlen(v_horarios[j+1].Hora_clase));
+                strcpy(v_horarios[j].Id_materia,v_horarios[j+1].Id_materia);
+                vaciar(v_horarios[j+1].Id_materia,strlen(v_horarios[j+1].Id_materia));
+                strcpy(v_horarios[j].Grupo,v_horarios[j+1].Grupo);
+                vaciar(v_horarios[j+1].Grupo,strlen(v_horarios[j+1].Grupo));
             }
             v_horarios=(horarios*)realloc(v_horarios,cont*sizeof(horarios));
          }
