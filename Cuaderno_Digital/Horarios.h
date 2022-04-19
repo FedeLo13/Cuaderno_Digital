@@ -14,7 +14,7 @@ typedef struct{
     char grupo[11];
 }Horarios;
 
-Horarios *horar;
+Horarios *v_horarios;
 
 void listhorar();
 void carga_horarios();

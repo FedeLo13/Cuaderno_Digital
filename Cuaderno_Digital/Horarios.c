@@ -1,4 +1,4 @@
-#include "horario.h"
+#include "horarios.h"
 #include "funciones_clave.c"
 
 int main(){
@@ -17,7 +17,7 @@ void carga_horario(){
     char temp[100],*aux;
     const char s[2] = "-";
     FILE *f;
-    f = fopen("horario.txt","r");
+    f = fopen("horarios.txt","r");
     if(f == NULL){
         printf("Error al abrir el fichero.\n");
     }
@@ -28,8 +28,8 @@ void carga_horario(){
     }
 
     rewind(f);
-    v_horario = (horario*)malloc(cont*sizeof(horario));
-    if(v_horario == NULL){
+    v_horarios = (horario*)malloc(cont*sizeof(horario));
+    if(v_horarios == NULL){
         printf("No se ha podido reservar la memoria.\n");
     }
     for(i=0;i<cont;i++){

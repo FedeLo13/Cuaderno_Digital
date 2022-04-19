@@ -100,7 +100,7 @@ void modifica_matricula(){
         if(strcmp(aux,"x")!=0){
             strcpy(v_matricula[n].Id_materia,aux);
         }
-    }while(strlen(v_matricula[n].Id_materia) > 3);
+    }while(strlen(v_matricula[n].Id_materia) > 4);
     do{
         printf("Escriba el nuevo nombre (maximo 6 caracteres), o escriba x si no quiere editarlo\n");
         gets(aux);
@@ -139,15 +139,15 @@ void crea_matricula(){
     cont++;
     v_matricula=(matricula*)realloc(v_matricula,cont*sizeof(matricula));
     do{
-        printf("Introduzca el identificador de la materia %s (maximo 3 digitos)\n",v_matricula[i].Id_materia);
+        printf("Introduzca el identificador de la materia %s (maximo 4 digitos)\n",v_matricula[i].Id_materia);
         gets(v_matricula[i].Id_materia);
         fflush(stdin);
-    }while(strlen(v_matricula[i].Id_materia) > 3);
+    }while(strlen(v_matricula[i].Id_materia) > 4);
     do{
-        printf("Introduzca el identifucador del alumno%s (maximo 20 caracteres)\n",v_matricula[i].Id_alum);
+        printf("Introduzca el identifucador del alumno%s (maximo 6 caracteres)\n",v_matricula[i].Id_alum);
         gets(v_matricula[i].Id_alum);
         fflush(stdin);
-    }while(strlen(v_matricula[i].Id_alum) > 20);
+    }while(strlen(v_matricula[i].Id_alum) > 6);
    do{
     printf("Esta seguro/a de que quiere realizar esta operacion? (s/n)\n");
     scanf("%c",&c);
