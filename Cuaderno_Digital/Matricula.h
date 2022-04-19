@@ -11,7 +11,7 @@ typedef struct{
     char id_alum[7];
 }Matricula;
 
-Matricula *matr;
+Matricula *v_matricula;
 
 void lista_matricula();
 void carga_matricula();

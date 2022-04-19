@@ -216,7 +216,7 @@ void elimina_matricula(){
                 strcpy(v_matricula[j].Id_materia,v_matricula[j+1].Id_materia);
                 vaciar(v_matricula[j+1].Id_materia,strlen(v_matricula[j+1].Id_materia));
                 strcpy(v_matricula[j].Id_alum,v_matricula[j+1].Id_alum);
-                vaciar(v_matricula[j+1].Id_alum,strlen(v_usuarios[j+1].Id_alum));
+                vaciar(v_matricula[j+1].Id_alum,strlen(v_matricula[j+1].Id_alum));
             }
             v_matricula=(Matricula*)realloc(v_matricula,cont*sizeof(matricula));
          }
