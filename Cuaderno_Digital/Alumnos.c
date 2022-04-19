@@ -13,8 +13,9 @@ int l;
 int main(){
 	setlocale(LC_CTYPE, "Spanish");
     carga_alumnos();
-    addalum();
+    modalum();
     listalum();
+    endalum();
     return 0;
 }
 
@@ -82,7 +83,6 @@ void addalum(){
     l++;
 	alun = (Alumnos*)realloc(alun, l);
 	i = l-1;
-	printf("%i", l);
 
 	if(alun == NULL){
 		printf("ERROR");
@@ -242,7 +242,7 @@ void endalum(){
 	}
 	fflush(f);
 
-	for(i = 0; i<l; i++){
+	for(i = 0; i < l; i++){
 		fprintf(f, "%s-", alun[i].id_alum);
 		fprintf(f, "%s-", alun[i].nombre_alum);
 		fprintf(f, "%s-", alun[i].direc_alum);
