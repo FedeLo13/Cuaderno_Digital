@@ -31,6 +31,9 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Alumnos.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="Horarios.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -42,10 +45,19 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Matricula.h" />
+		<Unit filename="alumnos.h" />
+		<Unit filename="funciones_clave.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="funciones_clave.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="materias.h" />
+		<Unit filename="usuarios.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="usuarios.h" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

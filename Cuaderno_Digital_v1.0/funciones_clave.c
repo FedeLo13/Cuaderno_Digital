@@ -16,3 +16,4 @@ void termina_cadenas(char *s){
         }
     }
 }
+

@@ -15,16 +15,16 @@
 	"funciones_clave.h"
 	"alumnos.h"
 
-1650399626 c:\users\fede\documents\github\cuaderno_digital\cuaderno_digital_v1.0\usuarios.h
+1650402658 c:\users\fede\documents\github\cuaderno_digital\cuaderno_digital_v1.0\usuarios.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1650400870 c:\users\fede\documents\github\cuaderno_digital\cuaderno_digital_v1.0\funciones_clave.h
+1650402463 c:\users\fede\documents\github\cuaderno_digital\cuaderno_digital_v1.0\funciones_clave.h
 	<stdio.h>
 	<string.h>
 
-1650399771 c:\users\fede\documents\github\cuaderno_digital\cuaderno_digital_v1.0\alumnos.h
+1650402573 c:\users\fede\documents\github\cuaderno_digital\cuaderno_digital_v1.0\alumnos.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -57,4 +57,15 @@
 	<stdlib.h>
 	<string.h>
 	<locale.h>
+
+1650402412 source:c:\users\fede\documents\github\cuaderno_digital\cuaderno_digital_v1.0\funciones_clave.c
+	"funciones_clave.h"
+
+1650402547 source:c:\users\fede\documents\github\cuaderno_digital\cuaderno_digital_v1.0\alumnos.c
+	"alumnos.h"
+	"funciones_clave.h"
+
+1650402608 source:c:\users\fede\documents\github\cuaderno_digital\cuaderno_digital_v1.0\usuarios.c
+	"usuarios.h"
+	"funciones_clave.h"
 
