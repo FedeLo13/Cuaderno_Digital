@@ -164,7 +164,7 @@ void crea_matricula(){
 }
 
 void elimina_matricula(){
-    int cont=0,n,i=0,admns=0,j,v=-1
+    int cont=0,n,i=0,matr=0,j,v=-1
     char temp[100];
     lista_matricula();
     FILE *f;
@@ -185,14 +185,14 @@ void elimina_matricula(){
     n--;
     cont--;
     if (strcmp(v_matricula[n].Id_materia,"matricula") == 0){
-        while(i<cont && admns < 2){
+        while(i<cont && matr < 2){
             if(strcmp(v_matricula[i].Id_materia,"matricula") == 0){
-                admns++;
+                matr++;
             }
             i++;
         }
     }
-    if(admns == 1){
+    if(matr == 1){
         printf("No se puede realizar esta accion debido a que solo existe 1 matricula\n");
         v=0;
     }
