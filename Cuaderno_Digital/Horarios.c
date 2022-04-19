@@ -178,22 +178,22 @@ void crea_horarios(){
     cont++;
     v_horarios=(horarios*)realloc(v_horarios,cont*sizeof(horarios));
     do{
-        printf("Introduzca el dia %s (maximo 5 digitos)\n",v_horarios[i].horarios);
-        gets(v_horarios[i].Id_usuario);
+        printf("Introduzca el dia %s (maximo 5 digitos)\n",v_horarios[i].Dia_clase);
+        gets(v_horarios[i].Dia_clase);
         fflush(stdin);
-    }while(strlen(v_horarios[i].Id_usuario) > 5);
+    }while(strlen(v_horarios[i].Dia_clase) > 5);
     do{
-        printf("Introduzca la hora %s (maximo 6 caracteres)\n",v_horarios[i].horarios);
+        printf("Introduzca la hora %s (maximo 6 caracteres)\n",v_horarios[i].Hora_clase);
         gets(v_horarios[i].Hora_clase);
         fflush(stdin);
     }while(strlen(v_horarios[i].Hora_clase) > 6);
     do{
-        printf("Introduzca la materia %s (maximo 5 caracteres)\n",v_horarios[i].horarios);
+        printf("Introduzca la materia %s (maximo 5 caracteres)\n",v_horarios[i].Id_materia);
         gets(v_horarios[i].Id_materia);
         fflush(stdin);
     }while(strlen(v_horarios[i].Id_materia) > 5);
     do{
-        printf("Introduzca el grupo %s (maximo 10 caracteres)\n",v_horarios[i].horarios);
+        printf("Introduzca el grupo %s (maximo 10 caracteres)\n",v_horarios[i].Grupo);
         gets(v_horarios[i].Grupo);
         fflush(stdin);
     }while(strlen(v_horarios[i].Grupo) > 10);
@@ -203,7 +203,7 @@ void crea_horarios(){
     fflush(stdin);
     if(c == 'n'){
         vaciar(v_horarios[i].Id_profesor,strlen(v_horarios[i].Id_profesor));
-        vaciar(v_horarios[i].Día_clase,strlen(v_horarios[i].Día_clase));
+        vaciar(v_horarios[i].Dia_clase,strlen(v_horarios[i].Dia_clase));
         vaciar(v_horarios[i].Hora_clase,strlen(v_horarios[i].Hora_clase));
         vaciar(v_horarios[i].Id_materia,strlen(v_horarios[i].Id_materia));
         vaciar(v_horarios[i].Grupo,strlen(v_horarios[i].Grupo));
@@ -236,9 +236,9 @@ void elimina_horarios(){
     }while(n<=0 || n>cont);
     n--;
     cont--;
-    if (strcmp(v_horarios[n].horario,"horarios") == 0){
-        while(i<cont && horarios < 2){
-            if(strcmp(v_horarios[i].horarios,"horarios") == 0){
+    if (strcmp(v_horarios[n].Dia_clase,"horarios") == 0){
+        while(i<cont && Dia_clase < 2){
+            if(strcmp(v_horarios[i].Dia_clase,"horarios") == 0){
                 horar++;
             }
             i++;
