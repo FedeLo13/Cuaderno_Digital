@@ -1,5 +1,5 @@
 #include "alumnos.h"
-#include "funciones_clave.c"
+#include "funciones_clave.h"
 
 //Cabecera: void carga_alumnos();
 //Precondicion:

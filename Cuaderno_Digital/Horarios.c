@@ -1,15 +1,5 @@
-#include "horarios.h"
-#include "funciones_clave.c"
-
-int main(){
-    int n;
-    carga_horarios();
-    crea_horarios();
-    modifica_horarios();
-    elimina_horarios();
-    lista_horarios();
-    return 0;
-}
+#include "Horarios.h"
+#include "funciones_clave.h"
 
 void carga_horarios(){
 

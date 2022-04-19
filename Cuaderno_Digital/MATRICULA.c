@@ -1,15 +1,6 @@
 #include "Matricula.h"
-#include "funciones_clave.c"
+#include "funciones_clave.h"
 
-int main(){
-    int n;
-    carga_matricula();
-    crea_matricula();
-    modifica_matricula();
-    elimina_matricula();
-    lista_matricula();
-    return 0;
-}
 void carga_matricula(){
 
     int cont=0,i,j,semaforo;

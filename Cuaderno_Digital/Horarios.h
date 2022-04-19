@@ -16,11 +16,11 @@ typedef struct{
 
 horarios *v_horarios;
 
-void lista_horararios();
+void lista_horarios();
 void carga_horarios();
-void modificar_horararios();
+void modifica_horarios();
 void crea_horarios();
-void borrar_horararios();
-void endhorar();
+void elimina_horarios();
+void vuelca_horarios(int);
 
 #endif
