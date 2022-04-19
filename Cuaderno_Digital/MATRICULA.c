@@ -100,21 +100,22 @@ void modifica_matricula(){
         if(strcmp(aux,"x")!=0){
             strcpy(v_matricula[n].Id_materia,aux);
         }
-    }while(strlen(v_usuarios[n].Id_materia) > 3);
+    }while(strlen(v_matricula[n].Id_materia) > 3);
     do{
-        printf("Escriba el nuevo nombre (maximo 20 caracteres), o escriba x si no quiere editarlo\n");
+        printf("Escriba el nuevo nombre (maximo 6 caracteres), o escriba x si no quiere editarlo\n");
         gets(aux);
         fflush(stdin);
         if(strcmp(aux,"x")!=0){
             strcpy(v_matricula[n].Id_alum,aux);
-        }
-    }do{
+       }
+     }while(strlen(v_matricula[n].Id_alum) >6);
+    do{
     printf("Esta seguro/a de que quiere realizar estos cambios? (s/n)\n");
     scanf("%c",&c);
     fflush(stdin);
     if(c == 'n'){
-        vaciar(v_horario[n].Id_materia,strlen(v_horario[n].Id_materia));
-        vaciar(v_horario[n].Id_alum,strlen(v_horario[n].Id_alum));
+        vaciar(v_matricula[n].Id_materia,strlen(v_matricula[n].Id_materia));
+        vaciar(v_matricula[n].Id_alum,strlen(v_matricula[n].Id_alum));
     }
     }while(c != 'n' && c!='s');
     fclose(f);
@@ -136,43 +137,43 @@ void crea_matricula(){
     }
     i=cont;
     cont++;
-    v_matricula=(Matricula*)realloc(v_matricula,cont*sizeof(Matricula));
+    v_matricula=(matricula*)realloc(v_matricula,cont*sizeof(matricula));
     do{
-        printf("Introduzca el identificador del %s (maximo 3 digitos)\n",v_matricula[i].Matricula);
+        printf("Introduzca el identificador del %s (maximo 3 digitos)\n",v_matricula[i].matricula);
         gets(v_matricula[i].Id_u);
         fflush(stdin);
-    }while(strlen(v_usuarios[i].Id_usuario) > 3);
+    }while(strlen(v_matricula[i].Id_materia) > 3);
     do{
         printf("Introduzca el nombre del %s (maximo 20 caracteres)\n",v_usuarios[i].Perfil_usuario);
-        gets(v_usuarios[i].Nomb_usuario);
+        gets(v_matricula[i].matricula);
         fflush(stdin);
-    }while(strlen(v_usuarios[i].Nomb_usuario) > 20);
+    }while(strlen(v_matricula[i].matricula) > 20);
     do{
         printf("Introduzca el nombre de usuario del %s (maximo 5 caracteres)\n",v_usuarios[i].Perfil_usuario);
-        gets(v_usuarios[i].Usuario);
+        gets(v_matricula[i].Usuario);
         fflush(stdin);
-    }while(strlen(v_usuarios[i].Usuario) > 5);
+    }while(strlen(v_matricula[i].Usuario) > 5);
     do{
         printf("Introduzca la contrasena del %s (maximo 8 caracteres)\n",v_usuarios[i].Perfil_usuario);
-        gets(v_usuarios[i].Contrasena);
+        gets(v_matricula[i].Contrasena);
         fflush(stdin);
-    }while(strlen(v_usuarios[i].Contrasena) > 8);
+    }while(strlen(v_matricula[i].Contrasena) > 8);
     do{
     printf("Esta seguro/a de que quiere realizar esta operacion? (s/n)\n");
     scanf("%c",&c);
     fflush(stdin);
     if(c == 'n'){
-        vaciar(v_usuarios[i].Id_usuario,strlen(v_usuarios[i].Id_usuario));
-        vaciar(v_usuarios[i].Nomb_usuario,strlen(v_usuarios[i].Nomb_usuario));
-        vaciar(v_usuarios[i].Perfil_usuario,strlen(v_usuarios[i].Perfil_usuario));
-        vaciar(v_usuarios[i].Usuario,strlen(v_usuarios[i].Usuario));
-        vaciar(v_usuarios[i].Contrasena,strlen(v_usuarios[i].Contrasena));
-        v_usuarios=(Usuario*)realloc(v_usuarios,i*sizeof(Usuario));
+        vaciar(v_matricula[i].Id_usuario,strlen(v_usuarios[i].Id_usuario));
+        vaciar(v_matricula[i].Nomb_usuario,strlen(v_usuarios[i].Nomb_usuario));
+        vaciar(v_matriculai].Perfil_usuario,strlen(v_usuarios[i].Perfil_usuario));
+        vaciar(v_matricula[i].Usuario,strlen(v_usuarios[i].Usuario));
+        vaciar(v_matricula[i].Contrasena,strlen(v_usuarios[i].Contrasena));
+        v_matricula=(matricula*)realloc(v_matricula,i*sizeof(Usuario));
         v=0;
     }
     }while(c != 'n' && c!='s');
     fclose(f);
-    vuelca_usuarios(v);
+    vuelca_matricula(v);
 }
 
 void elimina_matricula(){
