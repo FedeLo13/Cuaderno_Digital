@@ -16,6 +16,7 @@ typedef struct{
 }Alumnos;
 
 Alumnos *alun;
+int l;
 
 void listalum();
 void carga_alumnos();

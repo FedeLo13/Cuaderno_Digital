@@ -1,24 +1,6 @@
 #include "alumnos.h"
 #include "funciones_clave.c"
 
-void listalum();
-void carga_alumnos();
-void modalum();
-void addalum();
-void delalum();
-void endalum();
-
-int l;
-
-int main(){
-	setlocale(LC_CTYPE, "Spanish");
-    carga_alumnos();
-    modalum();
-    listalum();
-    endalum();
-    return 0;
-}
-
 //Cabecera: void carga_alumnos();
 //Precondicion:
 //Postcondicion: El programa carga todos los datos almacenados en el txt correspondientes a los alumnos en una estructura;
@@ -28,6 +10,7 @@ char p[100], *token;
 const char s[2] = "-";
 int i, j, cont, semaforo;
 FILE *f;
+setlocale(LC_CTYPE, "Spanish");
 
 f = fopen("alumnos.txt", "r");
 
