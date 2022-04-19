@@ -1,15 +1,5 @@
 #include "usuarios.h"
-#include "funciones_clave.c"
-
-int main(){
-    int n;
-    carga_usuarios();
-    crea_usuarios();
-    modifica_usuarios();
-    elimina_usuarios();
-    lista_usuarios();
-    return 0;
-}
+#include "funciones_clave.h"
 
 //cabecera: void carga_usuarios();
 //precondición:
@@ -75,7 +65,9 @@ void carga_usuarios(){
     }
     fclose(f);
 }
-
+//cabecera: void lista_usuarios ();
+//precondición:
+//poscondición: lista los datos presentes en el registro
 void lista_usuarios(){
     int cont=0,i;
     char temp[100];
@@ -94,7 +86,9 @@ void lista_usuarios(){
     }
     fclose(f);
 }
-
+//cabecera: void modifica_usuarios();
+//precondición:
+//poscondición: modifica un usuario
 void modifica_usuarios(){
     int cont=0,n;
     char temp[100],c,aux[100];
@@ -163,7 +157,9 @@ void modifica_usuarios(){
     fclose(f);
 }
 
-
+//cabecera: void ccrea_usuarios();
+//precondición:
+//poscondición: crea un nuevo usuario
 void crea_usuarios(){
     int n,cont=0,i,v=1;
     char c,temp[100];
@@ -233,6 +229,9 @@ void crea_usuarios(){
     vuelca_usuarios(v);
 }
 
+//cabecera: void elimina_usuarios();
+//precondición:
+//poscondición: elimina un usuario
 void elimina_usuarios(){
     int cont=0,n,i=0,admns=0,j,v=-1;
     char temp[100];
@@ -294,7 +293,9 @@ void elimina_usuarios(){
     fclose(f);
     vuelca_usuarios(v);
 }
-
+//cabecera: void vuelva_usuarios();
+//precondición: recibe un 1 si tiene que escribir un usuario mas, -1 si tiene que escribir uno menos o 0 si es el mismo numero que habia anteriormente
+//poscondición: escribe los datos del registro en el fichero
 void vuelca_usuarios(int n){
     int cont=0,i;
     char temp[100];
