@@ -81,7 +81,8 @@ void addalum(){
 	do{
     l++;
 	alun = (Alumnos*)realloc(alun, l);
-	i = l;
+	i = l-1;
+	printf("%i", l);
 
 	if(alun == NULL){
 		printf("ERROR");
