@@ -4,6 +4,9 @@
 #include "usuarios.h"
 #include "funciones_clave.h"
 #include "alumnos.h"
+#include "materias.h"
+#include "Matricula.h"
+#include "Horarios.h"
 #define N 6
 #define n 9
 
@@ -12,6 +15,7 @@ void alum();
 void mat();
 void hor();
 void admin();
+void prof();
 
 int main()
 {
@@ -42,7 +46,7 @@ int main()
     if(strcmp(ad, v_usuarios[i].Perfil_usuario) == 0){
         admin();
     }else{
-
+        prof();
     }
     return 0;
 }
@@ -75,6 +79,7 @@ void admin(){ //Menu Principal//
 
 void usuarios(){ //Funcion de usuarios//
     int c;
+    carga_usuarios();
     do{
         printf("(1) Añadir usuario.\n");
         printf("(2) Eliminar usuario.\n");
@@ -83,13 +88,13 @@ void usuarios(){ //Funcion de usuarios//
         printf("(5) Volver al menu principal.\n");
         scanf("%i", &c);
         switch(c){
-            case 1:
+            case 1: crea_usuarios();
             break;
-            case 2:
+            case 2: elimina_usuarios();
             break;
-            case 3:
+            case 3: modifica_usuarios();
             break;
-            case 4:
+            case 4: lista_usuarios();
             break;
             case 5:
                 admin();
@@ -98,10 +103,12 @@ void usuarios(){ //Funcion de usuarios//
             break;
         }
     }while(c >= 6);
+    vuelca_usuarios();
 }
 
 void alum(){   //Funcion de alumnos//
     int c;
+    carga_alumnos();
     do{
         printf("(1) Añadir alumno.\n");
         printf("(2) Eliminar alumno.\n");
@@ -110,24 +117,26 @@ void alum(){   //Funcion de alumnos//
         printf("(5) Volver al menu principal.\n");
         scanf("%i", &c);
         switch(c){
-            case 1:
+            case 1: addalum();
             break;
-            case 2:
+            case 2: delalum();
             break;
-            case 3:
+            case 3: modalum();
             break;
-            case 4:
+            case 4: listalum();
             break;
             case 5:
                 admin();
             break;
             default: printf("Operacion incorrecta.\n");
             break;
-    }
-}while(c>=6);
+        }
+    }while(c>=6);
+    endalum();
 }
 void mat(){
     int c;
+    CargarMaterias();
     do{
         printf("(1) Añadir materias.\n");
         printf("(2) Eliminar materias.\n");
@@ -136,13 +145,13 @@ void mat(){
         printf("(5) Volver al menu principal.\n");
         scanf("%i", &c);
         switch(c){
-            case 1:
+            case 1: CrearMateria();
             break;
-            case 2:
+            case 2: EliminarMaterias();
             break;
             case 3:
             break;
-            case 4:
+            case 4: ListarMaterias();
             break;
             case 5:
                 admin();
@@ -151,10 +160,12 @@ void mat(){
             break;
     }
     }while(c >= 6);
+    EscribirMaterias();
 }
 
 void hor(){
     int c;
+    carga_horarios();
     do{
         printf("(1) Añadir hora.\n");
         printf("(2) Eliminar hora.\n");
@@ -163,13 +174,13 @@ void hor(){
         printf("(5) Volver al menu principal.\n");
         scanf("%i", &c);
         switch(c){
-            case 1:
+            case 1: crea_horarios();
             break;
-            case 2:
+            case 2: elimina_horarios();
             break;
-            case 3:
+            case 3: modifica_horarios();
             break;
-            case 4:
+            case 4: lista_horarios();
             break;
             case 5:
                 admin();
@@ -178,4 +189,5 @@ void hor(){
             break;
     }
     }while(c >= 6);
+    vuelca_horarios();
 }

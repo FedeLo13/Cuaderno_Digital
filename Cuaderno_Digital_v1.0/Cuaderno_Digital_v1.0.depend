@@ -69,3 +69,57 @@
 	"usuarios.h"
 	"funciones_clave.h"
 
+1650402221 source:c:\users\pablo\onedrive\documentos\github\cuaderno_digital\cuaderno_digital_v1.0\horarios.c
+	"Horarios.h"
+	"funciones_clave.h"
+
+1650402221 c:\users\pablo\onedrive\documentos\github\cuaderno_digital\cuaderno_digital_v1.0\horarios.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<locale.h>
+
+1650402221 c:\users\pablo\onedrive\documentos\github\cuaderno_digital\cuaderno_digital_v1.0\funciones_clave.h
+	<stdio.h>
+	<string.h>
+
+1650402221 source:c:\users\pablo\onedrive\documentos\github\cuaderno_digital\cuaderno_digital_v1.0\materias.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Materias.h"
+
+1650402221 c:\users\pablo\onedrive\documentos\github\cuaderno_digital\cuaderno_digital_v1.0\materias.h
+
+1650402221 source:c:\users\pablo\onedrive\documentos\github\cuaderno_digital\cuaderno_digital_v1.0\matricula.c
+	"Matricula.h"
+	"funciones_clave.h"
+
+1650402221 c:\users\pablo\onedrive\documentos\github\cuaderno_digital\cuaderno_digital_v1.0\matricula.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<locale.h>
+
+1650402221 source:c:\users\pablo\onedrive\documentos\github\cuaderno_digital\cuaderno_digital_v1.0\alumnos.c
+	"alumnos.h"
+	"funciones_clave.h"
+
+1650402221 c:\users\pablo\onedrive\documentos\github\cuaderno_digital\cuaderno_digital_v1.0\alumnos.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<locale.h>
+
+1650403139 source:c:\users\pablo\onedrive\documentos\github\cuaderno_digital\cuaderno_digital_v1.0\funciones_clave.c
+	"funciones_clave.h"
+
+1650402221 source:c:\users\pablo\onedrive\documentos\github\cuaderno_digital\cuaderno_digital_v1.0\usuarios.c
+	"usuarios.h"
+	"funciones_clave.h"
+
+1650402221 c:\users\pablo\onedrive\documentos\github\cuaderno_digital\cuaderno_digital_v1.0\usuarios.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
