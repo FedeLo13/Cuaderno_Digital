@@ -200,11 +200,11 @@ void prof(){
     int i, j;
     do{
         printf("¿Que grupo quiere consultar?\n");
-        c = gets(stdin);
+        gets(c);
         printf("¿Que materia desea consultar\n?");
-        d = gets(stdin);
+        gets(d);
         for(i = 0; i < l; i++){
-            if(strcmp(c, alun[i].grupo) == 0 && strcmp(d, ) == 0){
+            if(strcmp(c, alun[i].grupo) == 0){ //&& strcmp(d, ) == 0){
                 printf("(%i) %s", j, alun[i].nombre_alum);
             }
         }

@@ -134,3 +134,16 @@
 
 1650475842 c:\users\pablo\onedrive\documentos\github\cuaderno_digital\cuaderno_digital_v1.0\calificaciones.h
 
+1650479769 source:c:\users\pablo\onedrive\documentos\github\cuaderno_digital\cuaderno_digital_v1.0\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<locale.h>
+	"usuarios.h"
+	"funciones_clave.h"
+	"alumnos.h"
+	"materias.h"
+	"Matricula.h"
+	"Horarios.h"
+	"Calificaciones.h"
+
