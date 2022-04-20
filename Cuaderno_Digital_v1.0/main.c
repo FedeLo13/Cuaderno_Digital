@@ -26,7 +26,7 @@ int main()
     do{ //Log in//
         printf("Usuario: \n");
         fgets(U, N, stdin);
-        printf("Contraseña: \n");
+        printf("Contraseï¿½a: \n");
         fgets(c, n, stdin);
         for(i = 0; i < nu || t == 1; i++){
             if(strcmp(U, v_usuarios[i].Usuario) == 0){
@@ -55,7 +55,7 @@ int main()
 void admin(){ //Menu Principal//
     int c;
     do{
-        printf("¿Que operacion desea realizar?\n");
+        printf("ï¿½Que operacion desea realizar?\n");
         printf("(1) Gestion de usuarios.\n");
         printf("(2) Gestion de alumnos\n");
         printf("(3) Gestion de materias\n");
@@ -82,7 +82,7 @@ void usuarios(){ //Funcion de usuarios//
     int c;
     carga_usuarios();
     do{
-        printf("(1) Añadir usuario.\n");
+        printf("(1) Aï¿½adir usuario.\n");
         printf("(2) Eliminar usuario.\n");
         printf("(3) Modificar ususarios\n");
         printf("(4) Listar usuarios\n");
@@ -110,7 +110,7 @@ void alum(){   //Funcion de alumnos//
     int c;
     carga_alumnos();
     do{
-        printf("(1) Añadir alumno.\n");
+        printf("(1) Aï¿½adir alumno.\n");
         printf("(2) Eliminar alumno.\n");
         printf("(3) Modificar alumnos\n");
         printf("(4) Listar alumnos\n");
@@ -138,7 +138,7 @@ void mat(){
     int c;
     CargarMaterias();
     do{
-        printf("(1) Añadir materias.\n");
+        printf("(1) Aï¿½adir materias.\n");
         printf("(2) Eliminar materias.\n");
         printf("(3) Modificar materias\n");
         printf("(4) Listar materias\n");
@@ -167,7 +167,7 @@ void hor(){
     int c;
     carga_horarios();
     do{
-        printf("(1) Añadir hora.\n");
+        printf("(1) Aï¿½adir hora.\n");
         printf("(2) Eliminar hora.\n");
         printf("(3) Modificar horarios\n");
         printf("(4) Listar horarios\n");
@@ -189,4 +189,21 @@ void hor(){
             break;
     }
     }while(c >= 6);
+
+}
+
+void prof(){
+    char c[11], d[51], s;
+    do{
+        printf("ï¿½Que grupo quiere consultar?\n");
+        c = getc(stdin);
+        printf("ï¿½Que materia desea consultar\n?");
+        d = getc(stdin);
+        for(i = 0; i < l; i++){
+            if(strcmp(c, alun[i].grupo) == 0 && strcmp(d, ) == 0){
+                printf("(%i) %s", j, alun[i].nombre_alum);
+            }
+        }
+    }while(s == 's');
+
 }
