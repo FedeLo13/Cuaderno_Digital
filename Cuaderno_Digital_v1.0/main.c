@@ -203,11 +203,32 @@ void prof(){
         gets(c);
         printf("¿Que materia desea consultar\n?");
         gets(d);
-        for(i = 0; i < l; i++){
-            if(strcmp(c, alun[i].grupo) == 0){ //&& strcmp(d, ) == 0){
-                printf("(%i) %s", j, alun[i].nombre_alum);
-            }
+        printf("(1) Listar alumno\n");
+        printf("(2) Calificaciones\n");
+        printf("(3) Volver\n");
+        switch(){
+            case 1: for(i = 0; i < l; i++){
+                        if(strcmp(c, alun[i].grupo) == 0){ //&& strcmp(d, ) == 0){
+                        printf("(%i) %s", j, alun[i].nombre_alum);
+                        z++;
+                        }
+                    }
+            break;
+
+            case 2: for(i = 0; i < z; i++){
+                        for(j = 0; j < ; j++){
+                            if(strcmp(alun[i].grupo, c) == 0 && strcmp(alun[i].id_alum, ) == 0 && strcmp(d, ) == 0 && strcmp() == 0){
+                            printf("%s-", alun[i].nombre_alum);
+                            printf("%s\n", );
+                        }
+                    }
+
+            break;
+
+            default:
+            break;
         }
+
     }while(s == 's');
 
 }
