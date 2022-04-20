@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <locale.h>
 #include "usuarios.h"
 #include "funciones_clave.h"
 #include "alumnos.h"
@@ -22,6 +23,7 @@ int main()
 {
     char U[N], c[n], ad[14]="administrador";
     int t, p, nu, i;
+    setlocale(LC_CTYPE, "Spanish");
 
     do{ //Log in//
         printf("Usuario: \n");

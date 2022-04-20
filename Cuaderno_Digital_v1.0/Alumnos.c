@@ -10,7 +10,6 @@ char p[100], *token;
 const char s[2] = "-";
 int i, j, cont, semaforo;
 FILE *f;
-setlocale(LC_CTYPE, "Spanish");
 
 f = fopen("alumnos.txt", "r");
 
