@@ -208,9 +208,7 @@ void prof(){
         printf("(3) Volver\n");
         switch(){
             case 1: for(i = 0; i < l; i++){
-                        if(strcmp(c, alun[i].grupo) == 0){ //&& strcmp(d, ) == 0){
-                        printf("(%i) %s", j, alun[i].nombre_alum);
-                        z++;
+                        if(strcmp() == 0){
                         }
                     }
             break;
