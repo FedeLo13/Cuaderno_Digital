@@ -7,6 +7,7 @@
 #include "materias.h"
 #include "Matricula.h"
 #include "Horarios.h"
+#include "Calificaciones.h"
 #define N 6
 #define n 9
 
@@ -46,7 +47,7 @@ int main()
     if(strcmp(ad, v_usuarios[i].Perfil_usuario) == 0){
         admin();
     }else{
-        prof();
+        //prof();
     }
     return 0;
 }

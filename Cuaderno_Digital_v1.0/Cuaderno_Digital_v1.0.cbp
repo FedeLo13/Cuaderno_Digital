@@ -34,6 +34,7 @@
 		<Unit filename="Alumnos.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="Calificaciones.h" />
 		<Unit filename="Horarios.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -46,6 +47,9 @@
 		</Unit>
 		<Unit filename="Matricula.h" />
 		<Unit filename="alumnos.h" />
+		<Unit filename="calificaciones.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="funciones_clave.c">
 			<Option compilerVar="CC" />
 		</Unit>
