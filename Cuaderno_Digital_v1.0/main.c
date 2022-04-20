@@ -24,6 +24,7 @@ int main()
     char U[N], c[n], ad[14]="administrador";
     int t, p, nu, i;
     setlocale(LC_CTYPE, "Spanish");
+    nu = cuenta_usuarios();
 
     do{ //Log in//
         printf("Usuario: \n");
@@ -196,11 +197,12 @@ void hor(){
 
 void prof(){
     char c[11], d[51], s;
+    int i, j;
     do{
-        printf("�Que grupo quiere consultar?\n");
-        c = getc(stdin);
-        printf("�Que materia desea consultar\n?");
-        d = getc(stdin);
+        printf("¿Que grupo quiere consultar?\n");
+        c = gets(stdin);
+        printf("¿Que materia desea consultar\n?");
+        d = gets(stdin);
         for(i = 0; i < l; i++){
             if(strcmp(c, alun[i].grupo) == 0 && strcmp(d, ) == 0){
                 printf("(%i) %s", j, alun[i].nombre_alum);

@@ -8,7 +8,7 @@ void carga_alumnos(){
 
 char p[100], *token;
 const char s[2] = "-";
-int i, j, cont, semaforo;
+int i, j, cont;
 FILE *f;
 
 f = fopen("alumnos.txt", "r");
@@ -138,7 +138,7 @@ void listalum(){
 //Postcondicion: Elimina un alumno a eleccion del usuario.
 void delalum(){
 	int i, j;
-	char nom[20];
+
 	for(i = 0; i < l; i++){
         printf("(%i)%s\n",i+1,alun[i].nombre_alum);
 	}
@@ -146,13 +146,14 @@ void delalum(){
 	scanf("%i", &j);
 	j--;
 
-	for(j; j < l; j++){
+	while(j < l){
 	strcpy(alun[j].id_alum, alun[j+1].id_alum);
 	strcpy(alun[j].nombre_alum, alun[j+1].nombre_alum);
 	strcpy(alun[j].direc_alum, alun[j+1].direc_alum);
 	strcpy(alun[j].local_alum, alun[j+1].local_alum);
 	strcpy(alun[j].curso, alun[j+1].curso);
 	strcpy(alun[j].grupo, alun[j+1].grupo);
+	j++;
 	}
 	l = l-1;
 	alun = (Alumnos*)realloc(alun, l);
