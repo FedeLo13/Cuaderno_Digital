@@ -104,7 +104,6 @@ void usuarios(){ //Funcion de usuarios//
             break;
         }
     }while(c >= 6);
-    vuelca_usuarios();
 }
 
 void alum(){   //Funcion de alumnos//
@@ -190,5 +189,19 @@ void hor(){
             break;
     }
     }while(c >= 6);
-    vuelca_horarios();
+}
+
+void prof(){
+    char c[11], d[51], s;
+    do{
+        printf("¿Que grupo quiere consultar?\n");
+        c = getc(stdin);
+        printf("¿Que materia desea consultar\n?");
+        d = getc(stdin);
+        for(i = 0; i < l; i++){
+            if(strcmp(c, alun[i].grupo) == 0 && strcmp(d, ) == 0){
+                printf("(%i) %s", j, alun[i].nombre_alum);
+            }
+        }
+    }while(s == 's');
 }
