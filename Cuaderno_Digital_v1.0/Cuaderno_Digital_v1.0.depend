@@ -7,15 +7,19 @@
 
 1650399986 c:\users\fede\documents\github\cuaderno_digital\cuaderno_digital_v1.0\calificaciones.h
 
-1650401832 source:c:\users\fede\documents\github\cuaderno_digital\cuaderno_digital_v1.0\main.c
+1650477745 source:c:\users\fede\documents\github\cuaderno_digital\cuaderno_digital_v1.0\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"usuarios.h"
 	"funciones_clave.h"
 	"alumnos.h"
+	"materias.h"
+	"Matricula.h"
+	"Horarios.h"
+	"Calificaciones.h"
 
-1650402658 c:\users\fede\documents\github\cuaderno_digital\cuaderno_digital_v1.0\usuarios.h
+1650477695 c:\users\fede\documents\github\cuaderno_digital\cuaderno_digital_v1.0\usuarios.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -65,7 +69,7 @@
 	"alumnos.h"
 	"funciones_clave.h"
 
-1650402608 source:c:\users\fede\documents\github\cuaderno_digital\cuaderno_digital_v1.0\usuarios.c
+1650479047 source:c:\users\fede\documents\github\cuaderno_digital\cuaderno_digital_v1.0\usuarios.c
 	"usuarios.h"
 	"funciones_clave.h"
 

@@ -104,7 +104,6 @@ void usuarios(){ //Funcion de usuarios//
             break;
         }
     }while(c >= 6);
-    vuelca_usuarios();
 }
 
 void alum(){   //Funcion de alumnos//
@@ -190,5 +189,4 @@ void hor(){
             break;
     }
     }while(c >= 6);
-    vuelca_horarios();
 }

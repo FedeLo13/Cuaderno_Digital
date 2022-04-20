@@ -4,11 +4,9 @@
 //cabecera: void carga_usuarios();
 //precondición:
 //poscondición: carga los datos del fichero en la estructura del programa
-void carga_usuarios(){
-
-    int cont=0,i,j,semaforo;
-    char temp[100],*aux;
-    const char s[2] = "-";
+int cuenta_usuarios(){
+    int cont=0;
+    char temp[100];
     FILE *f;
     f = fopen("usuarios.txt","r");
     if(f == NULL){
@@ -19,7 +17,20 @@ void carga_usuarios(){
         fgets(temp,100,f);
         cont++;
     }
+    fclose(f);
+    return(cont);
+}
+void carga_usuarios(){
 
+    int cont,i,j,semaforo;
+    char temp[100],*aux;
+    const char s[2] = "-";
+    FILE *f;
+    f = fopen("usuarios.txt","r");
+    if(f == NULL){
+        printf("Error al abrir el fichero.\n");
+    }
+    cont=cuenta_usuarios();
     rewind(f);
     v_usuarios = (Usuario*)malloc(cont*sizeof(Usuario));
     if(v_usuarios == NULL){
@@ -27,7 +38,6 @@ void carga_usuarios(){
     }
     for(i=0;i<cont;i++){
         j=1;
-        vaciar(temp,100);
         fgets(temp,100,f);
         aux = strtok(temp,s);
         while(aux != NULL){
@@ -69,41 +79,20 @@ void carga_usuarios(){
 //precondición:
 //poscondición: lista los datos presentes en el registro
 void lista_usuarios(){
-    int cont=0,i;
-    char temp[100];
-    FILE *f;
-    f = fopen("usuarios.txt","r");
-    if(f == NULL){
-        printf("Error al abrir el fichero.\n");
-    }
-
-    while(!feof(f)){
-        fgets(temp,100,f);
-        cont++;
-    }
+    int cont,i;
+    cont=cuenta_usuarios();
     for(i=0;i<cont;i++){
         printf("%i. %s %s %s\n",i+1,v_usuarios[i].Id_usuario,v_usuarios[i].Nomb_usuario,v_usuarios[i].Perfil_usuario);
     }
-    fclose(f);
 }
 //cabecera: void modifica_usuarios();
 //precondición:
 //poscondición: modifica un usuario
 void modifica_usuarios(){
-    int cont=0,n;
-    char temp[100],c,aux[100];
+    int cont,n;
+    char c,aux[100];
     lista_usuarios();
-    FILE *f;
-    f = fopen("usuarios.txt","r");
-    if(f == NULL){
-        printf("Error al abrir el fichero.\n");
-    }
-
-    while(!feof(f)){
-        fgets(temp,100,f);
-        cont++;
-    }
-
+    cont=cuenta_usuarios();
     do{
         printf("Introduce el numero correspondiente al usuario que desea editar\n");
         scanf("%i",&n);
@@ -154,7 +143,7 @@ void modifica_usuarios(){
         vaciar(v_usuarios[n].Contrasena,strlen(v_usuarios[n].Contrasena));
     }
     }while(c != 'n' && c!='s');
-    fclose(f);
+    vuelca_usuarios(0);
 }
 
 //cabecera: void ccrea_usuarios();
@@ -162,17 +151,8 @@ void modifica_usuarios(){
 //poscondición: crea un nuevo usuario
 void crea_usuarios(){
     int n,cont=0,i,v=1;
-    char c,temp[100];
-    FILE *f;
-    f = fopen("usuarios.txt","r");
-    if(f == NULL){
-        printf("Error al abrir el fichero.\n");
-    }
-
-    while(!feof(f)){
-        fgets(temp,100,f);
-        cont++;
-    }
+    char c;
+    cont=cuenta_usuarios();
     i=cont;
     cont++;
     v_usuarios=(Usuario*)realloc(v_usuarios,cont*sizeof(Usuario));
@@ -225,7 +205,6 @@ void crea_usuarios(){
         v=0;
     }
     }while(c != 'n' && c!='s');
-    fclose(f);
     vuelca_usuarios(v);
 }
 
@@ -234,18 +213,8 @@ void crea_usuarios(){
 //poscondición: elimina un usuario
 void elimina_usuarios(){
     int cont=0,n,i=0,admns=0,j,v=-1;
-    char temp[100];
     lista_usuarios();
-    FILE *f;
-    f = fopen("usuarios.txt","r");
-    if(f == NULL){
-        printf("Error al abrir el fichero.\n");
-    }
-
-    while(!feof(f)){
-        fgets(temp,100,f);
-        cont++;
-    }
+    cont=cuenta_usuarios();
     do{
         printf("Introduce el numero correspondiente al usuario que desea eliminar\n");
         scanf("%i",&n);
@@ -290,7 +259,6 @@ void elimina_usuarios(){
             v_usuarios=(Usuario*)realloc(v_usuarios,cont*sizeof(Usuario));
          }
     }
-    fclose(f);
     vuelca_usuarios(v);
 }
 //cabecera: void vuelva_usuarios();
@@ -298,18 +266,8 @@ void elimina_usuarios(){
 //poscondición: escribe los datos del registro en el fichero
 void vuelca_usuarios(int n){
     int cont=0,i;
-    char temp[100];
     FILE *f;
-    f = fopen("usuarios.txt","r");
-    if(f == NULL){
-        printf("Error al abrir el fichero.\n");
-    }
-
-    while(!feof(f)){
-        fgets(temp,100,f);
-        cont++;
-    }
-    fclose(f);
+    cont= cuenta_usuarios();
     cont= cont + n;
     f = fopen("usuarios.txt","w");
     if(f == NULL){

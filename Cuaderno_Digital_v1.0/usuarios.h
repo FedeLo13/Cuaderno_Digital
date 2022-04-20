@@ -21,5 +21,6 @@ void crea_usuarios();
 void modifica_usuarios();
 void elimina_usuarios();
 void vuelca_usuarios(int);
+int cuenta_usuarios();
 
 #endif
