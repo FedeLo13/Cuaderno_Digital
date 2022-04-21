@@ -152,7 +152,7 @@ void mat(){
             break;
             case 2: EliminarMaterias();
             break;
-            case 3:
+            case 3: ModificarMaterias();
             break;
             case 4: ListarMaterias();
             break;
@@ -197,11 +197,12 @@ void hor(){
 
 void prof(){
     char c[11], d[51], s;
-    int i, j, k, m, z;
+    int i, j, k, m, z, v[100], ja, y;
     m = CuentaMaterias;
     carga_alumnos();
     carga_matricula();
     do{
+        y = 0;
         printf("¿Que grupo quiere consultar?\n");
         gets(c);
         printf("¿Que materia desea consultar\n?");
@@ -217,6 +218,9 @@ void prof(){
                                 if(strcmp(v_matricula[j].Id_materia, materias[i].idMateria) == 0){
                                     for(k = 0; k < l; k++){
                                         if(strcmp(alun[k].id_alum, v_matricula[j].Id_alum) == 0 && strcmp(alun[k].grupo, c) == 0){
+                                            v[y] = k;
+                                            y++;
+                                            printf("(%i)\n", y+1)
                                             printf("%s\n", alun[k].id_alum);
                                             printf("%s\n", alun[k].nombre_alum);
                                             printf("%s\n", alun[k].direc_alum);
@@ -229,14 +233,80 @@ void prof(){
                             }
                         }
                     }
+                    printf("Desea modificar algun dato?\n");
+                    s = getc(s);
+                    if(c == s){
+                    printf("¿Que alumno desea modificar?\n");
+                    scanf("%i", &y);
+                    fflush(stdin);
+                    y--;
+                    do{
+                        printf("¿Que dato desea modificar?\n");
+                        printf("(1)Nombre\n");
+                        printf("(2)Direccion\n");
+                        printf("(3)Localidad\n");
+                        printf("(4)Curso\n");
+                        printf("(5)Grupo\n");
+                        scanf("%i", &ja);
+                        fflush(stdin);
+                        switch(ja){
+                            case 1:
+                                do{
+                                    printf("Introduce el nuevo dato: \n");
+                                    gets(dat);
+                                    fflush(stdin);
+                                    strcpy(alun[v[y]].nombre_alum, dat);
+                                }while(strlen(alun[v[y]].nombre_alum) > 21);
+					break;
+					case 2:
+					    do{
+                            printf("Introduce el nuevo dato: \n");
+                            gets(dat);
+                            fflush(stdin);
+                            strcpy(alun[v[y]].direc_alum, dat);
+                        }while(strlen(alun[v[y]].direc_alum) > 31);
+					break;
+					case 3:
+					    do{
+                            printf("Introduce el nuevo dato: \n");
+                            gets(dat);
+                            fflush(stdin);
+                            strcpy(alun[v[y]].local_alum, dat);
+					    }while(strlen(alun[v[y]].local_alum) > 31);
+					break;
+					case 4:
+					    do{
+                            printf("Introduce el nuevo dato: \n");
+                            gets(dat);
+                            fflush(stdin);
+                            strcpy(alun[v[y]].curso, dat);
+					    }while(strlen(alun[v[y]].curso) > 31);
+					break;
+					case 5:
+					    do{
+                            printf("Introduce el nuevo dato: \n");
+                            gets(dat);
+                            fflush(stdin);
+                            strcpy(alun[v[y]].grupo, dat);
+					    }while(strlen(alun[v[y]].grupo) > 11);
+					break;
+					default: printf("Numero incorrecto.\n");
+					break;
+				}
+				printf("¿Desea hacer otra modificacion? y/n\n");
+				c = getc(stdin);
+				fflush(stdin);
+			}while(c != 'n');
+            }
+
             break;
 
             case 2: for(i = 0; i < ; i++){
                         if(strcmp(materias[i].nomMateria, d) == 0){
                             for(j = 0; j < ; j++){
-                                if(strcmp(v_matricula[j].id_alum, materias[i].idMateria){
+                                if(strcmp(, materias[i].idMateria){
                                     for(k = 0, k < l; k++){
-                                        if(strcmp(v_matricula[j].Id_alum, alun[k].id_alum) == 0 && strcmp(alun[k].grupo, c)){
+                                        if(strcmp(, alun[k].id_alum) == 0 && strcmp(alun[k].grupo, c)){
                                             printf("%s-", alun[i].nombre_alum);
                                             printf("%s\n", v_matricula[j].)
                                         }
@@ -245,6 +315,7 @@ void prof(){
                             }
                         }
                     }
+
 
             break;
             case 3:

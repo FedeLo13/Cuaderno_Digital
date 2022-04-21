@@ -10,7 +10,7 @@ Materia *materias;
 
 void CargarMaterias();
 void EscribirMaterias();
-
+void ModificarMaterias();
 void ListarMaterias();
 void CrearMateria();
 void EliminarMaterias();
