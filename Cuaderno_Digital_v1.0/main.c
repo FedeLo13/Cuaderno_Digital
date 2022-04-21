@@ -304,16 +304,28 @@ void prof(){
             case 2: for(i = 0; i < ; i++){
                         if(strcmp(materias[i].nomMateria, d) == 0){
                             for(j = 0; j < ; j++){
-                                if(strcmp(, materias[i].idMateria){
+                                if(strcmp(, materias[i].idMateria, calificaciones[j].idMateria){
                                     for(k = 0, k < l; k++){
                                         if(strcmp(, alun[k].id_alum) == 0 && strcmp(alun[k].grupo, c)){
                                             printf("%s-", alun[i].nombre_alum);
-                                            printf("%s\n", v_matricula[j].)
+                                            printf("%s\n", calificaciones[j].nota);
                                         }
                                     }
                                 }
                             }
                         }
+                    }
+                    printf("Desea realizar otra modificacion?\n");
+                    printf("(1) Añadir Calificacion.\n");
+                    printf("(2) Eliminar Calificacion.\n");
+                    printf("(3) Modificar Calificacion.\n");
+                    scanf("%i", pa);
+                    switch(pa){
+                    case 1: CrearCalificacion();
+                       break;
+                       case 2: EliminarCalificacion();
+                       break;
+                       case 3: ModificaCalificaciones();
                     }
 
 
