@@ -207,17 +207,34 @@ void prof(){
         printf("(2) Calificaciones\n");
         printf("(3) Volver\n");
         switch(){
-            case 1: for(i = 0; i < l; i++){
-                        if(strcmp() == 0){
+            case 1: for(i = 0; i < ; i++){
+                        if(strcmp(d, ) == 0){
+                            for(j = 0; j < ; j++){
+                                if(strcmp() == 0){
+                                    for(k = 0; k < ; k++){
+                                        if(strcmp(alun[k].id_alum, ) == 0 && strcmp(alun[k].grupo, c) == 0){
+                                            printf("%s\n", alun[k].id_alum);
+                                            printf("%s\n", alun[k].nombre_alum);
+                                            printf("%s\n", alun[k].direc_alum);
+                                            printf("%s\n", alun[k].local_alum);
+                                            printf("%s\n", alun[k].curso);
+                                            printf("%s\n\n", alun[k].grupo);
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
             break;
 
-            case 2: for(i = 0; i < z; i++){
-                        for(j = 0; j < ; j++){
-                            if(strcmp(alun[i].grupo, c) == 0 && strcmp(alun[i].id_alum, ) == 0 && strcmp(d, ) == 0 && strcmp() == 0){
-                            printf("%s-", alun[i].nombre_alum);
-                            printf("%s\n", );
+            case 2: for(i = 0; i < ; i++){
+                        if(strcmp() == 0){
+                            for(j = 0; j < ; j++){
+                                if(strcmp(alun[j].id_alum, ) == 0 && strcmp(alun[j].curso, c) == 0){
+                                    printf("%s-", alun[j].nombre_alum);
+                                    printf("%s\n", );
+                                }
+                            }
                         }
                     }
 
