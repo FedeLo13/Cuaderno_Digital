@@ -197,7 +197,10 @@ void hor(){
 
 void prof(){
     char c[11], d[51], s;
-    int i, j;
+    int i, j, k, m, z;
+    m = CuentaMaterias;
+    carga_alumnos();
+    carga_matricula();
     do{
         printf("¿Que grupo quiere consultar?\n");
         gets(c);
@@ -206,11 +209,12 @@ void prof(){
         printf("(1) Listar alumno\n");
         printf("(2) Calificaciones\n");
         printf("(3) Volver\n");
-        switch(){
+        scanf("%i", &z);
+        switch(z){
             case 1: for(i = 0; i < ; i++){
-                        if(strcmp(d, ) == 0){
+                        if(strcmp(d, materias[i].nomMateria) == 0){
                             for(j = 0; j < ; j++){
-                                if(strcmp(v_matricula[j].Id_materia, ) == 0){
+                                if(strcmp(v_matricula[j].Id_materia, materias[i].idMateria) == 0){
                                     for(k = 0; k < l; k++){
                                         if(strcmp(alun[k].id_alum, v_matricula[j].Id_alum) == 0 && strcmp(alun[k].grupo, c) == 0){
                                             printf("%s\n", alun[k].id_alum);
@@ -239,11 +243,14 @@ void prof(){
                     }
 
             break;
+            case 3:
 
-            default:
             break;
+            default: printf("Operacion incorrecta\n");
+<            break;
         }
-
+        printf("¿Desea realizar otra operacion?\n");
+        s = getc(s);
     }while(s == 's');
 
 }
