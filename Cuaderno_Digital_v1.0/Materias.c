@@ -3,10 +3,9 @@
 #include <string.h>
 #include "Materias.h"
 
-int CargarMaterias(Materia **ptr){
+void CargarMaterias(){
     FILE *f;
     f = fopen("Materias.txt","r");
-    Materia *materias;
     materias = malloc(sizeof(Materia));
     char ch = fgetc(f);
     int o = 0;
@@ -48,18 +47,15 @@ int CargarMaterias(Materia **ptr){
             }
 
         }while(ch != EOF);
-
-        *ptr = materias;
-        return o+1;
     }
-    return 0;
 }
 
-void EscribirMaterias(Materia *materia, int nMaterias){
+void EscribirMaterias(){
     FILE *f;
+    int nMaterias= CuentaMaterias();
     f = fopen("Materias.txt","w");
     for(int i = 0; i<nMaterias;i++){
-        fprintf(f,"%s-%s-%s",materia[i].idMateria,materia[i].nomMateria,materia[i].abrMateria);
+        fprintf(f,"%s-%s-%s",materias[i].idMateria,materias[i].nomMateria,materias[i].abrMateria);
         if(i != nMaterias-1){
             fprintf(f,"\n");
         }
@@ -67,8 +63,7 @@ void EscribirMaterias(Materia *materia, int nMaterias){
 }
 
 void ListarMaterias(){
-    Materia *materias;
-    int nMaterias = CargarMaterias(&materias);
+    int nMaterias = CuentaMaterias();
 
     for(int i = 0; i<nMaterias;i++){
         printf("%s %s %s\n",materias[i].idMateria,materias[i].nomMateria,materias[i].abrMateria);
@@ -78,8 +73,7 @@ void ListarMaterias(){
 
 void CrearMateria()
 {
-    Materia *materias;
-    int nMaterias = CargarMaterias(&materias);
+    int nMaterias = CuentaMaterias();
     nMaterias++;
     materias  = realloc(materias,(nMaterias) * sizeof(Materia));
 
@@ -152,11 +146,9 @@ void CrearMateria()
 }
 void EliminarMaterias ()
 {
-    Materia *materias;
-    int nMaterias = CargarMaterias(&materias);
+    int nMaterias = CuentaMaterias();
 
     int m;
-    char sn;
     char idMateria[5];
 
     if (nMaterias == 0){
@@ -179,8 +171,24 @@ void EliminarMaterias ()
             strcpy(materias[i].idMateria,materias[i+1].idMateria);
             strcpy(materias[i].nomMateria,materias[i+1].nomMateria);
         }
-        EscribirMaterias(materias,nMaterias);
+        EscribirMaterias();
         free(materias);
     }
 
+}
+int CuentaMaterias(){
+    int cont=0;
+    char temp[100];
+    FILE *f;
+    f = fopen("materias.txt","r");
+    if(f == NULL){
+        printf("Error al abrir el fichero.\n");
+    }
+
+    while(!feof(f)){
+        fgets(temp,100,f);
+        cont++;
+    }
+    fclose(f);
+    return(cont);
 }
