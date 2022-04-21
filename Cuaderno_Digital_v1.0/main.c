@@ -210,9 +210,9 @@ void prof(){
             case 1: for(i = 0; i < ; i++){
                         if(strcmp(d, ) == 0){
                             for(j = 0; j < ; j++){
-                                if(strcmp() == 0){
-                                    for(k = 0; k < ; k++){
-                                        if(strcmp(alun[k].id_alum, ) == 0 && strcmp(alun[k].grupo, c) == 0){
+                                if(strcmp(v_matricula[j].Id_materia, ) == 0){
+                                    for(k = 0; k < l; k++){
+                                        if(strcmp(alun[k].id_alum, v_matricula[j].Id_alum) == 0 && strcmp(alun[k].grupo, c) == 0){
                                             printf("%s\n", alun[k].id_alum);
                                             printf("%s\n", alun[k].nombre_alum);
                                             printf("%s\n", alun[k].direc_alum);
