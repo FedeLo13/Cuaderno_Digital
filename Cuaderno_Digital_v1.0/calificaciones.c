@@ -102,13 +102,9 @@ void CrearCalificacion()
     char nota[3];
 
     int o = nCalificaciones - 1;
-    int repetido = 0;
-        repetido = 0;
         printf ("\t INTRODUCE LA FECHA DEL EXAMEN\n");
         fflush (stdin);
         scanf ("%10s",fecha);
-
-        repetido = 0;
         printf ("\t INTRODUCE LA UNIDAD DEL EXAMEN\n");
         fflush (stdin);
         fgets(descripcion,30,stdin);
@@ -117,18 +113,14 @@ void CrearCalificacion()
                 descripcion[i] = '\0';
             }
         }
-
-        repetido = 0;
         printf ("\t INTRODUCE LA ID DE LA MATERIA\n");
         fflush (stdin);
         scanf ("%4s",idMateria);
 
-            repetido = 0;
         printf ("\t INTRODUCE LA ID DEL ALUMNO\n");
         fflush (stdin);
         scanf ("%6s",idAlumno);
 
-        repetido = 0;
         printf ("\t INTRODUCE LA NOTA\n");
         fflush (stdin);
         scanf ("%2s",nota);
@@ -181,7 +173,7 @@ void EliminarCalificacion(){
     fflush(stdin);
     scanf("%6s",idAlumno);
 
-    int pos;
+    int pos=0;
     int encontrado = 0;
     for(int i=0;i<nCalificaciones;i++){
         if(strcmp(calificaciones[i].fecha, fecha) == 0 && strcmp(calificaciones[i].descripcion, descripcion) == 0 && strcmp(calificaciones[i].idMateria,idMateria) == 0 && strcmp(calificaciones[i].idAlumno,idAlumno)==0){

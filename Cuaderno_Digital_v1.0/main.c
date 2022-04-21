@@ -28,9 +28,11 @@ int main()
 
     do{ //Log in//
         printf("Usuario: \n");
-        fgets(U, N, stdin);
-        printf("Contrase�a: \n");
-        fgets(c, n, stdin);
+        gets(U);
+        fflush(stdin);
+        printf("Clave: \n");
+        gets(c);
+        fflush(stdin);
         for(i = 0; i < nu || t == 1; i++){
             if(strcmp(U, v_usuarios[i].Usuario) == 0){
                 t = 1;
@@ -196,9 +198,11 @@ void hor(){
 }
 
 void prof(){
-    char c[11], d[51], s;
-    int i, j, k, m, z, v[100], ja, y;
-    m = CuentaMaterias;
+    char c[11], d[51], s, dat[31];
+    int i, j, k, m, z, v[100], ja, y, ma, ca, pa;
+    ma = cuenta_matriculas();
+    m = CuentaMaterias();
+    ca = CuentaCalificaciones();
     carga_alumnos();
     carga_matricula();
     do{
@@ -214,13 +218,13 @@ void prof(){
         switch(z){
             case 1: for(i = 0; i < m ; i++){
                         if(strcmp(d, materias[i].nomMateria) == 0){
-                            for(j = 0; j < ; j++){
+                            for(j = 0; j < ma; j++){
                                 if(strcmp(v_matricula[j].Id_materia, materias[i].idMateria) == 0){
                                     for(k = 0; k < l; k++){
                                         if(strcmp(alun[k].id_alum, v_matricula[j].Id_alum) == 0 && strcmp(alun[k].grupo, c) == 0){
                                             v[y] = k;
                                             y++;
-                                            printf("(%i)\n", y+1)
+                                            printf("(%i)\n", y+1);
                                             printf("%s\n", alun[k].id_alum);
                                             printf("%s\n", alun[k].nombre_alum);
                                             printf("%s\n", alun[k].direc_alum);
@@ -234,8 +238,8 @@ void prof(){
                         }
                     }
                     printf("Desea modificar algun dato?\n");
-                    s = getc(s);
-                    if(c == s){
+                    scanf("%c",&s);
+                    if(s == 's'){
                     printf("¿Que alumno desea modificar?\n");
                     scanf("%i", &y);
                     fflush(stdin);
@@ -294,19 +298,19 @@ void prof(){
 					break;
 				}
 				printf("¿Desea hacer otra modificacion? y/n\n");
-				c = getc(stdin);
+				scanf("%c",&s);
 				fflush(stdin);
-			}while(c != 'n');
+			}while(s != 'n');
             }
 
             break;
 
-            case 2: for(i = 0; i < ; i++){
+            case 2: for(i = 0; i < m; i++){
                         if(strcmp(materias[i].nomMateria, d) == 0){
-                            for(j = 0; j < ; j++){
-                                if(strcmp(, materias[i].idMateria, calificaciones[j].idMateria){
-                                    for(k = 0, k < l; k++){
-                                        if(strcmp(, alun[k].id_alum) == 0 && strcmp(alun[k].grupo, c)){
+                            for(j = 0; j < ca; j++){
+                                if(strcmp(materias[i].idMateria, calificaciones[j].idMateria) == 0){
+                                    for(k = 0; k < l; k++){
+                                        if(strcmp(calificaciones[j].idAlumno, alun[k].id_alum) == 0 && strcmp(alun[k].grupo, c)){
                                             printf("%s-", alun[i].nombre_alum);
                                             printf("%s\n", calificaciones[j].nota);
                                         }
@@ -319,7 +323,7 @@ void prof(){
                     printf("(1) Añadir Calificacion.\n");
                     printf("(2) Eliminar Calificacion.\n");
                     printf("(3) Modificar Calificacion.\n");
-                    scanf("%i", pa);
+                    scanf("%i",&pa);
                     switch(pa){
                     case 1: CrearCalificacion();
                        break;
@@ -334,10 +338,10 @@ void prof(){
 
             break;
             default: printf("Operacion incorrecta\n");
-<            break;
+            break;
         }
         printf("¿Desea realizar otra operacion?\n");
-        s = getc(s);
+        scanf("%c",&s);
     }while(s == 's');
 
 }

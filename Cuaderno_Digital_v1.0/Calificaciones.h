@@ -17,4 +17,5 @@ void EscribirCalificaciones();
 void CrearCalificacion();
 void EliminarCalificacion();
 int CuentaCalificaciones();
+void ModificaCalificaciones();
 #endif
