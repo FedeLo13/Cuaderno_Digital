@@ -211,7 +211,7 @@ void prof(){
         printf("(3) Volver\n");
         scanf("%i", &z);
         switch(z){
-            case 1: for(i = 0; i < ; i++){
+            case 1: for(i = 0; i < m ; i++){
                         if(strcmp(d, materias[i].nomMateria) == 0){
                             for(j = 0; j < ; j++){
                                 if(strcmp(v_matricula[j].Id_materia, materias[i].idMateria) == 0){
@@ -232,11 +232,15 @@ void prof(){
             break;
 
             case 2: for(i = 0; i < ; i++){
-                        if(strcmp() == 0){
+                        if(strcmp(materias[i].nomMateria, d) == 0){
                             for(j = 0; j < ; j++){
-                                if(strcmp(alun[j].id_alum, ) == 0 && strcmp(alun[j].curso, c) == 0){
-                                    printf("%s-", alun[j].nombre_alum);
-                                    printf("%s\n", );
+                                if(strcmp(v_matricula[j].id_alum, materias[i].idMateria){
+                                    for(k = 0, k < l; k++){
+                                        if(strcmp(v_matricula[j].Id_alum, alun[k].id_alum) == 0 && strcmp(alun[k].grupo, c)){
+                                            printf("%s-", alun[i].nombre_alum);
+                                            printf("%s\n", v_matricula[j].)
+                                        }
+                                    }
                                 }
                             }
                         }
