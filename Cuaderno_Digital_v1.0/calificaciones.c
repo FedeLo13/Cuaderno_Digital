@@ -110,20 +110,11 @@ void CrearCalificacion()
 
     int o = nCalificaciones - 1;
     int repetido = 0;
-   // do{
         repetido = 0;
         printf ("\t INTRODUCE LA FECHA DEL EXAMEN\n");
         fflush (stdin);
         scanf ("%10s",fecha);
-       /* for(int i=0;i<o;i++){
-            if(strcmp(fecha,calificaciones[i].fecha) == 0){
-                repetido = 1;
-                printf("ESE ID DE MATERIA YA EXISTE\n");
-            }
-        }
-    }while(repetido == 1);*/
 
-    //do{
         repetido = 0;
         printf ("\t INTRODUCE LA UNIDAD DEL EXAMEN\n");
         fflush (stdin);
@@ -133,26 +124,11 @@ void CrearCalificacion()
                 descripcion[i] = '\0';
             }
         }
-        /*for(int i=0;i<o;i++){
-            if(strcmp(nomMateria,materias[i].nomMateria) == 0){
-                repetido = 1;
-                printf("ESE NOMBRE DE MATERIA YA EXISTE\n");
-            }
-        }
-    }while(repetido == 1);*/
 
-    //do{
         repetido = 0;
         printf ("\t INTRODUCE LA ID DE LA MATERIA\n");
         fflush (stdin);
         scanf ("%4s",idMateria);
-        /*for(int i=0;i<o;i++){
-        if(strcmp(idMateria,materias[i].idMateria) == 0){
-                repetido = 1;
-                printf("ESA ABREVIATUR YA EXISTE\n");
-            }
-        }
-    }while(repetido == 1);*/
 
             repetido = 0;
         printf ("\t INTRODUCE LA ID DEL ALUMNO\n");

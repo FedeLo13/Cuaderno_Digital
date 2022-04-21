@@ -147,3 +147,30 @@
 	"Horarios.h"
 	"Calificaciones.h"
 
+1650470051 source:c:\users\maryo\documents\github\diseño modular\cuaderno_digital_lab6_grp3\cuaderno_digital_v1.0\funciones_clave.c
+	"funciones_clave.h"
+
+1650402227 c:\users\maryo\documents\github\diseño modular\cuaderno_digital_lab6_grp3\cuaderno_digital_v1.0\funciones_clave.h
+	<stdio.h>
+	<string.h>
+
+1650402227 source:c:\users\maryo\documents\github\diseño modular\cuaderno_digital_lab6_grp3\cuaderno_digital_v1.0\horarios.c
+	"Horarios.h"
+	"funciones_clave.h"
+
+1650402227 c:\users\maryo\documents\github\diseño modular\cuaderno_digital_lab6_grp3\cuaderno_digital_v1.0\horarios.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<locale.h>
+
+1650402227 source:c:\users\maryo\documents\github\diseño modular\cuaderno_digital_lab6_grp3\cuaderno_digital_v1.0\matricula.c
+	"Matricula.h"
+	"funciones_clave.h"
+
+1650402227 c:\users\maryo\documents\github\diseño modular\cuaderno_digital_lab6_grp3\cuaderno_digital_v1.0\matricula.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<locale.h>
+

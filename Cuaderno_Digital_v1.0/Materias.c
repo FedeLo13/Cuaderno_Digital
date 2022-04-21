@@ -176,6 +176,7 @@ void EliminarMaterias ()
     }
 
 }
+
 int CuentaMaterias(){
     int cont=0;
     char temp[100];
@@ -191,4 +192,60 @@ int CuentaMaterias(){
     }
     fclose(f);
     return(cont);
+
+void ModificarMaterias(){
+
+     Materia *materias;
+    int nMaterias = CargarMaterias(&materias);
+
+	int i, j;
+	char c, [31];
+	char idMateria[5];
+	char nomMateria[51];
+	char abrMateria[4];
+	for(i = 0; i < l; i++){
+        printf("(%i)%s\n",i+1,materias[i].nomMateria);
+	}
+	printf("�Que materia desea modificar?\n");
+	scanf("%i", &i);
+	fflush(stdin);
+	i--;
+			do{
+				printf("�Que dato desea modificar?\n");
+				printf("(1)id\n");
+				printf("(2)nombre\n");
+				printf("(3)abreviatura\n");
+				scanf("%i", &j);
+				fflush(stdin);
+				switch(j){
+					case 1:
+                        do{
+                            printf("Introduce la nueva id: \n");
+                            gets(dat);
+                            fflush(stdin);
+                            strcpy(materias[i].idMateria, idMateria);
+                        }while(strlen(materias[i].idMateria) > 5);
+                        break;
+
+					case 2:
+					    do{
+                            printf("Introduce el nuevo nombre: \n");
+                            gets(dat);
+                            fflush(stdin);
+                            strcpy(materias[i].nomMateria, dat);
+                        }while(strlen(materias[i].NomMateria) > 51);
+                        break;
+					case 3:
+					    do{
+                            printf("Introduce la nueva abreviatura: \n");
+                            gets(dat);
+                            fflush(stdin);
+                            strcpy(alun[i].abrMaterias, abrMateria);
+					    }while(strlen(materias[i].abrMateria) > 4);
+					break;
+				}
+				printf("�Desea hacer otra modificacion? y/n\n");
+				c = getc(stdin);
+				fflush(stdin);
+			}while(c != 'n');
 }
