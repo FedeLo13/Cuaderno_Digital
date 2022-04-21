@@ -192,17 +192,13 @@ int CuentaMaterias(){
     }
     fclose(f);
     return(cont);
-
+}
 void ModificarMaterias(){
 
-     Materia *materias;
-    int nMaterias = CargarMaterias(&materias);
+    int l = CuentaMaterias();
 
 	int i, j;
-	char c, [31];
-	char idMateria[5];
-	char nomMateria[51];
-	char abrMateria[4];
+	char c, dat[51];
 	for(i = 0; i < l; i++){
         printf("(%i)%s\n",i+1,materias[i].nomMateria);
 	}
@@ -223,7 +219,7 @@ void ModificarMaterias(){
                             printf("Introduce la nueva id: \n");
                             gets(dat);
                             fflush(stdin);
-                            strcpy(materias[i].idMateria, idMateria);
+                            strcpy(materias[i].idMateria,dat);
                         }while(strlen(materias[i].idMateria) > 5);
                         break;
 
@@ -233,14 +229,14 @@ void ModificarMaterias(){
                             gets(dat);
                             fflush(stdin);
                             strcpy(materias[i].nomMateria, dat);
-                        }while(strlen(materias[i].NomMateria) > 51);
+                        }while(strlen(materias[i].nomMateria) > 51);
                         break;
 					case 3:
 					    do{
                             printf("Introduce la nueva abreviatura: \n");
                             gets(dat);
                             fflush(stdin);
-                            strcpy(alun[i].abrMaterias, abrMateria);
+                            strcpy(materias[i].abrMateria,dat);
 					    }while(strlen(materias[i].abrMateria) > 4);
 					break;
 				}

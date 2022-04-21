@@ -9,4 +9,12 @@ typedef struct{
     char nota[3];
 }Calificacion;
 
+Calificacion *calificaciones;
+
+void CargarCalificaciones();
+void ListarCalificaciones();
+void EscribirCalificaciones();
+void CrearCalificacion();
+void EliminarCalificacion();
+int CuentaCalificaciones();
 #endif

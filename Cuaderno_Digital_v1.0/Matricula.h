@@ -19,5 +19,6 @@ void modifica_matricula();
 void crea_matricula();
 void elimina_matricula();
 void vuelca_matricula(int);
+int cuenta_matriculas();
 
 #endif

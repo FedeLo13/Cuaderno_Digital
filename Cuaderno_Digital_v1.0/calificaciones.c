@@ -3,10 +3,9 @@
 #include <string.h>
 #include "Calificaciones.h"
 
-int CargarCalificaciones(Calificacion **ptr){
+void CargarCalificaciones(){
     FILE *f;
     f = fopen("Calificaciones.txt","r");
-    Calificacion *calificaciones;
     calificaciones = malloc(sizeof(Calificacion));
     char ch = fgetc(f);
     int o = 0;
@@ -68,24 +67,19 @@ int CargarCalificaciones(Calificacion **ptr){
             }
 
         }while(ch != EOF);
-
-        *ptr = calificaciones;
-        return o+1;
     }
-    return 0;
 }
 
 void ListarCalificaciones(){
-    Calificacion *calificaciones;
-    int nCalificaciones = CargarCalificaciones(&calificaciones);
-
+    int nCalificaciones = CuentaCalificaciones();
     for(int i = 0; i<nCalificaciones;i++){
         printf("%s %s %s %s %s\n",calificaciones[i].fecha,calificaciones[i].descripcion, calificaciones[i].idMateria, calificaciones[i].idAlumno,calificaciones[i].nota);
     }
 }
 
-void EscribirCalificaciones(Calificacion *calificaciones, int nCalificaciones){
+void EscribirCalificaciones(){
     FILE *f;
+    int nCalificaciones= CuentaCalificaciones();
     f = fopen("Calificaciones.txt","w");
     for(int i = 0; i<nCalificaciones;i++){
         fprintf(f,"%s-%s-%s-%s-%s", calificaciones[i].fecha, calificaciones[i].descripcion, calificaciones[i].idMateria, calificaciones[i].idAlumno, calificaciones[i].nota);
@@ -97,8 +91,7 @@ void EscribirCalificaciones(Calificacion *calificaciones, int nCalificaciones){
 
 void CrearCalificacion()
 {
-    Calificacion *calificaciones;
-    int nCalificaciones = CargarCalificaciones(&calificaciones);
+    int nCalificaciones = CuentaCalificaciones();
     nCalificaciones++;
     calificaciones  = realloc(calificaciones,(nCalificaciones) * sizeof(Calificacion));
 
@@ -163,8 +156,7 @@ void CrearCalificacion()
 }
 
 void EliminarCalificacion(){
-    Calificacion *calificaciones;
-    int nCalificaciones = CargarCalificaciones(&calificaciones);
+    int nCalificaciones = CuentaCalificaciones();
 
     char fecha[11];
     char descripcion[31];
@@ -206,9 +198,94 @@ void EliminarCalificacion(){
             strcpy(calificaciones[i].idAlumno, calificaciones[i+1].idAlumno);
             strcpy(calificaciones[i].nota, calificaciones[i+1].nota);
         }
-        EscribirCalificaciones(calificaciones,nCalificaciones);
+        EscribirCalificaciones();
     }else{
         printf("No se ha encontrado la calificación a eliminar\n");
     }
     free(calificaciones);
+}
+int CuentaCalificaciones(){
+    int cont=0;
+    char temp[100];
+    FILE *f;
+    f = fopen("calificaciones.txt","r");
+    if(f == NULL){
+        printf("Error al abrir el fichero.\n");
+    }
+
+    while(!feof(f)){
+        fgets(temp,100,f);
+        cont++;
+    }
+    fclose(f);
+    return(cont);
+}
+void ModificaCalificaciones(){
+    int i, j, l;
+    l= CuentaCalificaciones();
+	char c, dat[31];
+	for(i = 0; i < l; i++){
+        printf("(%i)%s %s %s\n",i+1,calificaciones[i].idMateria,calificaciones[i].idAlumno,calificaciones[i].descripcion);
+	}
+	printf("¿Que calificacion desea modificar?\n");
+	scanf("%i", &i);
+	fflush(stdin);
+	i--;
+			do{
+				printf("¿Que dato desea modificar?\n");
+				printf("(1)Fecha\n");
+				printf("(2)Descripcion\n");
+				printf("(3)Id de la Materia\n");
+				printf("(4)Id del alumno\n");
+				printf("(5)nota\n");
+				scanf("%i", &j);
+				fflush(stdin);
+				switch(j){
+					case 1:
+                        do{
+                            printf("Introduce el nuevo dato: \n");
+                            gets(dat);
+                            fflush(stdin);
+                            strcpy(calificaciones[i].fecha, dat);
+                        }while(strlen(calificaciones[i].fecha) > 11);
+					break;
+					case 2:
+					    do{
+                            printf("Introduce el nuevo dato: \n");
+                            gets(dat);
+                            fflush(stdin);
+                            strcpy(calificaciones[i].descripcion, dat);
+                        }while(strlen(calificaciones[i].descripcion) > 31);
+					break;
+					case 3:
+					    do{
+                            printf("Introduce el nuevo dato: \n");
+                            gets(dat);
+                            fflush(stdin);
+                            strcpy(calificaciones[i].idMateria, dat);
+					    }while(strlen(calificaciones[i].idMateria) > 5);
+					break;
+					case 4:
+					    do{
+                            printf("Introduce el nuevo dato: \n");
+                            gets(dat);
+                            fflush(stdin);
+                            strcpy(calificaciones[i].idAlumno, dat);
+					    }while(strlen(calificaciones[i].idAlumno) > 7);
+					break;
+					case 5:
+					    do{
+                            printf("Introduce el nuevo dato: \n");
+                            gets(dat);
+                            fflush(stdin);
+                            strcpy(calificaciones[i].nota, dat);
+					    }while(strlen(calificaciones[i].nota) > 3);
+					break;
+					default: printf("Numero incorrecto.\n");
+					break;
+				}
+				printf("¿Desea hacer otra modificacion? y/n\n");
+				c = getc(stdin);
+				fflush(stdin);
+			}while(c != 'n');
 }

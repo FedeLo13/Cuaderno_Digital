@@ -234,3 +234,19 @@ void vuelca_matricula(int n){
     }
     fclose(f);
 }
+int cuenta_matriculas(){
+    int cont=0;
+    char temp[100];
+    FILE *f;
+    f = fopen("matriculas.txt","r");
+    if(f == NULL){
+        printf("Error al abrir el fichero.\n");
+    }
+
+    while(!feof(f)){
+        fgets(temp,100,f);
+        cont++;
+    }
+    fclose(f);
+    return(cont);
+}
